@@ -48,10 +48,10 @@ header{background:var(--navy);color:#fff;position:sticky;top:0;z-index:50}
 .tb b{display:block;font-size:1.4rem;line-height:1.2}
 .tb small{font-size:.65rem;color:#8e97b8}
 .ltd{background:#5a1717;border-radius:10px;padding:10px 14px;font-size:.8rem;font-weight:600;line-height:1.2}
-.hero-r{position:relative;overflow:hidden}
+.hero-r{position:relative;overflow:hidden;min-height:360px}
 .slides{display:flex;height:100%;transition:transform .7s cubic-bezier(.6,0,.2,1)}
-.slide{min-width:100%;display:grid;place-items:center;padding:30px}
-.slide svg{width:min(560px,92%);filter:drop-shadow(0 30px 25px rgba(0,0,0,.3));transform:rotate(-8deg)}
+.slide{min-width:100%;height:100%;background:var(--navy2)}
+.slide img{display:block;width:100%;height:100%;object-fit:cover}
 .arrow{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;background:rgba(80,70,160,.65);color:#fff;font-size:1.3rem}
 .arrow:hover{background:rgba(80,70,160,.95)}
 #prev{left:18px}#next{right:18px}
@@ -69,7 +69,9 @@ main{padding:60px 0 20px}
 .card{background:var(--gray);border-radius:18px;padding:12px;display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s}
 .card:hover{transform:translateY(-6px);box-shadow:0 18px 34px rgba(16,22,43,.16)}
 .img{position:relative;background:#fff;border-radius:12px;aspect-ratio:4/5;display:grid;place-items:center;padding:14px}
-.img svg{width:100%}
+.img video{display:none}
+.img.vid video{display:block}
+.img.vid img{display:none}
 .tag{position:absolute;top:10px;left:10px;background:var(--orange);color:#fff;font-size:.72rem;font-weight:700;padding:3px 10px;border-radius:6px}
 .heart{position:absolute;top:8px;right:8px;width:34px;height:34px;border-radius:50%;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.12);display:grid;place-items:center}
 .heart svg{width:18px;height:18px;stroke:var(--ink);fill:none;stroke-width:2}
@@ -207,14 +209,588 @@ footer li a:hover{color:#fff}
   </div>
  </div>
  <div class="hero-r">
-  <div class="slides" id="slides"></div>
+  <div class="slides" id="slides">
+   <!-- SLIDE 1: change the file name in src to use your own banner image, e.g. media/slide-1.jpg -->
+   <div class="slide"><img src="media/unisex-1.jpg" alt="Sale shoes 1"></div>
+   <!-- SLIDE 2: change the file name in src to use your own banner image, e.g. media/slide-2.jpg -->
+   <div class="slide"><img src="media/male-3.jpg" alt="Sale shoes 2"></div>
+   <!-- SLIDE 3: change the file name in src to use your own banner image, e.g. media/slide-3.jpg -->
+   <div class="slide"><img src="media/female-2.jpg" alt="Sale shoes 3"></div>
+   <!-- SLIDE 4: change the file name in src to use your own banner image, e.g. media/slide-4.jpg -->
+   <div class="slide"><img src="media/male-8.jpg" alt="Sale shoes 4"></div>
+  </div>
   <button class="arrow" id="prev" aria-label="Previous slide">‹</button>
   <button class="arrow" id="next" aria-label="Next slide">›</button>
   <div class="dots" id="dots"></div>
  </div>
 </section>
 
-<main class="wrap" id="main"></main>
+<main class="wrap" id="main">
+ <!-- ============================ UNISEX PRODUCTS ============================
+      Each product below has: a PHOTO (img src), a VIDEO (video src), a TITLE (h3) and PRICES (s = old price, b = sale price).
+      Change only the file names / text. Files live in the "media" folder. -->
+ <section class="cat" id="unisex">
+  <div class="cat-h"><h2>1. Unisex</h2><a href="#unisex">View All</a></div>
+  <div class="grid">
+   <!-- Unisex 1: Street Sneakers -->
+   <article class="card" data-id="unisex-1" data-cat="Unisex" data-code="UNI-1">
+    <div class="img">
+     <img src="media/unisex-1.jpg" alt="Street Sneakers">
+     <video src="media/unisex-1.mp4" muted loop playsinline preload="none"></video>
+     <span class="tag">-20%</span>
+     <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
+    </div>
+    <div class="info">
+     <h3>Street Sneakers</h3>
+     <div class="stars" aria-label="Rated 4 out of 5">★★★★☆</div>
+     <div class="price"><s>₦79.00</s><b>₦63.20</b></div>
+     <button class="add">Add to Cart</button>
+    </div>
+   </article>
+   <!-- Unisex 2: Pulse Sneakers -->
+   <article class="card" data-id="unisex-2" data-cat="Unisex" data-code="UNI-2">
+    <div class="img">
+     <img src="media/unisex-2.jpg" alt="Pulse Sneakers">
+     <video src="media/unisex-2.mp4" muted loop playsinline preload="none"></video>
+     <span class="tag">-30%</span>
+     <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
+    </div>
+    <div class="info">
+     <h3>Pulse Sneakers</h3>
+     <div class="stars" aria-label="Rated 5 out of 5">★★★★★</div>
+     <div class="price"><s>₦99.00</s><b>₦69.30</b></div>
+     <button class="add">Add to Cart</button>
+    </div>
+   </article>
+   <!-- Unisex 3: Aero Sneakers -->
+   <article class="card" data-id="unisex-3" data-cat="Unisex" data-code="UNI-3">
+    <div class="img">
+     <img src="media/unisex-3.jpg" alt="Aero Sneakers">
+     <video src="media/unisex-3.mp4" muted loop playsinline preload="none"></video>
+     <span class="tag">-40%</span>
+     <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
+    </div>
+    <div class="info">
+     <h3>Aero Sneakers</h3>
+     <div class="stars" aria-label="Rated 4 out of 5">★★★★☆</div>
+     <div class="price"><s>₦49.00</s><b>₦29.40</b></div>
+     <button class="add">Add to Cart</button>
+    </div>
+   </article>
+   <!-- Unisex 4: Breeze Sandals -->
+   <article class="card" data-id="unisex-4" data-cat="Unisex" data-code="UNI-4">
+    <div class="img">
+     <img src="media/unisex-4.jpg" alt="Breeze Sandals">
+     <video src="media/unisex-4.mp4" muted loop playsinline preload="none"></video>
+     <span class="tag">-50%</span>
+     <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
+    </div>
+    <div class="info">
+     <h3>Breeze Sandals</h3>
+     <div class="stars" aria-label="Rated 5 out of 5">★★★★★</div>
+     <div class="price"><s>₦69.00</s><b>₦34.50</b></div>
+     <button class="add">Add to Cart</button>
+    </div>
+   </article>
+   <!-- Unisex 5: Street Sneakers -->
+   <article class="card" data-id="unisex-5" data-cat="Unisex" data-code="UNI-5">
+    <div class="img">
+     <img src="media/unisex-5.jpg" alt="Street Sneakers">
+     <video src="media/unisex-5.mp4" muted loop playsinline preload="none"></video>
+     <span class="tag">-20%</span>
+     <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
+    </div>
+    <div class="info">
+     <h3>Street Sneakers</h3>
+     <div class="stars" aria-label="Rated 4 out of 5">★★★★☆</div>
+     <div class="price"><s>₦89.00</s><b>₦71.20</b></div>
+     <button class="add">Add to Cart</button>
+    </div>
+   </article>
+   <!-- Unisex 6: Pulse Sneakers -->
+   <article class="card" data-id="unisex-6" data-cat="Unisex" data-code="UNI-6">
+    <div class="img">
+     <img src="media/unisex-6.jpg" alt="Pulse Sneakers">
+     <video src="media/unisex-6.mp4" muted loop playsinline preload="none"></video>
+     <span class="tag">-30%</span>
+     <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
+    </div>
+    <div class="info">
+     <h3>Pulse Sneakers</h3>
+     <div class="stars" aria-label="Rated 5 out of 5">★★★★★</div>
+     <div class="price"><s>₦39.00</s><b>₦27.30</b></div>
+     <button class="add">Add to Cart</button>
+    </div>
+   </article>
+   <!-- Unisex 7: Ridge Boots (re-uses the unisex-1 files; change to unisex-7 when you have its own) -->
+   <article class="card" data-id="unisex-7" data-cat="Unisex" data-code="UNI-7">
+    <div class="img">
+     <img src="media/unisex-1.jpg" alt="Ridge Boots">
+     <video src="media/unisex-1.mp4" muted loop playsinline preload="none"></video>
+     <span class="tag">-40%</span>
+     <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
+    </div>
+    <div class="info">
+     <h3>Ridge Boots</h3>
+     <div class="stars" aria-label="Rated 4 out of 5">★★★★☆</div>
+     <div class="price"><s>₦59.00</s><b>₦35.40</b></div>
+     <button class="add">Add to Cart</button>
+    </div>
+   </article>
+   <!-- Unisex 8: Oxford Loafers (re-uses the unisex-2 files; change to unisex-8 when you have its own) -->
+   <article class="card" data-id="unisex-8" data-cat="Unisex" data-code="UNI-8">
+    <div class="img">
+     <img src="media/unisex-2.jpg" alt="Oxford Loafers">
+     <video src="media/unisex-2.mp4" muted loop playsinline preload="none"></video>
+     <span class="tag">-50%</span>
+     <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
+    </div>
+    <div class="info">
+     <h3>Oxford Loafers</h3>
+     <div class="stars" aria-label="Rated 5 out of 5">★★★★★</div>
+     <div class="price"><s>₦79.00</s><b>₦39.50</b></div>
+     <button class="add">Add to Cart</button>
+    </div>
+   </article>
+   <!-- Unisex 9: Street Sneakers (re-uses the unisex-3 files; change to unisex-9 when you have its own) -->
+   <article class="card" data-id="unisex-9" data-cat="Unisex" data-code="UNI-9">
+    <div class="img">
+     <img src="media/unisex-3.jpg" alt="Street Sneakers">
+     <video src="media/unisex-3.mp4" muted loop playsinline preload="none"></video>
+     <span class="tag">-20%</span>
+     <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
+    </div>
+    <div class="info">
+     <h3>Street Sneakers</h3>
+     <div class="stars" aria-label="Rated 4 out of 5">★★★★☆</div>
+     <div class="price"><s>₦99.00</s><b>₦79.20</b></div>
+     <button class="add">Add to Cart</button>
+    </div>
+   </article>
+   <!-- Unisex 10: Breeze Sandals (re-uses the unisex-4 files; change to unisex-10 when you have its own) -->
+   <article class="card" data-id="unisex-10" data-cat="Unisex" data-code="UNI-10">
+    <div class="img">
+     <img src="media/unisex-4.jpg" alt="Breeze Sandals">
+     <video src="media/unisex-4.mp4" muted loop playsinline preload="none"></video>
+     <span class="tag">-30%</span>
+     <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
+    </div>
+    <div class="info">
+     <h3>Breeze Sandals</h3>
+     <div class="stars" aria-label="Rated 5 out of 5">★★★★★</div>
+     <div class="price"><s>₦49.00</s><b>₦34.30</b></div>
+     <button class="add">Add to Cart</button>
+    </div>
+   </article>
+   <!-- Unisex 11: Timber Boots (re-uses the unisex-5 files; change to unisex-11 when you have its own) -->
+   <article class="card" data-id="unisex-11" data-cat="Unisex" data-code="UNI-11">
+    <div class="img">
+     <img src="media/unisex-5.jpg" alt="Timber Boots">
+     <video src="media/unisex-5.mp4" muted loop playsinline preload="none"></video>
+     <span class="tag">-40%</span>
+     <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
+    </div>
+    <div class="info">
+     <h3>Timber Boots</h3>
+     <div class="stars" aria-label="Rated 4 out of 5">★★★★☆</div>
+     <div class="price"><s>₦69.00</s><b>₦41.40</b></div>
+     <button class="add">Add to Cart</button>
+    </div>
+   </article>
+   <!-- Unisex 12: Flux Sneakers (re-uses the unisex-6 files; change to unisex-12 when you have its own) -->
+   <article class="card" data-id="unisex-12" data-cat="Unisex" data-code="UNI-12">
+    <div class="img">
+     <img src="media/unisex-6.jpg" alt="Flux Sneakers">
+     <video src="media/unisex-6.mp4" muted loop playsinline preload="none"></video>
+     <span class="tag">-50%</span>
+     <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
+    </div>
+    <div class="info">
+     <h3>Flux Sneakers</h3>
+     <div class="stars" aria-label="Rated 5 out of 5">★★★★★</div>
+     <div class="price"><s>₦89.00</s><b>₦44.50</b></div>
+     <button class="add">Add to Cart</button>
+    </div>
+   </article>
+  </div>
+ </section>
+ <!-- ============================ MALE PRODUCTS ============================
+      Each product below has: a PHOTO (img src), a VIDEO (video src), a TITLE (h3) and PRICES (s = old price, b = sale price).
+      Change only the file names / text. Files live in the "media" folder. -->
+ <section class="cat" id="male">
+  <div class="cat-h"><h2>2. Male</h2><a href="#male">View All</a></div>
+  <div class="grid">
+   <!-- Male 1: Pulse Sneakers -->
+   <article class="card" data-id="male-1" data-cat="Male" data-code="MAL-1">
+    <div class="img">
+     <img src="media/male-1.jpg" alt="Pulse Sneakers">
+     <video src="media/male-1.mp4" muted loop playsinline preload="none"></video>
+     <span class="tag">-30%</span>
+     <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
+    </div>
+    <div class="info">
+     <h3>Pulse Sneakers</h3>
+     <div class="stars" aria-label="Rated 5 out of 5">★★★★★</div>
+     <div class="price"><s>₦69.00</s><b>₦48.30</b></div>
+     <button class="add">Add to Cart</button>
+    </div>
+   </article>
+   <!-- Male 2: Summit Boots -->
+   <article class="card" data-id="male-2" data-cat="Male" data-code="MAL-2">
+    <div class="img">
+     <img src="media/male-2.jpg" alt="Summit Boots">
+     <video src="media/male-2.mp4" muted loop playsinline preload="none"></video>
+     <span class="tag">-40%</span>
+     <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
+    </div>
+    <div class="info">
+     <h3>Summit Boots</h3>
+     <div class="stars" aria-label="Rated 4 out of 5">★★★★☆</div>
+     <div class="price"><s>₦89.00</s><b>₦53.40</b></div>
+     <button class="add">Add to Cart</button>
+    </div>
+   </article>
+   <!-- Male 3: Breeze Sandals -->
+   <article class="card" data-id="male-3" data-cat="Male" data-code="MAL-3">
+    <div class="img">
+     <img src="media/male-3.jpg" alt="Breeze Sandals">
+     <video src="media/male-3.mp4" muted loop playsinline preload="none"></video>
+     <span class="tag">-50%</span>
+     <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
+    </div>
+    <div class="info">
+     <h3>Breeze Sandals</h3>
+     <div class="stars" aria-label="Rated 5 out of 5">★★★★★</div>
+     <div class="price"><s>₦39.00</s><b>₦19.50</b></div>
+     <button class="add">Add to Cart</button>
+    </div>
+   </article>
+   <!-- Male 4: Timber Boots -->
+   <article class="card" data-id="male-4" data-cat="Male" data-code="MAL-4">
+    <div class="img">
+     <img src="media/male-4.jpg" alt="Timber Boots">
+     <video src="media/male-4.mp4" muted loop playsinline preload="none"></video>
+     <span class="tag">-20%</span>
+     <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
+    </div>
+    <div class="info">
+     <h3>Timber Boots</h3>
+     <div class="stars" aria-label="Rated 4 out of 5">★★★★☆</div>
+     <div class="price"><s>₦59.00</s><b>₦47.20</b></div>
+     <button class="add">Add to Cart</button>
+    </div>
+   </article>
+   <!-- Male 5: Milan Loafers -->
+   <article class="card" data-id="male-5" data-cat="Male" data-code="MAL-5">
+    <div class="img">
+     <img src="media/male-5.jpg" alt="Milan Loafers">
+     <video src="media/male-5.mp4" muted loop playsinline preload="none"></video>
+     <span class="tag">-30%</span>
+     <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
+    </div>
+    <div class="info">
+     <h3>Milan Loafers</h3>
+     <div class="stars" aria-label="Rated 5 out of 5">★★★★★</div>
+     <div class="price"><s>₦79.00</s><b>₦55.30</b></div>
+     <button class="add">Add to Cart</button>
+    </div>
+   </article>
+   <!-- Male 6: Aero Sneakers -->
+   <article class="card" data-id="male-6" data-cat="Male" data-code="MAL-6">
+    <div class="img">
+     <img src="media/male-6.jpg" alt="Aero Sneakers">
+     <video src="media/male-6.mp4" muted loop playsinline preload="none"></video>
+     <span class="tag">-40%</span>
+     <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
+    </div>
+    <div class="info">
+     <h3>Aero Sneakers</h3>
+     <div class="stars" aria-label="Rated 4 out of 5">★★★★☆</div>
+     <div class="price"><s>₦99.00</s><b>₦59.40</b></div>
+     <button class="add">Add to Cart</button>
+    </div>
+   </article>
+   <!-- Male 7: Oxford Loafers -->
+   <article class="card" data-id="male-7" data-cat="Male" data-code="MAL-7">
+    <div class="img">
+     <img src="media/male-7.jpg" alt="Oxford Loafers">
+     <video src="media/male-7.mp4" muted loop playsinline preload="none"></video>
+     <span class="tag">-50%</span>
+     <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
+    </div>
+    <div class="info">
+     <h3>Oxford Loafers</h3>
+     <div class="stars" aria-label="Rated 5 out of 5">★★★★★</div>
+     <div class="price"><s>₦49.00</s><b>₦24.50</b></div>
+     <button class="add">Add to Cart</button>
+    </div>
+   </article>
+   <!-- Male 8: Street Sneakers -->
+   <article class="card" data-id="male-8" data-cat="Male" data-code="MAL-8">
+    <div class="img">
+     <img src="media/male-8.jpg" alt="Street Sneakers">
+     <video src="media/male-8.mp4" muted loop playsinline preload="none"></video>
+     <span class="tag">-20%</span>
+     <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
+    </div>
+    <div class="info">
+     <h3>Street Sneakers</h3>
+     <div class="stars" aria-label="Rated 4 out of 5">★★★★☆</div>
+     <div class="price"><s>₦69.00</s><b>₦55.20</b></div>
+     <button class="add">Add to Cart</button>
+    </div>
+   </article>
+   <!-- Male 9: Ridge Boots -->
+   <article class="card" data-id="male-9" data-cat="Male" data-code="MAL-9">
+    <div class="img">
+     <img src="media/male-9.jpg" alt="Ridge Boots">
+     <video src="media/male-9.mp4" muted loop playsinline preload="none"></video>
+     <span class="tag">-30%</span>
+     <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
+    </div>
+    <div class="info">
+     <h3>Ridge Boots</h3>
+     <div class="stars" aria-label="Rated 5 out of 5">★★★★★</div>
+     <div class="price"><s>₦89.00</s><b>₦62.30</b></div>
+     <button class="add">Add to Cart</button>
+    </div>
+   </article>
+   <!-- Male 10: Aero Sneakers -->
+   <article class="card" data-id="male-10" data-cat="Male" data-code="MAL-10">
+    <div class="img">
+     <img src="media/male-10.jpg" alt="Aero Sneakers">
+     <video src="media/male-10.mp4" muted loop playsinline preload="none"></video>
+     <span class="tag">-40%</span>
+     <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
+    </div>
+    <div class="info">
+     <h3>Aero Sneakers</h3>
+     <div class="stars" aria-label="Rated 4 out of 5">★★★★☆</div>
+     <div class="price"><s>₦39.00</s><b>₦23.40</b></div>
+     <button class="add">Add to Cart</button>
+    </div>
+   </article>
+   <!-- Male 11: Trek Sandals -->
+   <article class="card" data-id="male-11" data-cat="Male" data-code="MAL-11">
+    <div class="img">
+     <img src="media/male-11.jpg" alt="Trek Sandals">
+     <video src="media/male-11.mp4" muted loop playsinline preload="none"></video>
+     <span class="tag">-50%</span>
+     <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
+    </div>
+    <div class="info">
+     <h3>Trek Sandals</h3>
+     <div class="stars" aria-label="Rated 5 out of 5">★★★★★</div>
+     <div class="price"><s>₦59.00</s><b>₦29.50</b></div>
+     <button class="add">Add to Cart</button>
+    </div>
+   </article>
+   <!-- Male 12: Classic Loafers -->
+   <article class="card" data-id="male-12" data-cat="Male" data-code="MAL-12">
+    <div class="img">
+     <img src="media/male-12.jpg" alt="Classic Loafers">
+     <video src="media/male-12.mp4" muted loop playsinline preload="none"></video>
+     <span class="tag">-20%</span>
+     <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
+    </div>
+    <div class="info">
+     <h3>Classic Loafers</h3>
+     <div class="stars" aria-label="Rated 4 out of 5">★★★★☆</div>
+     <div class="price"><s>₦79.00</s><b>₦63.20</b></div>
+     <button class="add">Add to Cart</button>
+    </div>
+   </article>
+  </div>
+ </section>
+ <!-- ============================ FEMALE PRODUCTS ============================
+      Each product below has: a PHOTO (img src), a VIDEO (video src), a TITLE (h3) and PRICES (s = old price, b = sale price).
+      Change only the file names / text. Files live in the "media" folder. -->
+ <section class="cat" id="female">
+  <div class="cat-h"><h2>3. Female</h2><a href="#female">View All</a></div>
+  <div class="grid">
+   <!-- Female 1: Milan Loafers -->
+   <article class="card" data-id="female-1" data-cat="Female" data-code="FEM-1">
+    <div class="img">
+     <img src="media/female-1.jpg" alt="Milan Loafers">
+     <video src="media/female-1.mp4" muted loop playsinline preload="none"></video>
+     <span class="tag">-40%</span>
+     <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
+    </div>
+    <div class="info">
+     <h3>Milan Loafers</h3>
+     <div class="stars" aria-label="Rated 4 out of 5">★★★★☆</div>
+     <div class="price"><s>₦59.00</s><b>₦35.40</b></div>
+     <button class="add">Add to Cart</button>
+    </div>
+   </article>
+   <!-- Female 2: Classic Loafers -->
+   <article class="card" data-id="female-2" data-cat="Female" data-code="FEM-2">
+    <div class="img">
+     <img src="media/female-2.jpg" alt="Classic Loafers">
+     <video src="media/female-2.mp4" muted loop playsinline preload="none"></video>
+     <span class="tag">-50%</span>
+     <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
+    </div>
+    <div class="info">
+     <h3>Classic Loafers</h3>
+     <div class="stars" aria-label="Rated 5 out of 5">★★★★★</div>
+     <div class="price"><s>₦79.00</s><b>₦39.50</b></div>
+     <button class="add">Add to Cart</button>
+    </div>
+   </article>
+   <!-- Female 3: Grace Heels -->
+   <article class="card" data-id="female-3" data-cat="Female" data-code="FEM-3">
+    <div class="img">
+     <img src="media/female-3.jpg" alt="Grace Heels">
+     <video src="media/female-3.mp4" muted loop playsinline preload="none"></video>
+     <span class="tag">-20%</span>
+     <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
+    </div>
+    <div class="info">
+     <h3>Grace Heels</h3>
+     <div class="stars" aria-label="Rated 4 out of 5">★★★★☆</div>
+     <div class="price"><s>₦99.00</s><b>₦79.20</b></div>
+     <button class="add">Add to Cart</button>
+    </div>
+   </article>
+   <!-- Female 4: Vogue Heels -->
+   <article class="card" data-id="female-4" data-cat="Female" data-code="FEM-4">
+    <div class="img">
+     <img src="media/female-4.jpg" alt="Vogue Heels">
+     <video src="media/female-4.mp4" muted loop playsinline preload="none"></video>
+     <span class="tag">-30%</span>
+     <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
+    </div>
+    <div class="info">
+     <h3>Vogue Heels</h3>
+     <div class="stars" aria-label="Rated 5 out of 5">★★★★★</div>
+     <div class="price"><s>₦49.00</s><b>₦34.30</b></div>
+     <button class="add">Add to Cart</button>
+    </div>
+   </article>
+   <!-- Female 5: Aero Sneakers -->
+   <article class="card" data-id="female-5" data-cat="Female" data-code="FEM-5">
+    <div class="img">
+     <img src="media/female-5.jpg" alt="Aero Sneakers">
+     <video src="media/female-5.mp4" muted loop playsinline preload="none"></video>
+     <span class="tag">-40%</span>
+     <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
+    </div>
+    <div class="info">
+     <h3>Aero Sneakers</h3>
+     <div class="stars" aria-label="Rated 4 out of 5">★★★★☆</div>
+     <div class="price"><s>₦69.00</s><b>₦41.40</b></div>
+     <button class="add">Add to Cart</button>
+    </div>
+   </article>
+   <!-- Female 6: Coast Sandals -->
+   <article class="card" data-id="female-6" data-cat="Female" data-code="FEM-6">
+    <div class="img">
+     <img src="media/female-6.jpg" alt="Coast Sandals">
+     <video src="media/female-6.mp4" muted loop playsinline preload="none"></video>
+     <span class="tag">-50%</span>
+     <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
+    </div>
+    <div class="info">
+     <h3>Coast Sandals</h3>
+     <div class="stars" aria-label="Rated 5 out of 5">★★★★★</div>
+     <div class="price"><s>₦89.00</s><b>₦44.50</b></div>
+     <button class="add">Add to Cart</button>
+    </div>
+   </article>
+   <!-- Female 7: Vogue Heels -->
+   <article class="card" data-id="female-7" data-cat="Female" data-code="FEM-7">
+    <div class="img">
+     <img src="media/female-7.jpg" alt="Vogue Heels">
+     <video src="media/female-7.mp4" muted loop playsinline preload="none"></video>
+     <span class="tag">-20%</span>
+     <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
+    </div>
+    <div class="info">
+     <h3>Vogue Heels</h3>
+     <div class="stars" aria-label="Rated 4 out of 5">★★★★☆</div>
+     <div class="price"><s>₦39.00</s><b>₦31.20</b></div>
+     <button class="add">Add to Cart</button>
+    </div>
+   </article>
+   <!-- Female 8: Ridge Boots -->
+   <article class="card" data-id="female-8" data-cat="Female" data-code="FEM-8">
+    <div class="img">
+     <img src="media/female-8.jpg" alt="Ridge Boots">
+     <video src="media/female-8.mp4" muted loop playsinline preload="none"></video>
+     <span class="tag">-30%</span>
+     <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
+    </div>
+    <div class="info">
+     <h3>Ridge Boots</h3>
+     <div class="stars" aria-label="Rated 5 out of 5">★★★★★</div>
+     <div class="price"><s>₦59.00</s><b>₦41.30</b></div>
+     <button class="add">Add to Cart</button>
+    </div>
+   </article>
+   <!-- Female 9: Aero Sneakers -->
+   <article class="card" data-id="female-9" data-cat="Female" data-code="FEM-9">
+    <div class="img">
+     <img src="media/female-9.jpg" alt="Aero Sneakers">
+     <video src="media/female-9.mp4" muted loop playsinline preload="none"></video>
+     <span class="tag">-40%</span>
+     <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
+    </div>
+    <div class="info">
+     <h3>Aero Sneakers</h3>
+     <div class="stars" aria-label="Rated 4 out of 5">★★★★☆</div>
+     <div class="price"><s>₦79.00</s><b>₦47.40</b></div>
+     <button class="add">Add to Cart</button>
+    </div>
+   </article>
+   <!-- Female 10: Vogue Heels -->
+   <article class="card" data-id="female-10" data-cat="Female" data-code="FEM-10">
+    <div class="img">
+     <img src="media/female-10.jpg" alt="Vogue Heels">
+     <video src="media/female-10.mp4" muted loop playsinline preload="none"></video>
+     <span class="tag">-50%</span>
+     <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
+    </div>
+    <div class="info">
+     <h3>Vogue Heels</h3>
+     <div class="stars" aria-label="Rated 5 out of 5">★★★★★</div>
+     <div class="price"><s>₦99.00</s><b>₦49.50</b></div>
+     <button class="add">Add to Cart</button>
+    </div>
+   </article>
+   <!-- Female 11: Breeze Sandals -->
+   <article class="card" data-id="female-11" data-cat="Female" data-code="FEM-11">
+    <div class="img">
+     <img src="media/female-11.jpg" alt="Breeze Sandals">
+     <video src="media/female-11.mp4" muted loop playsinline preload="none"></video>
+     <span class="tag">-20%</span>
+     <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
+    </div>
+    <div class="info">
+     <h3>Breeze Sandals</h3>
+     <div class="stars" aria-label="Rated 4 out of 5">★★★★☆</div>
+     <div class="price"><s>₦49.00</s><b>₦39.20</b></div>
+     <button class="add">Add to Cart</button>
+    </div>
+   </article>
+   <!-- Female 12: Oxford Loafers -->
+   <article class="card" data-id="female-12" data-cat="Female" data-code="FEM-12">
+    <div class="img">
+     <img src="media/female-12.jpg" alt="Oxford Loafers">
+     <video src="media/female-12.mp4" muted loop playsinline preload="none"></video>
+     <span class="tag">-30%</span>
+     <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
+    </div>
+    <div class="info">
+     <h3>Oxford Loafers</h3>
+     <div class="stars" aria-label="Rated 5 out of 5">★★★★★</div>
+     <div class="price"><s>₦69.00</s><b>₦48.30</b></div>
+     <button class="add">Add to Cart</button>
+    </div>
+   </article>
+  </div>
+ </section>
+</main>
 
 <section class="wrap cartpage" id="cartPage" hidden>
  <h1>Your cart</h1>
@@ -223,9 +799,8 @@ footer li a:hover{color:#fff}
   <aside class="sum" id="cartSum">
    <h2>Order summary</h2>
    <ul class="sl" id="sumList"></ul>
-   <div id="sList" class="slist"></div>
    <div class="row"><span>Items</span><b id="sItems">0</b></div>
-   <div class="row tot"><span>Total</span><b id="sTotal">$0.00</b></div>
+   <div class="row tot"><span>Total</span><b id="sTotal">₦0.00</b></div>
    <label>Your name<input id="cName" autocomplete="name"></label>
    <label>Delivery address<textarea id="cAddr" rows="2" autocomplete="street-address"></textarea></label>
    <button class="btn wa" id="waBtn">Checkout on WhatsApp</button>
@@ -248,66 +823,28 @@ footer li a:hover{color:#fff}
 <div id="toast" role="status"></div>
 
 <script>
-/* ---------- shoe drawings (inline SVG, no external images) ---------- */
-const sole=(c='#fff')=>`<rect x="10" y="94" width="180" height="14" rx="7" fill="${c}" stroke="#d5d8e0"/>`;
-const SHOES={
- sneaker:(c,a)=>`<svg viewBox="0 0 200 120"><path d="M14 90V62q0-14 18-16l36-4q14-18 36-6l22 22q50 4 62 24v8z" fill="${c}"/><path d="M60 78q40-18 100 4" stroke="${a}" stroke-width="9" fill="none" stroke-linecap="round"/><path d="M70 44l14 14M82 40l14 14" stroke="#fff" stroke-width="3" opacity=".7"/>${sole()}</svg>`,
- boot:(c,a)=>`<svg viewBox="0 0 200 120"><path d="M52 8h42l2 50q56 6 84 30v10H46z" fill="${c}"/><path d="M52 8h42" stroke="${a}" stroke-width="5"/><path d="M52 50h44" stroke="#0003" stroke-width="2"/>${sole(a)}</svg>`,
- sandal:(c,a)=>`<svg viewBox="0 0 200 120"><path d="M20 88q80 14 164 0v14q-84 14-164 0z" fill="${a}"/><path d="M50 86q22-34 50-8M100 82q22-30 52-4" stroke="${c}" stroke-width="12" fill="none" stroke-linecap="round"/><path d="M60 98l-12-16" stroke="${c}" stroke-width="6"/></svg>`,
- loafer:(c,a)=>`<svg viewBox="0 0 200 120"><path d="M18 92V76q0-14 26-16l60-2q50 4 82 30v4z" fill="${c}"/><ellipse cx="108" cy="68" rx="30" ry="9" fill="#0004"/><path d="M92 70l-4 12M100 70l-2 12" stroke="${a}" stroke-width="4" stroke-linecap="round"/>${sole(a)}</svg>`,
- heel:(c,a)=>`<svg viewBox="0 0 200 120"><path d="M30 16h30q4 44 34 54 40 10 90 18l-4 8q-70-6-102-16l-10 30h-10l6-34q-34-14-34-60z" fill="${c}"/><path d="M30 16h30" stroke="${a}" stroke-width="4"/></svg>`
-};
-
-/* ---------- product media ----------
-   Put your files in the "media" folder next to index.html:
-   unisex-1.jpg / unisex-1.mp4 ... male-1.jpg / male-1.mp4 ... female-12.jpg / female-12.mp4
-   Each product card randomly shows its photo or its video on every page load.
-   If a file is missing the card falls back to the other one, then to the drawn shoe. */
-const MEDIA=new URL('media/',location.href).href;           /* full web address of the media folder */
-const IMG_READY=/^https?:$/.test(location.protocol)&&!/^(localhost|127\.|192\.168\.)/.test(location.hostname); /* links are only sent once the site is live online */
-const imgTag=(u,n)=>`<img src="${u}" alt="${n}" loading="lazy" onerror="this.remove()">`;
-const addImg=(box,id,n)=>{const i=new Image();i.alt=n;i.loading='lazy';i.onerror=()=>i.remove();i.src=MEDIA+id+'.jpg';box.insertBefore(i,box.querySelector('.tag'))};
-const addVid=(box,id,n)=>{const v=document.createElement('video');v.muted=true;v.loop=true;v.playsInline=true;v.preload='metadata';v.setAttribute('muted','');v.setAttribute('playsinline','');v.setAttribute('aria-label',n);
- v.onerror=()=>{v.remove();addImg(box,id,n)};v.src=MEDIA+id+'.mp4';box.insertBefore(v,box.querySelector('.tag'));io.observe(v)};
-const io=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target;if(e.isIntersecting){const p=v.play();p&&p.catch(()=>{})}else v.pause()}),{threshold:.25});
-
-/* ---------- product data ---------- */
-const NAMES={sneaker:['Street','Pulse','Aero','Flux'],boot:['Ridge','Timber','Summit'],sandal:['Breeze','Coast','Trek'],loafer:['Classic','Oxford','Milan'],heel:['Elle','Grace','Vogue']};
-const MIX={
- unisex:[['sneaker','#1c2a5e','#ff4d1c'],['sneaker','#2a62d9','#fff'],['sneaker','#2fa7d9','#fff'],['sandal','#8a5a3a','#3b2a1e'],['sneaker','#e8e8ee','#bbb'],['sneaker','#3a3d46','#9aa'],['boot','#4a2e22','#2a1a12'],['loafer','#8b4a26','#5a2e14'],['sneaker','#111','#ff4d1c'],['sandal','#222','#777'],['boot','#8a6a4a','#4a3524'],['sneaker','#d9d9df','#ff4d1c']],
- male:[['sneaker','#223a8a','#ff6a3d'],['boot','#2b2b2b','#111'],['sandal','#6b4a32','#2f2018'],['boot','#8b4a26','#4a2410'],['loafer','#1a1a1a','#444'],['sneaker','#4b5563','#fff'],['loafer','#6b3a1d','#3a1d0a'],['sneaker','#0f766e','#fff'],['boot','#5b3a24','#2a1a10'],['sneaker','#b91c1c','#fff'],['sandal','#374151','#111'],['loafer','#2a2a2a','#999']],
- female:[['loafer','#161616','#555'],['loafer','#a9582b','#6b3414'],['heel','#161616','#d4af37'],['heel','#7a1f2b','#d4af37'],['sneaker','#f4d6df','#ff4d1c'],['sandal','#d9a066','#8a5a2b'],['heel','#e8c3a0','#8a5a2b'],['boot','#2a2a2a','#c9a227'],['sneaker','#fff','#f43f5e'],['heel','#1d2a5e','#fff'],['sandal','#f5e1c8','#b8864b'],['loafer','#5a1d2b','#2a0c14']]
-};
-const CATS=[['unisex','Unisex'],['male','Male'],['female','Female']];
-const rnd=(i)=>((i*37+11)%7);
+const IMG_READY=/^https?:$/.test(location.protocol)&&!/^(localhost|127\.|192\.168\.)/.test(location.hostname); /* photo/video links are only sent once the site is live online */
 const toast=m=>{const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove('show'),1600)};
 
-document.getElementById('main').innerHTML=CATS.map(([id,label],ci)=>`
- <section class="cat" id="${id}">
-  <div class="cat-h"><h2>${ci+1}. ${label}</h2><a href="#${id}">View All</a></div>
-  <div class="grid">${MIX[id].map(([t,c,a],i)=>{
-    const n=NAMES[t][(i+ci)%NAMES[t].length]+' '+({sneaker:'Sneakers',boot:'Boots',sandal:'Sandals',loafer:'Loafers',heel:'Heels'})[t];
-    const old=39+rnd(i+ci*3)*10,off=[20,30,40,50][(i+ci)%4],now=(old*(100-off)/100).toFixed(2);
-    const stars='★★★★★'.slice(0,4+((i+ci)%2))+(((i+ci)%2)?'':'☆');
-    const imgUrl=MEDIA+id+'-'+(i+1)+'.jpg',vidUrl=MEDIA+id+'-'+(i+1)+'.mp4',code=id.slice(0,3).toUpperCase()+'-'+(i+1);
-    return `<article class="card" data-id="${id}-${i+1}" data-cat="${label}" data-price="${now}" data-code="${code}" data-img="${imgUrl}" data-vid="${vidUrl}"><div class="img">${SHOES[t](c,a)}<span class="tag">-${off}%</span><button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button></div>
-    <div class="info"><h3>${n}</h3><div class="stars" aria-label="Rated ${stars.replace(/☆/g,'').length} out of 5">${stars}</div><div class="price"><s>$${old}.00</s><b>$${now}</b></div><button class="add">Add to Cart</button></div></article>`}).join('')}</div>
- </section>`).join('');
-
-document.querySelectorAll('.card .img').forEach(box=>{
- const c=box.closest('.card'),id=c.dataset.id,n=c.querySelector('h3').textContent;
- Math.random()<.5?addVid(box,id,n):addImg(box,id,n);
+/* ---------- each product randomly shows its photo or its video ---------- */
+const io=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target;if(e.isIntersecting){const p=v.play();p&&p.catch(()=>{})}else v.pause()}),{threshold:.25});
+document.querySelectorAll('.img').forEach(box=>{
+ const img=box.querySelector('img'),v=box.querySelector('video');
+ const useImg=()=>{box.classList.remove('vid');v.pause()};
+ const useVid=()=>{box.classList.add('vid');v.preload='metadata';io.observe(v)};
+ v.addEventListener('error',useImg);
+ if(Math.random()<.5)useVid();
 });
 
 /* ---------- wishlist + cart ---------- */
 let wish=0;
-const WA='2347062796922'; /* owner's WhatsApp: 09067040308 in international format (Nigeria +234) */
-const CUR='$';
-const thumb=x=>`<div class="th">${x.svg}${x.img?imgTag(x.img,x.name):''}</div>`;
-const money=n=>CUR+n.toFixed(2);
+const WA='2347062796922'; /* owner's WhatsApp number in international format (no + or spaces) */
+const CUR='₦';
+const thumb=x=>`<div class="th"><img src="${x.img}" alt="${x.name}"></div>`;
+const money=n=>CUR+n.toLocaleString('en-NG',{minimumFractionDigits:2,maximumFractionDigits:2});
 let cart=[];
-try{cart=JSON.parse(localStorage.getItem('stride-cart-v2')||'[]')}catch(e){}
-const save=()=>{try{localStorage.setItem('stride-cart-v2',JSON.stringify(cart))}catch(e){}};
+try{cart=JSON.parse(localStorage.getItem('stride-cart-v3')||'[]')}catch(e){}
+const save=()=>{try{localStorage.setItem('stride-cart-v3',JSON.stringify(cart))}catch(e){}};
 const total=()=>cart.reduce((s,x)=>s+x.price*x.qty,0);
 function addItem(it){const f=cart.find(x=>x.id===it.id);f?f.qty++:cart.push({...it,qty:1});save();renderCart();toast('Added to cart: '+it.name)}
 function renderCart(){
@@ -344,16 +881,12 @@ waBtn.onclick=()=>{
 document.getElementById('main').addEventListener('click',e=>{
  const h=e.target.closest('.heart'),a=e.target.closest('.add');
  if(h){h.classList.toggle('on');wish+=h.classList.contains('on')?1:-1;document.getElementById('wc').textContent=wish}
- if(a){const c=a.closest('.card');addItem({id:c.dataset.id,cat:c.dataset.cat,name:c.querySelector('h3').textContent,price:+c.dataset.price,code:c.dataset.code,img:c.dataset.img,vid:c.dataset.vid,svg:c.querySelector('.img svg').outerHTML})}
+ if(a){const c=a.closest('.card');addItem({id:c.dataset.id,cat:c.dataset.cat,name:c.querySelector('h3').textContent,price:parseFloat(c.querySelector('.price b').textContent.replace(/[^\d.]/g,'')),code:c.dataset.code,img:c.querySelector('.img img').src,vid:c.querySelector('.img video').src})}
 });
 
 /* ---------- hero slider ---------- */
-const SL=[['sneaker','#1c2a5e','#ff4d1c','linear-gradient(135deg,#7fe3e0,#c9a3f5 55%,#ff8fa3)'],
-          ['boot','#5a3a26','#ff4d1c','linear-gradient(135deg,#ffd27f,#ff9a6b 60%,#f06292)'],
-          ['heel','#161616','#d4af37','linear-gradient(135deg,#a1c4fd,#c2a6f7 60%,#f9a8d4)'],
-          ['loafer','#7a3a1a','#e0a45c','linear-gradient(135deg,#b5f0c8,#7ed3e8 60%,#9aa7f5)']];
 const sl=document.getElementById('slides'),dots=document.getElementById('dots');
-sl.innerHTML=SL.map(s=>`<div class="slide" style="background:${s[3]}">${SHOES[s[0]](s[1],s[2])}</div>`).join('');
+const SL=[...sl.querySelectorAll('.slide')];
 dots.innerHTML=SL.map((_,i)=>`<button aria-label="Slide ${i+1}"></button>`).join('');
 let cur=0,timer;
 function go(i){cur=(i+SL.length)%SL.length;sl.style.transform=`translateX(-${cur*100}%)`;[...dots.children].forEach((d,j)=>d.classList.toggle('on',j===cur))}
