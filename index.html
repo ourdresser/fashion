@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Mega Shoe Sale – Up to 20% Off</title>
+<link rel="icon" href="media/Logo-1.png">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{--navy:#0b1020;--navy2:#141b33;--orange:#ff4d1c;--ink:#10162b;--gray:#eef0f5;--muted:#6b7285;--white:#fff;--sw:440px}
@@ -57,6 +58,9 @@ header{background:var(--navy);color:#fff;position:sticky;top:0;z-index:50}
 .arrow{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;background:rgba(80,70,160,.65);color:#fff;font-size:1.3rem}
 .arrow:hover{background:rgba(80,70,160,.95)}
 #prev{left:14px}#next{right:14px}
+.slide video{cursor:pointer}
+.snd{position:absolute;top:14px;right:14px;z-index:5;background:rgba(11,16,32,.72);color:#fff;border-radius:30px;padding:8px 14px;font-size:.8rem;font-weight:600;backdrop-filter:blur(4px)}
+.snd:hover{background:var(--orange)}
 .dots{position:absolute;bottom:22px;left:0;right:0;display:flex;justify-content:center;gap:8px}
 .dots button{width:9px;height:9px;border-radius:5px;background:rgba(255,255,255,.7);transition:width .3s}
 .dots button.on{width:34px;background:#fff}
@@ -196,13 +200,14 @@ footer li a:hover{color:#fff}
  #lbs{padding:60px 8px}
  .lbn{width:38px;height:38px}
 }
+.logo img{height:40px;width:auto}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
 <header>
  <div class="wrap nav">
-  <a href="#" class="logo"><i></i>OUR DRESSER</a>
+  <a href="#" class="logo"><img src="media/Logo-1.png" alt="Our Dresser logo">OUR DRESSER</a>
   <nav class="links" id="links" aria-label="Main">
    <a class="on" href="#top">Home</a><a href="#unisex">Unisex</a><a href="#male">Male</a><a href="#female">Female</a><a href="#couple">Couple Set</a><a href="#unisex">Sale</a>
   </nav>
@@ -228,34 +233,43 @@ footer li a:hover{color:#fff}
   </div>
  </div>
  <div class="hero-r">
-  <!-- VERTICAL SLIDER (853 x 1280). Slides change every 3 seconds.
+  <!-- VERTICAL SLIDER (853 x 1280). Each slide stays 17 seconds (change SLIDE_MS in the script to adjust). Tap a video to hear it.
        Put your flyers/videos in the "media/Slider" folder and change the file names below if yours are different.
        Any slide whose file is missing is skipped automatically. -->
   <div class="vs">
    <div class="slides" id="slides">
-    <div class="slide"><img src="media/Flyer 1.jpg" alt="Flyer 1"></div>
+
     <div class="slide">
-      <video src="media/Video 1.mp4" muted loop playsinline preload="metadata">
-        
-      </video></div>
-    <div class="slide"><img src="media/Flyer 2.jpg" alt="Flyer 2"></div>
+      <video src="media/Sales_Ad.mp4" muted loop playsinline preload="metadata"></video>
+    </div>
+
+    <div class="slide"><img src="media/Flyer 1.jpg" alt="Flyer 1">
+    </div>
+    <div class="slide"><img src="media/Flyer 2.jpg" alt="Flyer 2">
+    </div>
+
+
     <div class="slide">
-      <video src="media/Video 2.mp4" muted loop playsinline preload="metadata">
-        
-      </video></div>
-    <div class="slide"><img src="media/Sample Flyer.jpg" alt="Sample flyer"></div>
+      <video src="media/Video 1.mp4" muted loop playsinline preload="metadata"></video>
+    </div>
+
     <div class="slide">
-      <video src="media/Video 3.mp4" muted loop playsinline preload="metadata">
-        
-      </video></div>
+      <video src="media/Video 2.mp4" muted loop playsinline preload="metadata"></video>
+    </div>
+
     <div class="slide">
-      <video src="media/Video 4.mp4" muted loop playsinline preload="metadata">
-        
-      </video></div>
+      <video src="media/Video 3.mp4" muted loop playsinline preload="metadata"></video>
+    </div>
+
+    <div class="slide">
+      <video src="media/Video 4.mp4" muted loop playsinline preload="metadata"></video>
+    </div>
+
    </div>
    <button class="arrow" id="prev" aria-label="Previous slide">‹</button>
    <button class="arrow" id="next" aria-label="Next slide">›</button>
    <div class="dots" id="dots"></div>
+   <button class="snd" id="snd" hidden aria-pressed="false">🔇 Tap for sound</button>
   </div>
  </div>
 </section>
@@ -292,21 +306,6 @@ footer li a:hover{color:#fff}
      <div class="info">
       <h3>Cosmo</h3>
       <div class="stars" aria-label="Rated 5 out of 5">★★★★★</div>
-      <div class="price"><s>₦20,000.00</s><b>₦16,000.00</b></div>
-      <button class="add">Add to Cart</button>
-     </div>
-    </article>
-
-    <!-- Unisex Slides 3: Finley (1 video, 0 image) -->
-    <article class="card" data-id="unisex-3" data-cat="Unisex Slides" data-code="UNI-3" data-img="" data-vid="media/#1. Unisex Slides/Finley Was 20k now 16k.mp4">
-     <div class="img">
-      <div class="mtrack"><div class="ms" data-t="v" data-p="media/#1. Unisex Slides/Finley Was 20k now 16k.mp4"><video src="media/%231.%20Unisex%20Slides/Finley%20Was%2020k%20now%2016k.mp4#t=0.1" muted loop playsinline preload="metadata"></video></div></div>
-      <span class="tag">-20%</span>
-      <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
-     </div>
-     <div class="info">
-      <h3>Finley</h3>
-      <div class="stars" aria-label="Rated 4 out of 5">★★★★☆</div>
       <div class="price"><s>₦20,000.00</s><b>₦16,000.00</b></div>
       <button class="add">Add to Cart</button>
      </div>
@@ -401,6 +400,22 @@ footer li a:hover{color:#fff}
       <button class="add">Add to Cart</button>
      </div>
     </article>
+
+    <!-- Unisex Slides 3: Finley (1 video, 0 image) -->
+    <article class="card" data-id="unisex-3" data-cat="Unisex Slides" data-code="UNI-3" data-img="" data-vid="media/#1. Unisex Slides/Finley Was 20k now 16k.mp4">
+     <div class="img">
+      <div class="mtrack"><div class="ms" data-t="v" data-p="media/#1. Unisex Slides/Finley Was 20k now 16k.mp4"><video src="media/%231.%20Unisex%20Slides/Finley%20Was%2020k%20now%2016k.mp4#t=0.1" muted loop playsinline preload="metadata"></video></div></div>
+      <span class="tag">-20%</span>
+      <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
+     </div>
+     <div class="info">
+      <h3>Finley</h3>
+      <div class="stars" aria-label="Rated 4 out of 5">★★★★☆</div>
+      <div class="price"><s>₦20,000.00</s><b>₦16,000.00</b></div>
+      <button class="add">Add to Cart</button>
+     </div>
+    </article>
+
 
     <!-- Unisex Slides 10: Mabel (0 video, 1 image) -->
     <article class="card" data-id="unisex-10" data-cat="Unisex Slides" data-code="UNI-10" data-img="media/#1. Unisex Slides/Mabel Was 15k now 12k.JPG" data-vid="">
@@ -4044,7 +4059,20 @@ footer li a:hover{color:#fff}
 <script>
 const IMG_READY=/^https?:$/.test(location.protocol)&&!/^(localhost|127\.|192\.168\.)/.test(location.hostname); /* photo/video links are only sent once the site is live online */
 const toast=m=>{const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove('show'),1600)};
-const enc=p=>encodeURI(p).replace(/#/g,'%23').replace(/\?/g,'%3F');
+/* MEDIA FOLDERS: left = folder name used in the product list, right = the folder name that really exists on your website.
+   If your host mangles folders that start with "#", rename them on the server (e.g. "Unisex Slides") and change ONLY the right-hand names here. */
+const FOLDERS={'#1. Unisex Slides':'#1. Unisex Slides','#2. Male Slides':'#2. Male Slides','#3. Female Slides':'#3. Female Slides','#4. Couple Set Slides':'#4. Couple Set Slides'};
+const real=p=>p.replace(/^media\/([^/]+)\//,(m,f)=>'media/'+(FOLDERS[f]||f)+'/');
+const enc=p=>encodeURI(real(p)).replace(/#/g,'%23').replace(/\?/g,'%3F');
+/* if the first path 404s, try the same file in folders without the "#1." prefix, then without any number */
+function alts(p){
+  const m=p.match(/^media\/#(\d)\. ([^/]+)\/(.+)$/);if(!m)return[];
+  const names=[m[1]+'. '+m[2],m[2]];if(m[2]==='Couple Set Slides')names.push('Couple Slides');
+  return names.map(f=>'media/'+f+'/'+m[3]);
+}
+if(Object.keys(FOLDERS).some(k=>FOLDERS[k]!==k)){ /* only when you changed a folder name above */
+  document.querySelectorAll('#main .ms').forEach(s=>{const el=s.querySelector('img,video');if(el)el.setAttribute('src',enc(s.dataset.p)+(el.tagName==='VIDEO'?'#t=0.1':''))});
+}
 const abs=p=>new URL(enc(p),location.href).href;
 
 /* ---------- product media: videos first, then photos (swipe / arrows), autoplay in view ---------- */
@@ -4066,13 +4094,21 @@ function mdots(box){
  box.insertAdjacentHTML('beforeend','<button class="mb mp" aria-label="Previous media">‹</button><button class="mb mn" aria-label="Next media">›</button><div class="mdots">'+'<i></i>'.repeat(n)+'</div>');
  upd(box);
 }
+/* videos that start as preload="none" get their first frame as soon as they are near the screen */
+const near=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;const v=e.target.querySelector('video');if(v&&v.preload==='none')v.preload='metadata';near.unobserve(e.target)}),{rootMargin:'900px 0px'});
 document.querySelectorAll('.img').forEach(box=>{
- mdots(box);io.observe(box);
+ mdots(box);io.observe(box);near.observe(box);
  box.querySelector('.mtrack').addEventListener('scroll',()=>upd(box),{passive:true});
 });
-/* if a file can't load and the product has other media, drop that slide */
+/* if a file can't load: try the other folder spellings first, then (if the product has other media) drop that slide */
 document.getElementById('main').addEventListener('error',e=>{
- const s=e.target.closest&&e.target.closest('.ms');if(!s)return;
+ const el=e.target,s=el.closest&&el.closest('.ms');if(!s)return;
+ const list=el._alts||(el._alts=alts(s.dataset.p));
+ if(list.length){
+  const old=s.dataset.p,next=list.shift(),c=s.closest('.card');
+  s.dataset.p=next;if(c.dataset.img===old)c.dataset.img=next;if(c.dataset.vid===old)c.dataset.vid=next;
+  el.src=encodeURI(next).replace(/#/g,'%23')+(el.tagName==='VIDEO'?'#t=0.1':'');return;
+ }
  const box=s.closest('.img');
  if(box.querySelectorAll('.ms').length>1){s.remove();mdots(box)}
 },true);
@@ -4155,22 +4191,49 @@ document.getElementById('main').addEventListener('click',e=>{
  if(ms){const c=ms.closest('.card');lbOpenAt(c,[...c.querySelectorAll('.ms')].indexOf(ms))}
 });
 
-/* ---------- hero vertical slider: auto-slides every 3 seconds (images and videos) ---------- */
-const sl=document.getElementById('slides'),dots=document.getElementById('dots');
-let SL=[],cur=0,timer;
+/* ---------- hero vertical slider: each slide stays 17 seconds; tap a video to turn its sound on/off ---------- */
+const SLIDE_MS=17000; /* how long each slide stays, in milliseconds */
+const sl=document.getElementById('slides'),dots=document.getElementById('dots'),snd=document.getElementById('snd');
+let SL=[],cur=0,timer,soundOn=false,heroVis=true;
+function sndUi(){
+  const v=SL[cur]&&SL[cur].querySelector('video');
+  snd.hidden=!v;snd.textContent=soundOn?'🔊 Sound on':'🔇 Tap for sound';snd.setAttribute('aria-pressed',String(soundOn));
+}
+function playHero(){ /* only the visible slide's video plays, and only while the slider is on screen */
+  SL.forEach((s,j)=>{
+    const v=s.querySelector('video');if(!v)return;
+    if(j===cur&&heroVis){
+      v.muted=!soundOn;
+      const p=v.play();
+      /* browser refused to play with sound: fall back to silent playback */
+      p&&p.catch(()=>{if(!v.muted){v.muted=true;soundOn=false;sndUi();v.play().catch(()=>{})}});
+    }else{v.pause();v.muted=true}
+  });
+}
 function go(i){
- if(!SL.length)return;
- cur=(i+SL.length)%SL.length;
- sl.style.transform=`translateX(-${cur*100}%)`;
- [...dots.children].forEach((d,j)=>d.classList.toggle('on',j===cur));
- SL.forEach((s,j)=>{const v=s.querySelector('video');if(!v)return;if(j===cur){try{v.currentTime=0}catch(e){}const p=v.play();p&&p.catch(()=>{})}else v.pause()});
+  if(!SL.length)return;
+  cur=(i+SL.length)%SL.length;
+  sl.style.transform=`translateX(-${cur*100}%)`;
+  [...dots.children].forEach((d,j)=>d.classList.toggle('on',j===cur));
+  const cv=SL[cur].querySelector('video');if(cv){try{cv.currentTime=0}catch(e){}}
+  playHero();sndUi();
 }
 function initHero(){
- SL=[...sl.querySelectorAll('.slide')];
- dots.innerHTML=SL.map((_,i)=>`<button aria-label="Slide ${i+1}"></button>`).join('');
- go(Math.min(cur,Math.max(SL.length-1,0)));
+  SL=[...sl.querySelectorAll('.slide')];
+  dots.innerHTML=SL.map((_,i)=>`<button aria-label="Slide ${i+1}"></button>`).join('');
+  go(Math.min(cur,Math.max(SL.length-1,0)));
 }
-function auto(){clearInterval(timer);if(!matchMedia('(prefers-reduced-motion:reduce)').matches)timer=setInterval(()=>go(cur+1),3000)}
+function auto(){clearInterval(timer);if(!matchMedia('(prefers-reduced-motion:reduce)').matches)timer=setInterval(()=>go(cur+1),SLIDE_MS)}
+function toggleSound(){
+  const v=SL[cur]&&SL[cur].querySelector('video');if(!v)return;
+  soundOn=!soundOn;v.muted=!soundOn;
+  if(soundOn){v.volume=1;const p=v.play();p&&p.catch(()=>{v.muted=true;soundOn=false;sndUi()})}
+  sndUi();
+}
+sl.addEventListener('click',e=>{if(e.target.closest('video'))toggleSound()});
+snd.onclick=toggleSound;
+/* leaving the slider (scrolling down / opening the cart) silences and pauses it */
+new IntersectionObserver(es=>{heroVis=es[0].isIntersecting;if(!heroVis)soundOn=false;playHero();sndUi()},{threshold:.2}).observe(document.querySelector('.vs'));
 sl.addEventListener('error',e=>{const s=e.target.closest&&e.target.closest('.slide');if(s){s.remove();initHero();auto()}},true);
 document.getElementById('prev').onclick=()=>{go(cur-1);auto()};
 document.getElementById('next').onclick=()=>{go(cur+1);auto()};
@@ -4183,7 +4246,7 @@ initHero();auto();
 function tick(){const n=new Date(),e=new Date(n);e.setHours(24,0,0,0);const s=Math.max(0,Math.floor((e-n)/1000));
  const p=v=>String(v).padStart(2,'0');
  th.textContent=p(Math.floor(s/3600));tm.textContent=p(Math.floor(s%3600/60));ts.textContent=p(s%60)}
-tick();setInterval(tick,1000);
+tick();setInterval(tick,2000);
 
 /* ---------- shop / cart view switching ---------- */
 function route(){
@@ -4197,6 +4260,17 @@ function route(){
  document.querySelectorAll('.img').forEach(upd);
 }
 addEventListener('hashchange',route);route();
+
+/* ---------- media check: open your site with ?debug at the end of the address (e.g. yoursite.com/?debug) ---------- */
+if(/[?&]debug\b/.test(location.search)){
+  const out=document.createElement('pre');
+  out.style.cssText='position:fixed;left:0;right:0;bottom:0;max-height:50vh;overflow:auto;margin:0;background:#111;color:#fff;font:12px/1.5 monospace;padding:12px;z-index:300;white-space:pre-wrap;word-break:break-all';
+  out.textContent='Checking every product file on the server…';document.body.appendChild(out);
+  const files=[...document.querySelectorAll('#main .ms')].map(s=>({u:enc(s.dataset.p),n:s.closest('.card').querySelector('h3').textContent}));
+  const bad=[];let k=0;
+  const worker=async()=>{while(k<files.length){const f=files[k++];try{const r=await fetch(f.u,{method:'HEAD'});if(!r.ok)bad.push(r.status+'  '+f.n+'\n      '+f.u)}catch(e){bad.push('ERR  '+f.n+'\n      '+f.u)}}};
+  Promise.all(Array.from({length:6},worker)).then(()=>{out.textContent=(bad.length?bad.length+' of '+files.length+' files NOT found on your server:\n\n'+bad.join('\n'):'All '+files.length+' product files were found on your server.')});
+}
 
 /* ---------- misc ---------- */
 menuBtn.onclick=()=>links.classList.toggle('open');
