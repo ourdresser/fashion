@@ -272,6 +272,29 @@ footer li a:hover{color:#fff}
     .bank-overlay, .bank-modal { transition: none; }
   }
 
+/* ---------- search ---------- */
+.searchbar{background:var(--navy2);border-top:1px solid #28315a;max-height:0;overflow:hidden;visibility:hidden;transition:max-height .25s ease,visibility .25s}
+.searchbar.open{max-height:130px;visibility:visible}
+.wrap.sb-in{display:flex;gap:10px;align-items:center;margin-top:0;padding-top:12px}
+.sb-field{flex:1;display:flex;align-items:center;gap:10px;background:#fff;color:var(--ink);border-radius:40px;padding:0 8px 0 16px;min-width:0}
+.sb-field svg{width:20px;height:20px;flex:none;stroke:var(--muted);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.sb-field input{flex:1;min-width:0;border:0;background:none;font:inherit;padding:12px 0;color:var(--ink);outline:none;-webkit-appearance:none;appearance:none}
+.sb-field input::-webkit-search-cancel-button{display:none}
+.sb-field:focus-within{box-shadow:0 0 0 3px var(--orange)}
+#sClear{background:var(--gray);color:var(--ink);width:28px;height:28px;border-radius:50%;font-size:1.1rem;line-height:1}
+.sb-close{background:none;color:#fff;font-weight:600;padding:10px 6px}
+.sb-close:hover{color:var(--orange)}
+.wrap.sb-info{margin-top:0;padding-top:6px;padding-bottom:10px;font-size:.85rem;color:#b6bdd3;min-height:30px}
+.cat{scroll-margin-top:90px}
+main.searching .cat{scroll-margin-top:170px}
+main.searching .card:not(.hit){display:none!important}
+main.searching .card.hit{display:flex!important}
+main.searching .cat.nohit{display:none}
+main.searching .va{display:none}
+main.searching .cat{margin-bottom:40px}
+#noRes{text-align:center;padding:60px 20px;background:var(--gray);border-radius:18px;margin-bottom:40px}
+#noRes h2{font-size:1.3rem;margin-bottom:6px}
+#noRes p{color:var(--muted)}
 </style>
 </head>
 <body>
@@ -288,6 +311,19 @@ footer li a:hover{color:#fff}
    <button class="ib" id="menuBtn" aria-label="Menu"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
   </div>
  </div>
+ 
+ <div class="searchbar" id="sbar" role="search">
+  <div class="wrap sb-in">
+   <div class="sb-field">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+    <input id="sInput" type="search" placeholder="Search products, e.g. Zen, Odelia, couple set" aria-label="Search products" autocomplete="off" enterkeyhint="search">
+    <button type="button" id="sClear" aria-label="Clear search" hidden>×</button>
+   </div>
+   <button type="button" id="sClose" class="sb-close">Close</button>
+  </div>
+  <div class="wrap sb-info" id="sInfo" aria-live="polite"></div>
+ </div>
+ 
 </header>
 
 <section class="hero" id="top">
@@ -339,6 +375,8 @@ footer li a:hover{color:#fff}
   </div>
  </div>
 </section>
+
+<div id="noRes" hidden><h2>No products found</h2><p>Try a shorter word, a different name, or a category like male, female or couple.</p></div>
 
 <main class="wrap" id="main">
   <!-- ============================ UNISEX SLIDES ============================
@@ -1248,7 +1286,7 @@ footer li a:hover{color:#fff}
      </div>
     </article>
 
-    <!-- Male Slides 55: Pure set (0 video, 1 image) -->
+    <!-- Male Slides 55: Pure (0 video, 1 image) -->
     <article class="card" data-id="male-55" data-cat="Male Slides" data-code="MAL-55" data-img="media/Male Slides/Pure set. Was 35k now 28k   .jpg" data-vid="">
      <div class="img">
       <div class="mtrack"><div class="ms" data-t="i" data-p="media/Male Slides/Pure set. Was 35k now 28k   .jpg"><img src="media/Male%20Slides/Pure%20set.%20Was%2035k%20now%2028k%20%20%20.jpg" alt="Pure set" loading="lazy"></div></div>
@@ -1256,9 +1294,9 @@ footer li a:hover{color:#fff}
       <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
      </div>
      <div class="info">
-      <h3>Pure set</h3>
+      <h3>Pure</h3>
       <div class="stars" aria-label="Rated 5 out of 5">★★★★★</div>
-      <div class="price"><s>₦35,000.00</s><b>₦28,000.00</b></div>
+      <div class="price"><s>₦20,000.00</s><b>₦16,000.00</b></div>
       <button class="add">Add to Cart</button>
      </div>
     </article>
@@ -1303,42 +1341,27 @@ footer li a:hover{color:#fff}
      <div class="info">
       <h3>Rumi set</h3>
       <div class="stars" aria-label="Rated 5 out of 5">★★★★★</div>
-      <div class="price"><s>₦35,000.00</s><b>₦28,000.00</b></div>
+      <div class="price"><s>₦20,000.00</s><b>₦16,000.00</b></div>
       <button class="add">Add to Cart</button>
      </div>
     </article>
 
-    <!-- Male Slides 59: Sami Reuben Brown (0 video, 1 image) -->
-    <article class="card" data-id="male-59" data-cat="Male Slides" data-code="MAL-59" data-img="media/Male Slides/Sami_Reuben_Brown_Was_25k_now_20k.jpg" data-vid="">
+    <!-- Male Slides 59: Sami Sami Ox-Blood (0 video, 1 image) -->
+    <article class="card" data-id="male-59" data-cat="Male Slides" data-code="MAL-59" data-img="media/Male Slides/Sami_Reuben_Brown_Was_25k_now_20k.jpg" data-vid="media/Male Slides/Sami_Reuben_Red_Was_25k_now_20k.mp4">
      <div class="img">
-      <div class="mtrack"><div class="ms" data-t="i" data-p="media/Male Slides/Sami_Reuben_Brown_Was_25k_now_20k.jpg"><img src="media/Male%20Slides/Sami_Reuben_Brown_Was_25k_now_20k.jpg" alt="Sami Reuben Brown" loading="lazy"></div></div>
+      <div class="mtrack"><div class="ms" data-t="i" data-p="media/Male Slides/Sami_Reuben_Brown_Was_25k_now_20k.jpg"><img src="media/Male%20Slides/Sami_Reuben_Brown_Was_25k_now_20k.jpg" alt="Sami Reuben Brown" loading="lazy"></div><div class="ms" data-t="v" data-p="media/Male Slides/Sami_Reuben_Red_Was_25k_now_20k.mp4"><video src="media/Male%20Slides/Sami_Reuben_Red_Was_25k_now_20k.mp4#t=0.1" muted loop playsinline preload="none"></video></div></div>
       <span class="tag">-20%</span>
       <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
      </div>
      <div class="info">
-      <h3>Sami Reuben Brown</h3>
+      <h3>Sami Ox-Blood</h3>
       <div class="stars" aria-label="Rated 5 out of 5">★★★★★</div>
-      <div class="price"><s>₦25,000.00</s><b>₦20,000.00</b></div>
+      <div class="price"><s>₦20,000.00</s><b>₦16,000.00</b></div>
       <button class="add">Add to Cart</button>
      </div>
     </article>
 
-    <!-- Male Slides 60: Sami Reuben Red (1 video, 0 image) -->
-    <article class="card" data-id="male-60" data-cat="Male Slides" data-code="MAL-60" data-img="" data-vid="media/Male Slides/Sami_Reuben_Red_Was_25k_now_20k.mp4">
-     <div class="img">
-      <div class="mtrack"><div class="ms" data-t="v" data-p="media/Male Slides/Sami_Reuben_Red_Was_25k_now_20k.mp4"><video src="media/Male%20Slides/Sami_Reuben_Red_Was_25k_now_20k.mp4#t=0.1" muted loop playsinline preload="none"></video></div></div>
-      <span class="tag">-20%</span>
-      <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
-     </div>
-     <div class="info">
-      <h3>Sami Reuben Red</h3>
-      <div class="stars" aria-label="Rated 4 out of 5">★★★★☆</div>
-      <div class="price"><s>₦25,000.00</s><b>₦20,000.00</b></div>
-      <button class="add">Add to Cart</button>
-     </div>
-    </article>
-
-    <!-- Male Slides 61: Sky Black (1 video, 0 image) -->
+    <!-- Male Slides 61: Sky (1 video, 0 image) -->
     <article class="card" data-id="male-61" data-cat="Male Slides" data-code="MAL-61" data-img="" data-vid="media/Male Slides/Sky Black was 28k now 22,400.mp4">
      <div class="img">
       <div class="mtrack"><div class="ms" data-t="v" data-p="media/Male Slides/Sky Black was 28k now 22,400.mp4"><video src="media/Male%20Slides/Sky%20Black%20was%2028k%20now%2022%2C400.mp4#t=0.1" muted loop playsinline preload="none"></video></div></div>
@@ -1346,9 +1369,9 @@ footer li a:hover{color:#fff}
       <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
      </div>
      <div class="info">
-      <h3>Sky Black</h3>
+      <h3>Sky</h3>
       <div class="stars" aria-label="Rated 5 out of 5">★★★★★</div>
-      <div class="price"><s>₦28,000.00</s><b>₦22,400.00</b></div>
+      <div class="price"><s>₦27,500.00</s><b>₦22,000.00</b></div>
       <button class="add">Add to Cart</button>
      </div>
     </article>
@@ -4444,6 +4467,73 @@ if(/[?&]debug\b/.test(location.search)){
   const worker=async()=>{while(k<files.length){const f=files[k++];try{const r=await fetch(f.u,{method:'HEAD'});if(!r.ok)bad.push(r.status+'  '+f.n+'\n      '+f.u)}catch(e){bad.push('ERR  '+f.n+'\n      '+f.u)}}};
   Promise.all(Array.from({length:6},worker)).then(()=>{out.textContent=(bad.length?bad.length+' of '+files.length+' files NOT found on your server:\n\n'+bad.join('\n'):'All '+files.length+' product files were found on your server.')});
 }
+
+/* ---------- product search ---------- */
+(function(){
+ const MAINEL=document.getElementById('main'),BAR=document.getElementById('sbar'),INP=document.getElementById('sInput'),
+  INFO=document.getElementById('sInfo'),NORES=document.getElementById('noRes'),BTN=document.getElementById('searchBtn'),
+  CLR=document.getElementById('sClear'),CLOSE=document.getElementById('sClose');
+ const SYN={men:'male',man:'male',mens:'male',women:'female',woman:'female',womens:'female',ladies:'female',lady:'female',couples:'couple',slippers:'slide',slipper:'slide'};
+ /* build a searchable word list for each product: name, category, section title, code and prices */
+ const cards=[...MAINEL.querySelectorAll('.card')].map(c=>{
+  const sec=c.closest('.cat'),h=sec.querySelector('h2');
+  const prices=[...c.querySelectorAll('.price b,.price s')].map(x=>x.textContent.replace(/[^\d.]/g,'').replace(/\.00$/,'')).join(' ');
+  const text=[c.querySelector('h3').textContent,c.dataset.cat,h?h.textContent:'',c.dataset.code,prices].join(' ').toLowerCase();
+  return{el:c,sec,words:text.split(/[^a-z0-9]+/).filter(Boolean)};
+ });
+ const secs=[...MAINEL.querySelectorAll('.cat')];
+ let lastQ='',timer;
+ function clearSearch(){
+  MAINEL.classList.remove('searching');
+  cards.forEach(x=>x.el.classList.remove('hit'));
+  secs.forEach(s=>s.classList.remove('nohit'));
+  NORES.hidden=true;INFO.textContent='';lastQ='';
+ }
+ function run(scroll){
+  const raw=INP.value.trim();
+  CLR.hidden=!raw;
+  if(!raw){clearSearch();return}
+  const tokens=raw.toLowerCase().split(/[^a-z0-9]+/).filter(Boolean).map(t=>SYN[t]||t);
+  if(!tokens.length){clearSearch();return}
+  const changed=raw!==lastQ;lastQ=raw;
+  let hits=0;
+  MAINEL.classList.add('searching');
+  cards.forEach(x=>{
+   const ok=tokens.every(t=>x.words.some(w=>w.startsWith(t)));
+   x.el.classList.toggle('hit',ok);if(ok)hits++;
+  });
+  secs.forEach(s=>s.classList.toggle('nohit',!s.querySelector('.card.hit')));
+  NORES.hidden=hits>0;
+  INFO.textContent=hits?hits+(hits===1?' product':' products')+' found for \u201c'+raw+'\u201d':'No products found for \u201c'+raw+'\u201d';
+  if(scroll&&changed)goTo(hits);
+ }
+ function goTo(hits){
+  if(location.hash==='#cart'){location.hash='#main'}
+  setTimeout(()=>{
+   const t=hits?MAINEL.querySelector('.cat:not(.nohit)'):NORES;
+   if(t)t.scrollIntoView({behavior:'smooth',block:'start'});
+  },location.hash==='#cart'?120:0);
+ }
+ function openBar(){
+  BAR.classList.add('open');BTN.setAttribute('aria-expanded','true');
+  setTimeout(()=>INP.focus(),50);
+ }
+ function closeBar(){
+  BAR.classList.remove('open');BTN.setAttribute('aria-expanded','false');
+  INP.value='';INP.blur();clearSearch();CLR.hidden=true;
+ }
+ BTN.addEventListener('click',()=>{
+  if(!BAR.classList.contains('open')){openBar();return}
+  if(INP.value.trim()){clearTimeout(timer);run(true)}else closeBar();
+ });
+ INP.addEventListener('input',()=>{clearTimeout(timer);timer=setTimeout(()=>run(true),300)});
+ INP.addEventListener('keydown',e=>{
+  if(e.key==='Enter'){e.preventDefault();clearTimeout(timer);lastQ='';run(true);INP.blur()}
+  if(e.key==='Escape')closeBar();
+ });
+ CLR.addEventListener('click',()=>{INP.value='';run(false);INP.focus()});
+ CLOSE.addEventListener('click',closeBar);
+})();
 
 /* ---------- misc ---------- */
 menuBtn.onclick=()=>links.classList.toggle('open');
