@@ -213,6 +213,26 @@ footer li a:hover{color:#fff}
 .scrollnav button:active{transform:scale(.92)}
 .scrollnav button.off{opacity:0;pointer-events:none;transform:scale(.8)}
 .scrollnav svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+/* ---------- menu: clear-cache button ---------- */
+.cc-nav{align-self:center;display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#ff4d1c,#ff8a3d);color:#fff;border-radius:40px;padding:8px 16px;font-weight:600;font-size:.85rem;white-space:nowrap;cursor:pointer;box-shadow:0 4px 14px rgba(255,77,28,.35);transition:transform .2s,box-shadow .2s}
+.cc-nav:hover{transform:translateY(-1px);box-shadow:0 6px 18px rgba(255,77,28,.55)}
+.cc-nav:disabled{cursor:wait;opacity:.85}
+.cc-nav svg{width:16px;height:16px;flex:none;stroke:currentColor;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;transition:transform .5s}
+.cc-nav:hover svg{transform:rotate(180deg)}
+.cc-nav.busy svg{animation:ccspin .8s linear infinite}
+@keyframes ccspin{to{transform:rotate(360deg)}}
+.cc-nav .cc-full{display:none}
+@media (min-width:640px) and (max-width:1099px){.cc-nav{width:36px;height:36px;padding:0;justify-content:center}.cc-nav .cc-t{display:none}}
+@media (max-width:639px){.cc-nav{align-self:stretch;justify-content:center;margin:12px 0 2px;padding:13px 18px;font-size:.95rem}.cc-nav .cc-short{display:none}.cc-nav .cc-full{display:inline}}
+/* ---------- footer: TikTok + click-to-call buttons ---------- */
+.soc.soc2{display:flex;flex-direction:column;align-items:stretch;gap:14px;max-width:290px}
+.soc-btn{display:flex;align-items:center;gap:14px;padding:12px 18px 12px 12px;border-radius:16px;background:var(--navy2);border:1px solid #28315a;color:#fff;font-weight:700;font-size:.98rem;line-height:1.25;transition:transform .2s,box-shadow .2s,border-color .2s}
+.soc-btn:hover{transform:translateY(-2px);border-color:var(--orange);box-shadow:0 8px 20px rgba(0,0,0,.35)}
+.soc-btn small{display:block;font-weight:500;font-size:.8rem;color:#b6bdd3}
+.soc-ic{width:42px;height:42px;flex:none;border-radius:50%;display:grid;place-items:center}
+.soc-ic svg{width:22px;height:22px;stroke:#fff;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.soc-btn.tt .soc-ic{background:#000;box-shadow:-2px -2px 0 #25f4ee,2px 2px 0 #fe2c55}
+.soc-btn.call .soc-ic{background:linear-gradient(135deg,#ff4d1c,#ff8a3d)}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 
 .wrap{margin-top: 3rem;}
@@ -315,6 +335,7 @@ main.searching .cat{margin-bottom:40px}
   <a href="https://ourdresser.github.io/fashion/" class="logo"><img src="media/Logo-1.png" alt="Our Dresser logo">OUR DRESSER</a>
   <nav class="links" id="links" aria-label="Main">
    <a class="on" href="#top">Home</a><a href="#unisex">Unisex</a><a href="#male">Male</a><a href="#female">Female</a><a href="#couple">Couple Set</a><a href="#unisex">Sale</a>
+   <button type="button" class="cc-nav" id="ccNav" title="Clear Cache and Reload This Page" aria-label="Clear Cache and Reload This Page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3v6h-6"/></svg><span class="cc-t cc-short">Clear Cache &amp; Reload</span><span class="cc-t cc-full">Clear Cache &amp; Reload This Page</span></button>
   </nav>
   <div class="icons">
    <button class="ib" id="searchBtn" aria-label="Search" aria-expanded="false"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></button>
@@ -3594,8 +3615,11 @@ main.searching .cat{margin-bottom:40px}
  <div class="wrap">
   <div class="fg">
    <div><h4>Newsletter</h4><form class="nl" id="nl"><input type="email" required placeholder="Enter your email" aria-label="Email"><button>Join</button></form></div>
-   <div><h4>Quick links</h4><ul><li><a href="#top">Home</a></li><li><a href="#unisex">Shop</a></li><li><a href="tel: +234">Contact us</a></li></ul></div>
-   <div><h4>Social</h4><div class="soc"><span><a href="https://www.tiktok.com/@our_dresser" style="color: white">Tik Tok</a></span><span><a href="tel:+2347062796922" style="color: white">📞 +2347062796922</a></span></div>
+   <div><h4>Quick links</h4><ul><li><a href="#top">Home</a></li><li><a href="#unisex">Shop</a></li><li><a href="tel:+2347062796922">Contact us</a></li></ul></div>
+   <div><h4>Social</h4><div class="soc soc2">
+     <a class="soc-btn tt" href="https://www.tiktok.com/@our_dresser" target="_blank" rel="noopener" aria-label="Follow Our Dresser on TikTok"><span class="soc-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4v10.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 4c.4 2.4 2 4 4.5 4.2"/></svg></span><span>TikTok<small>@our_dresser</small></span></a>
+     <a class="soc-btn call" href="tel:+2347062796922" aria-label="Click to call +234 706 279 6922"><span class="soc-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span><span>Click to Call<small>+234 706 279 6922</small></span></a>
+    </div>
    
 <!-- Your original div (just added id="payTrigger") -->
 <div id="payTrigger">
@@ -4003,10 +4027,11 @@ if(/[?&]debug\b/.test(location.search)){
 (function(){
  /* tidy the address bar after a cache-clearing reload */
  if(/[?&]_r=/.test(location.search)){try{const u=new URL(location.href);u.searchParams.delete('_r');history.replaceState(null,'',u.pathname+u.search+u.hash)}catch(e){}}
- const B=document.getElementById('ccBtn');
- B.addEventListener('click',async()=>{
-  if(B.disabled)return;
-  B.disabled=true;B.textContent='Clearing cache…';
+ const B=document.getElementById('ccBtn'),N=document.getElementById('ccNav');
+ let busy=false;
+ async function clearAndReload(){
+  if(busy)return;busy=true;
+  B.disabled=true;B.textContent='Clearing cache…';N.disabled=true;N.classList.add('busy');
   try{if('caches' in window){const k=await caches.keys();await Promise.all(k.map(x=>caches.delete(x)))}}catch(e){}
   try{if(navigator.serviceWorker){const r=await navigator.serviceWorker.getRegistrations();await Promise.all(r.map(x=>x.unregister()))}}catch(e){}
   try{await fetch(location.href,{cache:'reload'})}catch(e){} /* forces a fresh copy of this page from the server */
@@ -4014,13 +4039,30 @@ if(/[?&]debug\b/.test(location.search)){
   setTimeout(()=>{
    try{const u=new URL(location.href);u.searchParams.set('_r',Date.now());location.replace(u.href)}catch(e){location.reload()}
   },700);
- });
+ }
+ B.addEventListener('click',clearAndReload);N.addEventListener('click',clearAndReload);
 })();
 
 /* ---------- misc ---------- */
 menuBtn.onclick=()=>links.classList.toggle('open');
 links.onclick=e=>{if(e.target.tagName==='A')links.classList.remove('open')};
-nl.onsubmit=e=>{e.preventDefault();toast('Thanks for subscribing!');nl.reset()};
+const SUB_TO='ourdresser1@gmail.com'; /* where every newsletter subscription is emailed */
+nl.onsubmit=async e=>{
+ e.preventDefault();
+ const em=nl.querySelector('input[type=email]').value.trim(),btn=nl.querySelector('button'),old=btn.textContent;
+ btn.disabled=true;btn.textContent='Sending…';
+ try{
+  const r=await fetch('https://formsubmit.co/ajax/'+SUB_TO,{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},
+   body:JSON.stringify({email:em,_subject:'New newsletter subscription – Our Dresser',message:em+' has subscribed to the Our Dresser newsletter.',_template:'table',_captcha:'false'})});
+  const j=await r.json().catch(()=>({}));
+  if(!r.ok||j.success===false||j.success==='false')throw new Error('send failed');
+  toast('Thanks for subscribing!');nl.reset();
+ }catch(err){
+  /* could not send in the background: open the visitor's email app with the subscription email ready to send */
+  location.href='mailto:'+SUB_TO+'?subject='+encodeURIComponent('Newsletter subscription')+'&body='+encodeURIComponent('Please add this email to the Our Dresser newsletter: '+em);
+  toast('Opening your email app to finish subscribing…');nl.reset();
+ }finally{btn.disabled=false;btn.textContent=old}
+};
 </script>
 </body>
 </html>
