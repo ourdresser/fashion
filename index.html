@@ -48,6 +48,7 @@ header{background:var(--navy);color:#fff;position:sticky;top:0;z-index:50;}
 .tb{background:var(--navy2);border:1px solid #28315a;border-radius:10px;padding:8px 14px;text-align:center;min-width:62px}
 .tb b{display:block;font-size:1.4rem;line-height:1.2}
 .tb small{font-size:.65rem;color:#8e97b8}
+.sale-note{margin:-8px 0 0;font-size:.9rem;font-weight:600;color:var(--orange)}
 .ltd{background:#5a1717;border-radius:10px;padding:10px 14px;font-size:.8rem;font-weight:600;line-height:1.2}
 /* vertical (portrait) slider, ratio 853 x 1280. Set --sw:853px for full size */
 .hero-r{display:grid;place-items:center;padding:30px 20px;background:var(--navy2)}
@@ -305,7 +306,7 @@ main.searching .cat{margin-bottom:40px}
    <a class="on" href="#top">Home</a><a href="#unisex">Unisex</a><a href="#male">Male</a><a href="#female">Female</a><a href="#couple">Couple Set</a><a href="#unisex">Sale</a>
   </nav>
   <div class="icons">
-   <button class="ib" aria-label="Search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></button>
+   <button class="ib" id="searchBtn" aria-label="Search" aria-expanded="false"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></button>
    <button class="ib" aria-label="Wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg><span class="badge" id="wc">0</span></button>
    <button class="ib" id="cartBtn" aria-label="Open cart" onclick="location.hash='#cart'"><svg viewBox="0 0 24 24"><path d="M3 4h2l2.5 11h10L20 7H6"/><circle cx="9" cy="20" r="1.3"/><circle cx="17" cy="20" r="1.3"/></svg><span class="badge" id="cc">0</span></button>
    <button class="ib" id="menuBtn" aria-label="Menu"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
@@ -332,11 +333,13 @@ main.searching .cat{margin-bottom:40px}
   <p>Slippers, Slides, Sandals, and Mules for everyone. Prices drop for a limited time only.</p>
   <div class="btns"><a href="#unisex" class="btn pri">Shop Now</a><a href="#male" class="btn sec">View Deals</a></div>
   <div class="timer" aria-label="Sale ends in">
+   <div class="tb"><b id="td">00</b><small>DAYS</small></div>:
    <div class="tb"><b id="th">00</b><small>HOURS</small></div>:
    <div class="tb"><b id="tm">00</b><small>MINS</small></div>:
    <div class="tb"><b id="ts">00</b><small>SECS</small></div>
    <div class="ltd">Limited<br>Time</div>
   </div>
+  <p class="sale-note" id="saleNote">Sale Holds Till 12am, 4th of November, 2026.</p>
  </div>
  <div class="hero-r">
   <!-- VERTICAL SLIDER (853 x 1280). Each slide stays 3 seconds (change SLIDE_MS in the script to adjust). Tap a video to hear it.
@@ -404,7 +407,7 @@ main.searching .cat{margin-bottom:40px}
     <!-- Unisex Slides 1: Ari (1 video, 1 image) -->
     <article class="card" data-id="unisex-1" data-cat="Unisex Slides" data-code="UNI-1" data-img="media/Unisex Slides/Ari Was 20k now 16k.jpg" data-vid="media/Unisex Slides/Ari_Was_20k_now_16k-86766f0d.mp4">
      <div class="img">
-      <div class="mtrack"><div class="ms" data-t="v" data-p="media/Unisex Slides/Ari_Was_20k_now_16k-86766f0d.mp4"><video src="media/Unisex%20Slides/Ari_Was_20k_now_16k-86766f0d.mp4#t=0.1" muted loop playsinline preload="metadata"></video></div><div class="ms" data-t="i" data-p="media/Unisex Slides/Ari Was 20k now 16k.jpg"><img src="media/Unisex%20Slides/Ari%20Was%2020k%20now%2016k.jpg" alt="Ari" loading="lazy"></div></div>
+      <div class="mtrack"><div class="ms" data-t="i" data-p="media/Unisex Slides/Ari Was 20k now 16k.jpg"><img src="media/Unisex%20Slides/Ari%20Was%2020k%20now%2016k.jpg" alt="Ari" loading="lazy"></div><div class="ms" data-t="v" data-p="media/Unisex Slides/Ari_Was_20k_now_16k-86766f0d.mp4"><video src="media/Unisex%20Slides/Ari_Was_20k_now_16k-86766f0d.mp4#t=0.1" muted loop playsinline preload="none"></video></div></div>
       <span class="tag">-20%</span>
       <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
      </div>
@@ -513,7 +516,7 @@ main.searching .cat{margin-bottom:40px}
     <!-- Unisex Slides 9: Knox (1 video, 1 image) -->
     <article class="card" data-id="unisex-9" data-cat="Unisex Slides" data-code="UNI-9" data-img="media/Unisex Slides/Knox Was 20k now 16k.jpg" data-vid="media/Unisex Slides/Knox_Was_20k_now_16k-89a83416.mp4">
      <div class="img">
-      <div class="mtrack"><div class="ms" data-t="v" data-p="media/Unisex Slides/Knox_Was_20k_now_16k-89a83416.mp4"><video src="media/Unisex%20Slides/Knox_Was_20k_now_16k-89a83416.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="i" data-p="media/Unisex Slides/Knox Was 20k now 16k.jpg"><img src="media/Unisex%20Slides/Knox%20Was%2020k%20now%2016k.jpg" alt="Knox" loading="lazy"></div></div>
+      <div class="mtrack"><div class="ms" data-t="i" data-p="media/Unisex Slides/Knox Was 20k now 16k.jpg"><img src="media/Unisex%20Slides/Knox%20Was%2020k%20now%2016k.jpg" alt="Knox" loading="lazy"></div><div class="ms" data-t="v" data-p="media/Unisex Slides/Knox_Was_20k_now_16k-89a83416.mp4"><video src="media/Unisex%20Slides/Knox_Was_20k_now_16k-89a83416.mp4#t=0.1" muted loop playsinline preload="none"></video></div></div>
       <span class="tag">-20%</span>
       <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
      </div>
@@ -529,7 +532,7 @@ main.searching .cat{margin-bottom:40px}
     <!-- Unisex Slides 10: Luxe (1 video, 1 image) -->
     <article class="card" data-id="unisex-10" data-cat="Unisex Slides" data-code="UNI-10" data-img="media/Unisex Slides/Luxe Was 25k now 20k.jpg" data-vid="media/Unisex Slides/Luxe_Was_25k_now_20k-9eccaf57.mp4">
      <div class="img">
-      <div class="mtrack"><div class="ms" data-t="v" data-p="media/Unisex Slides/Luxe_Was_25k_now_20k-9eccaf57.mp4"><video src="media/Unisex%20Slides/Luxe_Was_25k_now_20k-9eccaf57.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="i" data-p="media/Unisex Slides/Luxe Was 25k now 20k.jpg"><img src="media/Unisex%20Slides/Luxe%20Was%2025k%20now%2020k.jpg" alt="Luxe" loading="lazy"></div></div>
+      <div class="mtrack"><div class="ms" data-t="i" data-p="media/Unisex Slides/Luxe Was 25k now 20k.jpg"><img src="media/Unisex%20Slides/Luxe%20Was%2025k%20now%2020k.jpg" alt="Luxe" loading="lazy"></div><div class="ms" data-t="v" data-p="media/Unisex Slides/Luxe_Was_25k_now_20k-9eccaf57.mp4"><video src="media/Unisex%20Slides/Luxe_Was_25k_now_20k-9eccaf57.mp4#t=0.1" muted loop playsinline preload="none"></video></div></div>
       <span class="tag">-20%</span>
       <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
      </div>
@@ -544,7 +547,7 @@ main.searching .cat{margin-bottom:40px}
         <!-- From Male Slides 23: Imani (1 video, 1 image) -->
     <article class="card" data-id="male-23" data-cat="Male Slides" data-code="MAL-23" data-img="media/Male Slides/Imani. Was 28,000 now 22,400 .jpg" data-vid="media/Male Slides/Imani__Was_28_000_now_22_400-768090eb.mp4">
      <div class="img">
-      <div class="mtrack"><div class="ms" data-t="v" data-p="media/Male Slides/Imani__Was_28_000_now_22_400-768090eb.mp4"><video src="media/Male%20Slides/Imani__Was_28_000_now_22_400-768090eb.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="i" data-p="media/Male Slides/Imani. Was 28,000 now 22,400 .jpg"><img src="media/Male%20Slides/Imani.%20Was%2028%2C000%20now%2022%2C400%20.jpg" alt="Imani" loading="lazy"></div></div>
+      <div class="mtrack"><div class="ms" data-t="i" data-p="media/Male Slides/Imani. Was 28,000 now 22,400 .jpg"><img src="media/Male%20Slides/Imani.%20Was%2028%2C000%20now%2022%2C400%20.jpg" alt="Imani" loading="lazy"></div><div class="ms" data-t="v" data-p="media/Male Slides/Imani__Was_28_000_now_22_400-768090eb.mp4"><video src="media/Male%20Slides/Imani__Was_28_000_now_22_400-768090eb.mp4#t=0.1" muted loop playsinline preload="none"></video></div></div>
       <span class="tag">-20%</span>
       <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
      </div>
@@ -605,7 +608,7 @@ main.searching .cat{margin-bottom:40px}
     <!-- Unisex Slides 14: Odelia (2 video, 1 image) -->
     <article class="card" data-id="unisex-14" data-cat="Unisex Slides" data-code="UNI-14" data-img="media/Unisex Slides/Odelia. Was 28,000 now 22,400. .jpg" data-vid="media/Unisex Slides/Odelia. Was 28,000 now 22,400.mp4">
      <div class="img">
-      <div class="mtrack"><div class="ms" data-t="v" data-p="media/Unisex Slides/Odelia. Was 28,000 now 22,400.mp4"><video src="media/Unisex%20Slides/Odelia.%20Was%2028%2C000%20now%2022%2C400.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="v" data-p="media/Unisex Slides/Odelia__Was_28_000_now_22_400.mp4"><video src="media/Unisex%20Slides/Odelia__Was_28_000_now_22_400.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="i" data-p="media/Unisex Slides/Odelia. Was 28,000 now 22,400. .jpg"><img src="media/Unisex%20Slides/Odelia.%20Was%2028%2C000%20now%2022%2C400.%20.jpg" alt="Odelia" loading="lazy"></div></div>
+      <div class="mtrack"><div class="ms" data-t="i" data-p="media/Unisex Slides/Odelia. Was 28,000 now 22,400. .jpg"><img src="media/Unisex%20Slides/Odelia.%20Was%2028%2C000%20now%2022%2C400.%20.jpg" alt="Odelia" loading="lazy"></div><div class="ms" data-t="v" data-p="media/Unisex Slides/Odelia. Was 28,000 now 22,400.mp4"><video src="media/Unisex%20Slides/Odelia.%20Was%2028%2C000%20now%2022%2C400.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="v" data-p="media/Unisex Slides/Odelia__Was_28_000_now_22_400.mp4"><video src="media/Unisex%20Slides/Odelia__Was_28_000_now_22_400.mp4#t=0.1" muted loop playsinline preload="none"></video></div></div>
       <span class="tag">-20%</span>
       <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
      </div>
@@ -636,7 +639,7 @@ main.searching .cat{margin-bottom:40px}
     <!-- Unisex Slides 16: Sky (2 video, 1 image) -->
     <article class="card" data-id="unisex-16" data-cat="Unisex Slides" data-code="UNI-16" data-img="media/Unisex Slides/Sky was 28k now 22,400.jpg" data-vid="media/Unisex Slides/Sky_was_28k_now_22_400-f78bbd39.mp4">
      <div class="img">
-      <div class="mtrack"><div class="ms" data-t="v" data-p="media/Unisex Slides/Sky_was_28k_now_22_400-f78bbd39.mp4"><video src="media/Unisex%20Slides/Sky_was_28k_now_22_400-f78bbd39.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="v" data-p="media/Unisex Slides/Sky_was_28k_now_22_400___-54f88322.mp4"><video src="media/Unisex%20Slides/Sky_was_28k_now_22_400___-54f88322.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="i" data-p="media/Unisex Slides/Sky was 28k now 22,400.jpg"><img src="media/Unisex%20Slides/Sky%20was%2028k%20now%2022%2C400.jpg" alt="Sky" loading="lazy"></div></div>
+      <div class="mtrack"><div class="ms" data-t="i" data-p="media/Unisex Slides/Sky was 28k now 22,400.jpg"><img src="media/Unisex%20Slides/Sky%20was%2028k%20now%2022%2C400.jpg" alt="Sky" loading="lazy"></div><div class="ms" data-t="v" data-p="media/Unisex Slides/Sky_was_28k_now_22_400-f78bbd39.mp4"><video src="media/Unisex%20Slides/Sky_was_28k_now_22_400-f78bbd39.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="v" data-p="media/Unisex Slides/Sky_was_28k_now_22_400___-54f88322.mp4"><video src="media/Unisex%20Slides/Sky_was_28k_now_22_400___-54f88322.mp4#t=0.1" muted loop playsinline preload="none"></video></div></div>
       <span class="tag">-20%</span>
       <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
      </div>
@@ -651,7 +654,7 @@ main.searching .cat{margin-bottom:40px}
     <!-- Unisex Slides 17: Soleil (1 video, 1 image) -->
     <article class="card" data-id="unisex-17" data-cat="Unisex Slides" data-code="UNI-17" data-img="media/Unisex Slides/Soleil. Was 25k now 20k.   .jpg" data-vid="media/Unisex Slides/Soleil__Was_25k_now_20k______-99bcb5e0.mp4">
      <div class="img">
-      <div class="mtrack"><div class="ms" data-t="v" data-p="media/Unisex Slides/Soleil__Was_25k_now_20k______-99bcb5e0.mp4"><video src="media/Unisex%20Slides/Soleil__Was_25k_now_20k______-99bcb5e0.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="i" data-p="media/Unisex Slides/Soleil. Was 25k now 20k.   .jpg"><img src="media/Unisex%20Slides/Soleil.%20Was%2025k%20now%2020k.%20%20%20.jpg" alt="Soleil" loading="lazy"></div></div>
+      <div class="mtrack"><div class="ms" data-t="i" data-p="media/Unisex Slides/Soleil. Was 25k now 20k.   .jpg"><img src="media/Unisex%20Slides/Soleil.%20Was%2025k%20now%2020k.%20%20%20.jpg" alt="Soleil" loading="lazy"></div><div class="ms" data-t="v" data-p="media/Unisex Slides/Soleil__Was_25k_now_20k______-99bcb5e0.mp4"><video src="media/Unisex%20Slides/Soleil__Was_25k_now_20k______-99bcb5e0.mp4#t=0.1" muted loop playsinline preload="none"></video></div></div>
       <span class="tag">-20%</span>
       <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
      </div>
@@ -666,7 +669,7 @@ main.searching .cat{margin-bottom:40px}
     <!-- Unisex Slides 18: Tobi (1 video, 1 image) -->
     <article class="card" data-id="unisex-18" data-cat="Unisex Slides" data-code="UNI-18" data-img="media/Unisex Slides/Tobi. Was 20,000 now 16,000.    .jpg" data-vid="media/Unisex Slides/Tobi__Was_20_000_now_16_000______-720cb17b.mp4">
      <div class="img">
-      <div class="mtrack"><div class="ms" data-t="v" data-p="media/Unisex Slides/Tobi__Was_20_000_now_16_000______-720cb17b.mp4"><video src="media/Unisex%20Slides/Tobi__Was_20_000_now_16_000______-720cb17b.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="i" data-p="media/Unisex Slides/Tobi. Was 20,000 now 16,000.    .jpg"><img src="media/Unisex%20Slides/Tobi.%20Was%2020%2C000%20now%2016%2C000.%20%20%20%20.jpg" alt="Tobi" loading="lazy"></div></div>
+      <div class="mtrack"><div class="ms" data-t="i" data-p="media/Unisex Slides/Tobi. Was 20,000 now 16,000.    .jpg"><img src="media/Unisex%20Slides/Tobi.%20Was%2020%2C000%20now%2016%2C000.%20%20%20%20.jpg" alt="Tobi" loading="lazy"></div><div class="ms" data-t="v" data-p="media/Unisex Slides/Tobi__Was_20_000_now_16_000______-720cb17b.mp4"><video src="media/Unisex%20Slides/Tobi__Was_20_000_now_16_000______-720cb17b.mp4#t=0.1" muted loop playsinline preload="none"></video></div></div>
       <span class="tag">-20%</span>
       <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
      </div>
@@ -735,7 +738,7 @@ main.searching .cat{margin-bottom:40px}
     <!-- Male Slides 4: Apple (1 video, 1 image) -->
     <article class="card" data-id="male-4" data-cat="Male Slides" data-code="MAL-4" data-img="media/Male Slides/Apple. Was 25,000 now 20,000.jpg" data-vid="media/Male Slides/Apple__Was_25_000_now_20_000__-5ed9befa.mp4">
      <div class="img">
-      <div class="mtrack"><div class="ms" data-t="v" data-p="media/Male Slides/Apple__Was_25_000_now_20_000__-5ed9befa.mp4"><video src="media/Male%20Slides/Apple__Was_25_000_now_20_000__-5ed9befa.mp4#t=0.1" muted loop playsinline preload="metadata"></video></div><div class="ms" data-t="i" data-p="media/Male Slides/Apple. Was 25,000 now 20,000.jpg"><img src="media/Male%20Slides/Apple.%20Was%2025%2C000%20now%2020%2C000.jpg" alt="Apple" loading="lazy"></div></div>
+      <div class="mtrack"><div class="ms" data-t="i" data-p="media/Male Slides/Apple. Was 25,000 now 20,000.jpg"><img src="media/Male%20Slides/Apple.%20Was%2025%2C000%20now%2020%2C000.jpg" alt="Apple" loading="lazy"></div><div class="ms" data-t="v" data-p="media/Male Slides/Apple__Was_25_000_now_20_000__-5ed9befa.mp4"><video src="media/Male%20Slides/Apple__Was_25_000_now_20_000__-5ed9befa.mp4#t=0.1" muted loop playsinline preload="none"></video></div></div>
       <span class="tag">-20%</span>
       <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
      </div>
@@ -765,7 +768,7 @@ main.searching .cat{margin-bottom:40px}
     <!-- Male Slides 10: Comet (1 video, 1 image) -->
     <article class="card" data-id="male-10" data-cat="Male Slides" data-code="MAL-10" data-img="media/Male Slides/Comet. Was 20k now 16k.    .jpg" data-vid="media/Male Slides/Comet__Was_20k_now_16k_______-a613d199.mp4">
      <div class="img">
-      <div class="mtrack"><div class="ms" data-t="v" data-p="media/Male Slides/Comet__Was_20k_now_16k_______-a613d199.mp4"><video src="media/Male%20Slides/Comet__Was_20k_now_16k_______-a613d199.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="i" data-p="media/Male Slides/Comet. Was 20k now 16k.    .jpg"><img src="media/Male%20Slides/Comet.%20Was%2020k%20now%2016k.%20%20%20%20.jpg" alt="Comet" loading="lazy"></div></div>
+      <div class="mtrack"><div class="ms" data-t="i" data-p="media/Male Slides/Comet. Was 20k now 16k.    .jpg"><img src="media/Male%20Slides/Comet.%20Was%2020k%20now%2016k.%20%20%20%20.jpg" alt="Comet" loading="lazy"></div><div class="ms" data-t="v" data-p="media/Male Slides/Comet__Was_20k_now_16k_______-a613d199.mp4"><video src="media/Male%20Slides/Comet__Was_20k_now_16k_______-a613d199.mp4#t=0.1" muted loop playsinline preload="none"></video></div></div>
       <span class="tag">-20%</span>
       <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
      </div>
@@ -840,7 +843,7 @@ main.searching .cat{margin-bottom:40px}
     <!-- Male Slides 15: Dune (1 video, 1 image) -->
     <article class="card" data-id="male-15" data-cat="Male Slides" data-code="MAL-15" data-img="media/Male Slides/Dune. Was 25,000 now 20k.jpg" data-vid="media/Male Slides/Dune__Was_25_000_now_20k-63c541d8.mp4">
      <div class="img">
-      <div class="mtrack"><div class="ms" data-t="v" data-p="media/Male Slides/Dune__Was_25_000_now_20k-63c541d8.mp4"><video src="media/Male%20Slides/Dune__Was_25_000_now_20k-63c541d8.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="i" data-p="media/Male Slides/Dune. Was 25,000 now 20k.jpg"><img src="media/Male%20Slides/Dune.%20Was%2025%2C000%20now%2020k.jpg" alt="Dune" loading="lazy"></div></div>
+      <div class="mtrack"><div class="ms" data-t="i" data-p="media/Male Slides/Dune. Was 25,000 now 20k.jpg"><img src="media/Male%20Slides/Dune.%20Was%2025%2C000%20now%2020k.jpg" alt="Dune" loading="lazy"></div><div class="ms" data-t="v" data-p="media/Male Slides/Dune__Was_25_000_now_20k-63c541d8.mp4"><video src="media/Male%20Slides/Dune__Was_25_000_now_20k-63c541d8.mp4#t=0.1" muted loop playsinline preload="none"></video></div></div>
       <span class="tag">-20%</span>
       <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
      </div>
@@ -885,7 +888,7 @@ main.searching .cat{margin-bottom:40px}
     <!-- Male Slides 18: Finley (3 video, 1 image) -->
     <article class="card" data-id="male-18" data-cat="Male Slides" data-code="MAL-18" data-img="media/Male Slides/Finley. Was 20k now 16k .jpg" data-vid="media/Male Slides/Finley__Was_20k_now_16k-b964fc96.mp4">
      <div class="img">
-      <div class="mtrack"><div class="ms" data-t="v" data-p="media/Male Slides/Finley__Was_20k_now_16k-b964fc96.mp4"><video src="media/Male%20Slides/Finley__Was_20k_now_16k-b964fc96.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="v" data-p="media/Male Slides/Finley__Was_20k_now_16k____-6d29cdc9.mp4"><video src="media/Male%20Slides/Finley__Was_20k_now_16k____-6d29cdc9.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="v" data-p="media/Male Slides/Finley__Was_20k_now_16k______-878cafbb-compressed.mp4"><video src="media/Male%20Slides/Finley__Was_20k_now_16k______-878cafbb-compressed.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="i" data-p="media/Male Slides/Finley. Was 20k now 16k .jpg"><img src="media/Male%20Slides/Finley.%20Was%2020k%20now%2016k%20.jpg" alt="Finley" loading="lazy"></div></div>
+      <div class="mtrack"><div class="ms" data-t="i" data-p="media/Male Slides/Finley. Was 20k now 16k .jpg"><img src="media/Male%20Slides/Finley.%20Was%2020k%20now%2016k%20.jpg" alt="Finley" loading="lazy"></div><div class="ms" data-t="v" data-p="media/Male Slides/Finley__Was_20k_now_16k-b964fc96.mp4"><video src="media/Male%20Slides/Finley__Was_20k_now_16k-b964fc96.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="v" data-p="media/Male Slides/Finley__Was_20k_now_16k____-6d29cdc9.mp4"><video src="media/Male%20Slides/Finley__Was_20k_now_16k____-6d29cdc9.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="v" data-p="media/Male Slides/Finley__Was_20k_now_16k______-878cafbb-compressed.mp4"><video src="media/Male%20Slides/Finley__Was_20k_now_16k______-878cafbb-compressed.mp4#t=0.1" muted loop playsinline preload="none"></video></div></div>
       <span class="tag">-20%</span>
       <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
      </div>
@@ -900,7 +903,7 @@ main.searching .cat{margin-bottom:40px}
     <!-- Male Slides 19: Flex (1 video, 1 image) -->
     <article class="card" data-id="male-19" data-cat="Male Slides" data-code="MAL-19" data-img="media/Male Slides/Flex.  Was 30,500 now 24,400.   .jpg" data-vid="media/Male Slides/Flex___Was_30_500_now_24_400_____-ea48dd44.mp4">
      <div class="img">
-      <div class="mtrack"><div class="ms" data-t="v" data-p="media/Male Slides/Flex___Was_30_500_now_24_400_____-ea48dd44.mp4"><video src="media/Male%20Slides/Flex___Was_30_500_now_24_400_____-ea48dd44.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="i" data-p="media/Male Slides/Flex.  Was 30,500 now 24,400.   .jpg"><img src="media/Male%20Slides/Flex.%20%20Was%2030%2C500%20now%2024%2C400.%20%20%20.jpg" alt="Flex" loading="lazy"></div></div>
+      <div class="mtrack"><div class="ms" data-t="i" data-p="media/Male Slides/Flex.  Was 30,500 now 24,400.   .jpg"><img src="media/Male%20Slides/Flex.%20%20Was%2030%2C500%20now%2024%2C400.%20%20%20.jpg" alt="Flex" loading="lazy"></div><div class="ms" data-t="v" data-p="media/Male Slides/Flex___Was_30_500_now_24_400_____-ea48dd44.mp4"><video src="media/Male%20Slides/Flex___Was_30_500_now_24_400_____-ea48dd44.mp4#t=0.1" muted loop playsinline preload="none"></video></div></div>
       <span class="tag">-20%</span>
       <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
      </div>
@@ -915,7 +918,7 @@ main.searching .cat{margin-bottom:40px}
     <!-- Male Slides 20: Flynn (1 video, 1 image) -->
     <article class="card" data-id="male-20" data-cat="Male Slides" data-code="MAL-20" data-img="media/Male Slides/Flynn. Was 29,500 now 23,600.   .jpg" data-vid="media/Male Slides/Flynn__Was_29_500_now_23_600__-93546680.mp4">
      <div class="img">
-      <div class="mtrack"><div class="ms" data-t="v" data-p="media/Male Slides/Flynn__Was_29_500_now_23_600__-93546680.mp4"><video src="media/Male%20Slides/Flynn__Was_29_500_now_23_600__-93546680.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="i" data-p="media/Male Slides/Flynn. Was 29,500 now 23,600.   .jpg"><img src="media/Male%20Slides/Flynn.%20Was%2029%2C500%20now%2023%2C600.%20%20%20.jpg" alt="Flynn" loading="lazy"></div></div>
+      <div class="mtrack"><div class="ms" data-t="i" data-p="media/Male Slides/Flynn. Was 29,500 now 23,600.   .jpg"><img src="media/Male%20Slides/Flynn.%20Was%2029%2C500%20now%2023%2C600.%20%20%20.jpg" alt="Flynn" loading="lazy"></div><div class="ms" data-t="v" data-p="media/Male Slides/Flynn__Was_29_500_now_23_600__-93546680.mp4"><video src="media/Male%20Slides/Flynn__Was_29_500_now_23_600__-93546680.mp4#t=0.1" muted loop playsinline preload="none"></video></div></div>
       <span class="tag">-20%</span>
       <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
      </div>
@@ -930,7 +933,7 @@ main.searching .cat{margin-bottom:40px}
     <!-- Male Slides 21: Harris (1 video, 1 image) -->
     <article class="card" data-id="male-21" data-cat="Male Slides" data-code="MAL-21" data-img="media/Male Slides/Harris. Was 20k now 16k.jpg" data-vid="media/Male Slides/Harris__Was_20k_now_16k.mp4">
      <div class="img">
-      <div class="mtrack"><div class="ms" data-t="v" data-p="media/Male Slides/Harris__Was_20k_now_16k.mp4"><video src="media/Male%20Slides/Harris__Was_20k_now_16k.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="i" data-p="media/Male Slides/Harris. Was 20k now 16k.jpg"><img src="media/Male%20Slides/Harris.%20Was%2020k%20now%2016k.jpg" alt="Harris" loading="lazy"></div></div>
+      <div class="mtrack"><div class="ms" data-t="i" data-p="media/Male Slides/Harris. Was 20k now 16k.jpg"><img src="media/Male%20Slides/Harris.%20Was%2020k%20now%2016k.jpg" alt="Harris" loading="lazy"></div><div class="ms" data-t="v" data-p="media/Male Slides/Harris__Was_20k_now_16k.mp4"><video src="media/Male%20Slides/Harris__Was_20k_now_16k.mp4#t=0.1" muted loop playsinline preload="none"></video></div></div>
       <span class="tag">-20%</span>
       <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
      </div>
@@ -960,7 +963,7 @@ main.searching .cat{margin-bottom:40px}
     <!-- Male Slides 23: Imani (1 video, 1 image) -->
     <article class="card" data-id="male-23" data-cat="Male Slides" data-code="MAL-23" data-img="media/Male Slides/Imani. Was 28,000 now 22,400 .jpg" data-vid="media/Male Slides/Imani__Was_28_000_now_22_400-768090eb.mp4">
      <div class="img">
-      <div class="mtrack"><div class="ms" data-t="v" data-p="media/Male Slides/Imani__Was_28_000_now_22_400-768090eb.mp4"><video src="media/Male%20Slides/Imani__Was_28_000_now_22_400-768090eb.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="i" data-p="media/Male Slides/Imani. Was 28,000 now 22,400 .jpg"><img src="media/Male%20Slides/Imani.%20Was%2028%2C000%20now%2022%2C400%20.jpg" alt="Imani" loading="lazy"></div></div>
+      <div class="mtrack"><div class="ms" data-t="i" data-p="media/Male Slides/Imani. Was 28,000 now 22,400 .jpg"><img src="media/Male%20Slides/Imani.%20Was%2028%2C000%20now%2022%2C400%20.jpg" alt="Imani" loading="lazy"></div><div class="ms" data-t="v" data-p="media/Male Slides/Imani__Was_28_000_now_22_400-768090eb.mp4"><video src="media/Male%20Slides/Imani__Was_28_000_now_22_400-768090eb.mp4#t=0.1" muted loop playsinline preload="none"></video></div></div>
       <span class="tag">-20%</span>
       <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
      </div>
@@ -991,7 +994,7 @@ main.searching .cat{margin-bottom:40px}
     <!-- Male Slides 28: Jude (1 video, 1 image) -->
     <article class="card" data-id="male-28" data-cat="Male Slides" data-code="MAL-28" data-img="media/Male Slides/Jude. Was 29,500 now 23,600.   .jpg" data-vid="media/Male Slides/Jude__Was_29_500_now_23_600__-d0084905.mp4">
      <div class="img">
-      <div class="mtrack"><div class="ms" data-t="v" data-p="media/Male Slides/Jude__Was_29_500_now_23_600__-d0084905.mp4"><video src="media/Male%20Slides/Jude__Was_29_500_now_23_600__-d0084905.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="i" data-p="media/Male Slides/Jude. Was 29,500 now 23,600.   .jpg"><img src="media/Male%20Slides/Jude.%20Was%2029%2C500%20now%2023%2C600.%20%20%20.jpg" alt="Jude" loading="lazy"></div></div>
+      <div class="mtrack"><div class="ms" data-t="i" data-p="media/Male Slides/Jude. Was 29,500 now 23,600.   .jpg"><img src="media/Male%20Slides/Jude.%20Was%2029%2C500%20now%2023%2C600.%20%20%20.jpg" alt="Jude" loading="lazy"></div><div class="ms" data-t="v" data-p="media/Male Slides/Jude__Was_29_500_now_23_600__-d0084905.mp4"><video src="media/Male%20Slides/Jude__Was_29_500_now_23_600__-d0084905.mp4#t=0.1" muted loop playsinline preload="none"></video></div></div>
       <span class="tag">-20%</span>
       <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
      </div>
@@ -1006,7 +1009,7 @@ main.searching .cat{margin-bottom:40px}
     <!-- Male Slides 29: Jules (2 video, 1 image) -->
     <article class="card" data-id="male-29" data-cat="Male Slides" data-code="MAL-29" data-img="media/Male Slides/Jules. Was 30,500 now 24,400.   .jpg" data-vid="media/Male Slides/Jules___Was_30_500_now_24_400____-5a3ef80d.mp4">
      <div class="img">
-      <div class="mtrack"><div class="ms" data-t="v" data-p="media/Male Slides/Jules___Was_30_500_now_24_400____-5a3ef80d.mp4"><video src="media/Male%20Slides/Jules___Was_30_500_now_24_400____-5a3ef80d.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="v" data-p="media/Male Slides/Jules____Was_30_500_now_24_400________-43365080.mp4"><video src="media/Male%20Slides/Jules____Was_30_500_now_24_400________-43365080.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="i" data-p="media/Male Slides/Jules. Was 30,500 now 24,400.   .jpg"><img src="media/Male%20Slides/Jules.%20Was%2030%2C500%20now%2024%2C400.%20%20%20.jpg" alt="Jules" loading="lazy"></div></div>
+      <div class="mtrack"><div class="ms" data-t="i" data-p="media/Male Slides/Jules. Was 30,500 now 24,400.   .jpg"><img src="media/Male%20Slides/Jules.%20Was%2030%2C500%20now%2024%2C400.%20%20%20.jpg" alt="Jules" loading="lazy"></div><div class="ms" data-t="v" data-p="media/Male Slides/Jules___Was_30_500_now_24_400____-5a3ef80d.mp4"><video src="media/Male%20Slides/Jules___Was_30_500_now_24_400____-5a3ef80d.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="v" data-p="media/Male Slides/Jules____Was_30_500_now_24_400________-43365080.mp4"><video src="media/Male%20Slides/Jules____Was_30_500_now_24_400________-43365080.mp4#t=0.1" muted loop playsinline preload="none"></video></div></div>
       <span class="tag">-20%</span>
       <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
      </div>
@@ -1051,7 +1054,7 @@ main.searching .cat{margin-bottom:40px}
     <!-- Male Slides 33: Knox (1 video, 1 image) -->
     <article class="card" data-id="male-33" data-cat="Male Slides" data-code="MAL-33" data-img="media/Male Slides/Knox. Was 20k now 16k.jpg" data-vid="media/Male Slides/Knox__Was_20k_now_16k-12b16dfe.mp4">
      <div class="img">
-      <div class="mtrack"><div class="ms" data-t="v" data-p="media/Male Slides/Knox__Was_20k_now_16k-12b16dfe.mp4"><video src="media/Male%20Slides/Knox__Was_20k_now_16k-12b16dfe.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="i" data-p="media/Male Slides/Knox. Was 20k now 16k.jpg"><img src="media/Male%20Slides/Knox.%20Was%2020k%20now%2016k.jpg" alt="Knox" loading="lazy"></div></div>
+      <div class="mtrack"><div class="ms" data-t="i" data-p="media/Male Slides/Knox. Was 20k now 16k.jpg"><img src="media/Male%20Slides/Knox.%20Was%2020k%20now%2016k.jpg" alt="Knox" loading="lazy"></div><div class="ms" data-t="v" data-p="media/Male Slides/Knox__Was_20k_now_16k-12b16dfe.mp4"><video src="media/Male%20Slides/Knox__Was_20k_now_16k-12b16dfe.mp4#t=0.1" muted loop playsinline preload="none"></video></div></div>
       <span class="tag">-20%</span>
       <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
      </div>
@@ -1066,7 +1069,7 @@ main.searching .cat{margin-bottom:40px}
     <!-- Male Slides 34: Luca Ash (1 video, 1 image) -->
     <article class="card" data-id="male-34" data-cat="Male Slides" data-code="MAL-34" data-img="media/Male Slides/Luca Ash Was 20k now 16k.jpg" data-vid="media/Male Slides/Luca Ash Was 20k now 16k.mp4">
      <div class="img">
-      <div class="mtrack"><div class="ms" data-t="v" data-p="media/Male Slides/Luca Ash Was 20k now 16k.mp4"><video src="media/Male%20Slides/Luca%20Ash%20Was%2020k%20now%2016k.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="i" data-p="media/Male Slides/Luca Ash Was 20k now 16k.jpg"><img src="media/Male%20Slides/Luca%20Ash%20Was%2020k%20now%2016k.jpg" alt="Luca Ash" loading="lazy"></div></div>
+      <div class="mtrack"><div class="ms" data-t="i" data-p="media/Male Slides/Luca Ash Was 20k now 16k.jpg"><img src="media/Male%20Slides/Luca%20Ash%20Was%2020k%20now%2016k.jpg" alt="Luca Ash" loading="lazy"></div><div class="ms" data-t="v" data-p="media/Male Slides/Luca Ash Was 20k now 16k.mp4"><video src="media/Male%20Slides/Luca%20Ash%20Was%2020k%20now%2016k.mp4#t=0.1" muted loop playsinline preload="none"></video></div></div>
       <span class="tag">-20%</span>
       <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
      </div>
@@ -1111,7 +1114,7 @@ main.searching .cat{margin-bottom:40px}
     <!-- Male Slides 38: Luxe (1 video, 1 image) -->
     <article class="card" data-id="male-38" data-cat="Male Slides" data-code="MAL-38" data-img="media/Male Slides/Luxe_Was_25000_now_20,000.jpg" data-vid="media/Male Slides/Luxe_Was_25000_now_20,000.mp4">
      <div class="img">
-      <div class="mtrack"><div class="ms" data-t="v" data-p="media/Male Slides/Luxe_Was_25000_now_20,000.mp4"><video src="media/Male%20Slides/Luxe_Was_25000_now_20%2C000.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="i" data-p="media/Male Slides/Luxe_Was_25000_now_20,000.jpg"><img src="media/Male%20Slides/Luxe_Was_25000_now_20%2C000.jpg" alt="Luxe" loading="lazy"></div></div>
+      <div class="mtrack"><div class="ms" data-t="i" data-p="media/Male Slides/Luxe_Was_25000_now_20,000.jpg"><img src="media/Male%20Slides/Luxe_Was_25000_now_20%2C000.jpg" alt="Luxe" loading="lazy"></div><div class="ms" data-t="v" data-p="media/Male Slides/Luxe_Was_25000_now_20,000.mp4"><video src="media/Male%20Slides/Luxe_Was_25000_now_20%2C000.mp4#t=0.1" muted loop playsinline preload="none"></video></div></div>
       <span class="tag">-20%</span>
       <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
      </div>
@@ -1171,7 +1174,7 @@ main.searching .cat{margin-bottom:40px}
     <!-- Male Slides 42: Mosaic (1 video, 1 image) -->
     <article class="card" data-id="male-42" data-cat="Male Slides" data-code="MAL-42" data-img="media/Male Slides/Mosaic Was 20k now 16k.jpg" data-vid="media/Male Slides/Mosaic_Was_20k_now_16k.mp4">
      <div class="img">
-      <div class="mtrack"><div class="ms" data-t="v" data-p="media/Male Slides/Mosaic_Was_20k_now_16k.mp4"><video src="media/Male%20Slides/Mosaic_Was_20k_now_16k.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="i" data-p="media/Male Slides/Mosaic Was 20k now 16k.jpg"><img src="media/Male%20Slides/Mosaic%20Was%2020k%20now%2016k.jpg" alt="Mosaic" loading="lazy"></div></div>
+      <div class="mtrack"><div class="ms" data-t="i" data-p="media/Male Slides/Mosaic Was 20k now 16k.jpg"><img src="media/Male%20Slides/Mosaic%20Was%2020k%20now%2016k.jpg" alt="Mosaic" loading="lazy"></div><div class="ms" data-t="v" data-p="media/Male Slides/Mosaic_Was_20k_now_16k.mp4"><video src="media/Male%20Slides/Mosaic_Was_20k_now_16k.mp4#t=0.1" muted loop playsinline preload="none"></video></div></div>
       <span class="tag">-20%</span>
       <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
      </div>
@@ -1201,7 +1204,7 @@ main.searching .cat{margin-bottom:40px}
     <!-- Male Slides 44: Nori (1 video, 1 image) -->
     <article class="card" data-id="male-44" data-cat="Male Slides" data-code="MAL-44" data-img="media/Male Slides/Nori_Was_25_000_now_20_000.mp4.jpg" data-vid="media/Male Slides/Nori_Was_25_000_now_20,000.mp4">
      <div class="img">
-      <div class="mtrack"><div class="ms" data-t="v" data-p="media/Male Slides/Nori_Was_25_000_now_20,000.mp4"><video src="media/Male%20Slides/Nori_Was_25_000_now_20%2C000.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="i" data-p="media/Male Slides/Nori_Was_25_000_now_20_000.mp4.jpg"><img src="media/Male%20Slides/Nori_Was_25_000_now_20_000.mp4.jpg" alt="Nori" loading="lazy"></div></div>
+      <div class="mtrack"><div class="ms" data-t="i" data-p="media/Male Slides/Nori_Was_25_000_now_20_000.mp4.jpg"><img src="media/Male%20Slides/Nori_Was_25_000_now_20_000.mp4.jpg" alt="Nori" loading="lazy"></div><div class="ms" data-t="v" data-p="media/Male Slides/Nori_Was_25_000_now_20,000.mp4"><video src="media/Male%20Slides/Nori_Was_25_000_now_20%2C000.mp4#t=0.1" muted loop playsinline preload="none"></video></div></div>
       <span class="tag">-20%</span>
       <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
      </div>
@@ -1216,7 +1219,7 @@ main.searching .cat{margin-bottom:40px}
     <!-- Male Slides 45: Nuru (2 video, 1 image) -->
     <article class="card" data-id="male-45" data-cat="Male Slides" data-code="MAL-45" data-img="media/Male Slides/Nuru_Was_30k_now_24k.jpg" data-vid="media/Male Slides/Nuru_Was_30k_now_24k-compressed.mp4">
      <div class="img">
-      <div class="mtrack"><div class="ms" data-t="v" data-p="media/Male Slides/Nuru_Was_30k_now_24k-compressed.mp4"><video src="media/Male%20Slides/Nuru_Was_30k_now_24k-compressed.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="v" data-p="media/Male Slides/Nuru_Was_30k_now_24k.mp4"><video src="media/Male%20Slides/Nuru_Was_30k_now_24k.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="i" data-p="media/Male Slides/Nuru_Was_30k_now_24k.jpg"><img src="media/Male%20Slides/Nuru_Was_30k_now_24k.jpg" alt="Nuru" loading="lazy"></div></div>
+      <div class="mtrack"><div class="ms" data-t="i" data-p="media/Male Slides/Nuru_Was_30k_now_24k.jpg"><img src="media/Male%20Slides/Nuru_Was_30k_now_24k.jpg" alt="Nuru" loading="lazy"></div><div class="ms" data-t="v" data-p="media/Male Slides/Nuru_Was_30k_now_24k-compressed.mp4"><video src="media/Male%20Slides/Nuru_Was_30k_now_24k-compressed.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="v" data-p="media/Male Slides/Nuru_Was_30k_now_24k.mp4"><video src="media/Male%20Slides/Nuru_Was_30k_now_24k.mp4#t=0.1" muted loop playsinline preload="none"></video></div></div>
       <span class="tag">-20%</span>
       <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
      </div>
@@ -1231,7 +1234,7 @@ main.searching .cat{margin-bottom:40px}
     <!-- Male Slides 46: Odelia Black and Brown (1 video, 1 image) -->
     <article class="card" data-id="male-46" data-cat="Male Slides" data-code="MAL-46" data-img="media/Male Slides/Odelia_Black_and_Brown-Was_28000_now_22400.jpg" data-vid="media/Male Slides/Odelia_Black_and_Brown Was_28k_now_22_400.mp4">
      <div class="img">
-      <div class="mtrack"><div class="ms" data-t="v" data-p="media/Male Slides/Odelia_Black_and_Brown Was_28k_now_22_400.mp4"><video src="media/Male%20Slides/Odelia_Black_and_Brown%20Was_28k_now_22_400.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="i" data-p="media/Male Slides/Odelia_Black_and_Brown-Was_28000_now_22400.jpg"><img src="media/Male%20Slides/Odelia_Black_and_Brown-Was_28000_now_22400.jpg" alt="Odelia Black and Brown" loading="lazy"></div></div>
+      <div class="mtrack"><div class="ms" data-t="i" data-p="media/Male Slides/Odelia_Black_and_Brown-Was_28000_now_22400.jpg"><img src="media/Male%20Slides/Odelia_Black_and_Brown-Was_28000_now_22400.jpg" alt="Odelia Black and Brown" loading="lazy"></div><div class="ms" data-t="v" data-p="media/Male Slides/Odelia_Black_and_Brown Was_28k_now_22_400.mp4"><video src="media/Male%20Slides/Odelia_Black_and_Brown%20Was_28k_now_22_400.mp4#t=0.1" muted loop playsinline preload="none"></video></div></div>
       <span class="tag">-20%</span>
       <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
      </div>
@@ -1246,7 +1249,7 @@ main.searching .cat{margin-bottom:40px}
     <!-- Male Slides 47: Odelia Black and White (1 video, 1 image) -->
     <article class="card" data-id="male-47" data-cat="Male Slides" data-code="MAL-47" data-img="media/Male Slides/Odelia_Black_and_White-Was_28,000_now_22400.jpg" data-vid="media/Male Slides/Odelia_Black_and_White_Was_28000_now_22400.mp4">
      <div class="img">
-      <div class="mtrack"><div class="ms" data-t="v" data-p="media/Male Slides/Odelia_Black_and_White_Was_28000_now_22400.mp4"><video src="media/Male%20Slides/Odelia_Black_and_White_Was_28000_now_22400.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="i" data-p="media/Male Slides/Odelia_Black_and_White-Was_28,000_now_22400.jpg"><img src="media/Male%20Slides/Odelia_Black_and_White-Was_28%2C000_now_22400.jpg" alt="Odelia Black and White" loading="lazy"></div></div>
+      <div class="mtrack"><div class="ms" data-t="i" data-p="media/Male Slides/Odelia_Black_and_White-Was_28,000_now_22400.jpg"><img src="media/Male%20Slides/Odelia_Black_and_White-Was_28%2C000_now_22400.jpg" alt="Odelia Black and White" loading="lazy"></div><div class="ms" data-t="v" data-p="media/Male Slides/Odelia_Black_and_White_Was_28000_now_22400.mp4"><video src="media/Male%20Slides/Odelia_Black_and_White_Was_28000_now_22400.mp4#t=0.1" muted loop playsinline preload="none"></video></div></div>
       <span class="tag">-20%</span>
       <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
      </div>
@@ -1261,7 +1264,7 @@ main.searching .cat{margin-bottom:40px}
     <!-- Male Slides 48: Orion (1 video, 1 image) -->
     <article class="card" data-id="male-48" data-cat="Male Slides" data-code="MAL-48" data-img="media/Male Slides/Orion_Was_29,500_now_23,600.jpg" data-vid="media/Male Slides/Orion_Was_29,500_now_23_600.mp4">
      <div class="img">
-      <div class="mtrack"><div class="ms" data-t="v" data-p="media/Male Slides/Orion_Was_29,500_now_23_600.mp4"><video src="media/Male%20Slides/Orion_Was_29%2C500_now_23_600.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="i" data-p="media/Male Slides/Orion_Was_29,500_now_23,600.jpg"><img src="media/Male%20Slides/Orion_Was_29%2C500_now_23%2C600.jpg" alt="Orion" loading="lazy"></div></div>
+      <div class="mtrack"><div class="ms" data-t="i" data-p="media/Male Slides/Orion_Was_29,500_now_23,600.jpg"><img src="media/Male%20Slides/Orion_Was_29%2C500_now_23%2C600.jpg" alt="Orion" loading="lazy"></div><div class="ms" data-t="v" data-p="media/Male Slides/Orion_Was_29,500_now_23_600.mp4"><video src="media/Male%20Slides/Orion_Was_29%2C500_now_23_600.mp4#t=0.1" muted loop playsinline preload="none"></video></div></div>
       <span class="tag">-20%</span>
       <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
      </div>
@@ -1276,7 +1279,7 @@ main.searching .cat{margin-bottom:40px}
     <!-- Male Slides 49: Otis (1 video, 1 image) -->
     <article class="card" data-id="male-49" data-cat="Male Slides" data-code="MAL-49" data-img="media/Male Slides/Otis. Was 34,200 now 27,400.jpg" data-vid="media/Male Slides/Otis_Was_34,200_now_27,400.mp4">
      <div class="img">
-      <div class="mtrack"><div class="ms" data-t="v" data-p="media/Male Slides/Otis_Was_34,200_now_27,400.mp4"><video src="media/Male%20Slides/Otis_Was_34%2C200_now_27%2C400.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="i" data-p="media/Male Slides/Otis. Was 34,200 now 27,400.jpg"><img src="media/Male%20Slides/Otis.%20Was%2034%2C200%20now%2027%2C400.jpg" alt="Otis" loading="lazy"></div></div>
+      <div class="mtrack"><div class="ms" data-t="i" data-p="media/Male Slides/Otis. Was 34,200 now 27,400.jpg"><img src="media/Male%20Slides/Otis.%20Was%2034%2C200%20now%2027%2C400.jpg" alt="Otis" loading="lazy"></div><div class="ms" data-t="v" data-p="media/Male Slides/Otis_Was_34,200_now_27,400.mp4"><video src="media/Male%20Slides/Otis_Was_34%2C200_now_27%2C400.mp4#t=0.1" muted loop playsinline preload="none"></video></div></div>
       <span class="tag">-20%</span>
       <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
      </div>
@@ -1291,7 +1294,7 @@ main.searching .cat{margin-bottom:40px}
     <!-- Male Slides 52: Parker (1 video, 1 image) -->
     <article class="card" data-id="male-52" data-cat="Male Slides" data-code="MAL-52" data-img="media/Male Slides/Parker Was 30,500 now 24,400.jpg" data-vid="media/Male Slides/Parker_Was_30,500_now_24,400.mp4">
      <div class="img">
-      <div class="mtrack"><div class="ms" data-t="v" data-p="media/Male Slides/Parker_Was_30,500_now_24,400.mp4"><video src="media/Male%20Slides/Parker_Was_30%2C500_now_24%2C400.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="i" data-p="media/Male Slides/Parker Was 30,500 now 24,400.jpg"><img src="media/Male%20Slides/Parker%20Was%2030%2C500%20now%2024%2C400.jpg" alt="Parker" loading="lazy"></div></div>
+      <div class="mtrack"><div class="ms" data-t="i" data-p="media/Male Slides/Parker Was 30,500 now 24,400.jpg"><img src="media/Male%20Slides/Parker%20Was%2030%2C500%20now%2024%2C400.jpg" alt="Parker" loading="lazy"></div><div class="ms" data-t="v" data-p="media/Male Slides/Parker_Was_30,500_now_24,400.mp4"><video src="media/Male%20Slides/Parker_Was_30%2C500_now_24%2C400.mp4#t=0.1" muted loop playsinline preload="none"></video></div></div>
       <span class="tag">-20%</span>
       <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
      </div>
@@ -1306,7 +1309,7 @@ main.searching .cat{margin-bottom:40px}
     <!-- Male Slides 53: Perla set (1 video, 1 image) -->
     <article class="card" data-id="male-53" data-cat="Male Slides" data-code="MAL-53" data-img="media/Male Slides/Perla_set_Was_50k_now_40k.jpg" data-vid="media/Male Slides/Perla_set_Was_50k_now_40k.mp4">
      <div class="img">
-      <div class="mtrack"><div class="ms" data-t="v" data-p="media/Male Slides/Perla_set_Was_50k_now_40k.mp4"><video src="media/Male%20Slides/Perla_set_Was_50k_now_40k.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="i" data-p="media/Male Slides/Perla_set_Was_50k_now_40k.jpg"><img src="media/Male%20Slides/Perla_set_Was_50k_now_40k.jpg" alt="Perla set" loading="lazy"></div></div>
+      <div class="mtrack"><div class="ms" data-t="i" data-p="media/Male Slides/Perla_set_Was_50k_now_40k.jpg"><img src="media/Male%20Slides/Perla_set_Was_50k_now_40k.jpg" alt="Perla set" loading="lazy"></div><div class="ms" data-t="v" data-p="media/Male Slides/Perla_set_Was_50k_now_40k.mp4"><video src="media/Male%20Slides/Perla_set_Was_50k_now_40k.mp4#t=0.1" muted loop playsinline preload="none"></video></div></div>
       <span class="tag">-20%</span>
       <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
      </div>
@@ -1381,7 +1384,7 @@ main.searching .cat{margin-bottom:40px}
     <!-- Male Slides 58: Rumi set (1 video, 1 image) -->
     <article class="card" data-id="male-58" data-cat="Male Slides" data-code="MAL-58" data-img="media/Male Slides/Rumi_set_Was_35k_now_28k.jpg" data-vid="media/Male Slides/Rumi_set_Was_35k_now_28k.mp4">
      <div class="img">
-      <div class="mtrack"><div class="ms" data-t="v" data-p="media/Male Slides/Rumi_set_Was_35k_now_28k.mp4"><video src="media/Male%20Slides/Rumi_set_Was_35k_now_28k.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="i" data-p="media/Male Slides/Rumi_set_Was_35k_now_28k.jpg"><img src="media/Male%20Slides/Rumi_set_Was_35k_now_28k.jpg" alt="Rumi set" loading="lazy"></div></div>
+      <div class="mtrack"><div class="ms" data-t="i" data-p="media/Male Slides/Rumi_set_Was_35k_now_28k.jpg"><img src="media/Male%20Slides/Rumi_set_Was_35k_now_28k.jpg" alt="Rumi set" loading="lazy"></div><div class="ms" data-t="v" data-p="media/Male Slides/Rumi_set_Was_35k_now_28k.mp4"><video src="media/Male%20Slides/Rumi_set_Was_35k_now_28k.mp4#t=0.1" muted loop playsinline preload="none"></video></div></div>
       <span class="tag">-20%</span>
       <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
      </div>
@@ -1456,7 +1459,7 @@ main.searching .cat{margin-bottom:40px}
     <!-- Male Slides 64: Soleil (1 video, 1 image) -->
     <article class="card" data-id="male-64" data-cat="Male Slides" data-code="MAL-64" data-img="media/Male Slides/Soleil Was 25k now 20k.jpg" data-vid="media/Male Slides/Soleil Was 25k now 20k.mp4">
      <div class="img">
-      <div class="mtrack"><div class="ms" data-t="v" data-p="media/Male Slides/Soleil Was 25k now 20k.mp4"><video src="media/Male%20Slides/Soleil%20Was%2025k%20now%2020k.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="i" data-p="media/Male Slides/Soleil Was 25k now 20k.jpg"><img src="media/Male%20Slides/Soleil%20Was%2025k%20now%2020k.jpg" alt="Soleil" loading="lazy"></div></div>
+      <div class="mtrack"><div class="ms" data-t="i" data-p="media/Male Slides/Soleil Was 25k now 20k.jpg"><img src="media/Male%20Slides/Soleil%20Was%2025k%20now%2020k.jpg" alt="Soleil" loading="lazy"></div><div class="ms" data-t="v" data-p="media/Male Slides/Soleil Was 25k now 20k.mp4"><video src="media/Male%20Slides/Soleil%20Was%2025k%20now%2020k.mp4#t=0.1" muted loop playsinline preload="none"></video></div></div>
       <span class="tag">-20%</span>
       <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
      </div>
@@ -1471,7 +1474,7 @@ main.searching .cat{margin-bottom:40px}
     <!-- Male Slides 65: Sunny (1 video, 1 image) -->
     <article class="card" data-id="male-65" data-cat="Male Slides" data-code="MAL-65" data-img="media/Male Slides/Sunny_Was_20k_now_16k.jpg" data-vid="media/Male Slides/Sunny_Was_20k_now_16k.mp4">
      <div class="img">
-      <div class="mtrack"><div class="ms" data-t="v" data-p="media/Male Slides/Sunny_Was_20k_now_16k.mp4"><video src="media/Male%20Slides/Sunny_Was_20k_now_16k.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="i" data-p="media/Male Slides/Sunny_Was_20k_now_16k.jpg"><img src="media/Male%20Slides/Sunny_Was_20k_now_16k.jpg" alt="Sunny" loading="lazy"></div></div>
+      <div class="mtrack"><div class="ms" data-t="i" data-p="media/Male Slides/Sunny_Was_20k_now_16k.jpg"><img src="media/Male%20Slides/Sunny_Was_20k_now_16k.jpg" alt="Sunny" loading="lazy"></div><div class="ms" data-t="v" data-p="media/Male Slides/Sunny_Was_20k_now_16k.mp4"><video src="media/Male%20Slides/Sunny_Was_20k_now_16k.mp4#t=0.1" muted loop playsinline preload="none"></video></div></div>
       <span class="tag">-20%</span>
       <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
      </div>
@@ -1486,7 +1489,7 @@ main.searching .cat{margin-bottom:40px}
     <!-- Male Slides 66: Sway (1 video, 1 image) -->
     <article class="card" data-id="male-66" data-cat="Male Slides" data-code="MAL-66" data-img="media/Male Slides/Sway_Was_25k_now_20k.jpg" data-vid="media/Male Slides/Sway_Was_25k_now_20k.mp4">
      <div class="img">
-      <div class="mtrack"><div class="ms" data-t="v" data-p="media/Male Slides/Sway_Was_25k_now_20k.mp4"><video src="media/Male%20Slides/Sway_Was_25k_now_20k.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="i" data-p="media/Male Slides/Sway_Was_25k_now_20k.jpg"><img src="media/Male%20Slides/Sway_Was_25k_now_20k.jpg" alt="Sway" loading="lazy"></div></div>
+      <div class="mtrack"><div class="ms" data-t="i" data-p="media/Male Slides/Sway_Was_25k_now_20k.jpg"><img src="media/Male%20Slides/Sway_Was_25k_now_20k.jpg" alt="Sway" loading="lazy"></div><div class="ms" data-t="v" data-p="media/Male Slides/Sway_Was_25k_now_20k.mp4"><video src="media/Male%20Slides/Sway_Was_25k_now_20k.mp4#t=0.1" muted loop playsinline preload="none"></video></div></div>
       <span class="tag">-20%</span>
       <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
      </div>
@@ -1501,7 +1504,7 @@ main.searching .cat{margin-bottom:40px}
     <!-- Male Slides 67: Theo (2 video, 1 image) -->
     <article class="card" data-id="male-67" data-cat="Male Slides" data-code="MAL-67" data-img="media/Male Slides/Theo. Was 25k now 20k.jpg" data-vid="media/Male Slides/Theo__Was_25k_now_20k-82e30161.mp4">
      <div class="img">
-      <div class="mtrack"><div class="ms" data-t="v" data-p="media/Male Slides/Theo__Was_25k_now_20k-82e30161.mp4"><video src="media/Male%20Slides/Theo__Was_25k_now_20k-82e30161.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="v" data-p="media/Male Slides/Theo__Was_25k_now_20k.mp4"><video src="media/Male%20Slides/Theo__Was_25k_now_20k.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="i" data-p="media/Male Slides/Theo. Was 25k now 20k.jpg"><img src="media/Male%20Slides/Theo.%20Was%2025k%20now%2020k.jpg" alt="Theo" loading="lazy"></div></div>
+      <div class="mtrack"><div class="ms" data-t="i" data-p="media/Male Slides/Theo. Was 25k now 20k.jpg"><img src="media/Male%20Slides/Theo.%20Was%2025k%20now%2020k.jpg" alt="Theo" loading="lazy"></div><div class="ms" data-t="v" data-p="media/Male Slides/Theo__Was_25k_now_20k-82e30161.mp4"><video src="media/Male%20Slides/Theo__Was_25k_now_20k-82e30161.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="v" data-p="media/Male Slides/Theo__Was_25k_now_20k.mp4"><video src="media/Male%20Slides/Theo__Was_25k_now_20k.mp4#t=0.1" muted loop playsinline preload="none"></video></div></div>
       <span class="tag">-20%</span>
       <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
      </div>
@@ -1516,7 +1519,7 @@ main.searching .cat{margin-bottom:40px}
     <!-- Male Slides 68: Tobi (2 video, 2 image) -->
     <article class="card" data-id="male-68" data-cat="Male Slides" data-code="MAL-68" data-img="media/Male Slides/Tobi. Was 20,000 now 16,000.    .jpg" data-vid="media/Male Slides/Tobi__Was_20_000_now_16_000____-bea3665b.mp4">
      <div class="img">
-      <div class="mtrack"><div class="ms" data-t="v" data-p="media/Male Slides/Tobi__Was_20_000_now_16_000____-bea3665b.mp4"><video src="media/Male%20Slides/Tobi__Was_20_000_now_16_000____-bea3665b.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="v" data-p="media/Male Slides/Tobi__Was_20_000_now_16_000______-6f9a23eb.mp4"><video src="media/Male%20Slides/Tobi__Was_20_000_now_16_000______-6f9a23eb.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="i" data-p="media/Male Slides/Tobi. Was 20,000 now 16,000.    .jpg"><img src="media/Male%20Slides/Tobi.%20Was%2020%2C000%20now%2016%2C000.%20%20%20%20.jpg" alt="Tobi" loading="lazy"></div><div class="ms" data-t="i" data-p="media/Male Slides/Tobi. Was 20,000 now 16,000.   .jpg"><img src="media/Male%20Slides/Tobi.%20Was%2020%2C000%20now%2016%2C000.%20%20%20.jpg" alt="Tobi" loading="lazy"></div></div>
+      <div class="mtrack"><div class="ms" data-t="i" data-p="media/Male Slides/Tobi. Was 20,000 now 16,000.    .jpg"><img src="media/Male%20Slides/Tobi.%20Was%2020%2C000%20now%2016%2C000.%20%20%20%20.jpg" alt="Tobi" loading="lazy"></div><div class="ms" data-t="i" data-p="media/Male Slides/Tobi. Was 20,000 now 16,000.   .jpg"><img src="media/Male%20Slides/Tobi.%20Was%2020%2C000%20now%2016%2C000.%20%20%20.jpg" alt="Tobi" loading="lazy"></div><div class="ms" data-t="v" data-p="media/Male Slides/Tobi__Was_20_000_now_16_000____-bea3665b.mp4"><video src="media/Male%20Slides/Tobi__Was_20_000_now_16_000____-bea3665b.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="v" data-p="media/Male Slides/Tobi__Was_20_000_now_16_000______-6f9a23eb.mp4"><video src="media/Male%20Slides/Tobi__Was_20_000_now_16_000______-6f9a23eb.mp4#t=0.1" muted loop playsinline preload="none"></video></div></div>
       <span class="tag">-20%</span>
       <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
      </div>
@@ -1531,7 +1534,7 @@ main.searching .cat{margin-bottom:40px}
     <!-- Male Slides 69: Tobi (1 video, 1 image) -->
     <article class="card" data-id="male-69" data-cat="Male Slides" data-code="MAL-69" data-img="media/Male Slides/Tobi. Was 22,000 now 17,600.jpg" data-vid="media/Male Slides/Tobi__Was_22_000_now_17_600__-7315d026.mp4">
      <div class="img">
-      <div class="mtrack"><div class="ms" data-t="v" data-p="media/Male Slides/Tobi__Was_22_000_now_17_600__-7315d026.mp4"><video src="media/Male%20Slides/Tobi__Was_22_000_now_17_600__-7315d026.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="i" data-p="media/Male Slides/Tobi. Was 22,000 now 17,600.jpg"><img src="media/Male%20Slides/Tobi.%20Was%2022%2C000%20now%2017%2C600.jpg" alt="Tobi" loading="lazy"></div></div>
+      <div class="mtrack"><div class="ms" data-t="i" data-p="media/Male Slides/Tobi. Was 22,000 now 17,600.jpg"><img src="media/Male%20Slides/Tobi.%20Was%2022%2C000%20now%2017%2C600.jpg" alt="Tobi" loading="lazy"></div><div class="ms" data-t="v" data-p="media/Male Slides/Tobi__Was_22_000_now_17_600__-7315d026.mp4"><video src="media/Male%20Slides/Tobi__Was_22_000_now_17_600__-7315d026.mp4#t=0.1" muted loop playsinline preload="none"></video></div></div>
       <span class="tag">-20%</span>
       <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
      </div>
@@ -1576,7 +1579,7 @@ main.searching .cat{margin-bottom:40px}
     <!-- Male Slides 72: Wave (2 video, 2 image) -->
     <article class="card" data-id="male-72" data-cat="Male Slides" data-code="MAL-72" data-img="media/Male Slides/Wave. Was 30k  now 24k.  .jpg" data-vid="media/Male Slides/Wave__Was_30k__now_24k_-83fda768.mp4">
      <div class="img">
-      <div class="mtrack"><div class="ms" data-t="v" data-p="media/Male Slides/Wave__Was_30k__now_24k_-83fda768.mp4"><video src="media/Male%20Slides/Wave__Was_30k__now_24k_-83fda768.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="v" data-p="media/Male Slides/Wave__Was_30k__now_24k__-19a8316e.mp4"><video src="media/Male%20Slides/Wave__Was_30k__now_24k__-19a8316e.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="i" data-p="media/Male Slides/Wave. Was 30k  now 24k.  .jpg"><img src="media/Male%20Slides/Wave.%20Was%2030k%20%20now%2024k.%20%20.jpg" alt="Wave" loading="lazy"></div><div class="ms" data-t="i" data-p="media/Male Slides/Wave. Was 30k  now 24k.jpg"><img src="media/Male%20Slides/Wave.%20Was%2030k%20%20now%2024k.jpg" alt="Wave" loading="lazy"></div></div>
+      <div class="mtrack"><div class="ms" data-t="i" data-p="media/Male Slides/Wave. Was 30k  now 24k.  .jpg"><img src="media/Male%20Slides/Wave.%20Was%2030k%20%20now%2024k.%20%20.jpg" alt="Wave" loading="lazy"></div><div class="ms" data-t="i" data-p="media/Male Slides/Wave. Was 30k  now 24k.jpg"><img src="media/Male%20Slides/Wave.%20Was%2030k%20%20now%2024k.jpg" alt="Wave" loading="lazy"></div><div class="ms" data-t="v" data-p="media/Male Slides/Wave__Was_30k__now_24k_-83fda768.mp4"><video src="media/Male%20Slides/Wave__Was_30k__now_24k_-83fda768.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="v" data-p="media/Male Slides/Wave__Was_30k__now_24k__-19a8316e.mp4"><video src="media/Male%20Slides/Wave__Was_30k__now_24k__-19a8316e.mp4#t=0.1" muted loop playsinline preload="none"></video></div></div>
       <span class="tag">-20%</span>
       <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
      </div>
@@ -1606,7 +1609,7 @@ main.searching .cat{margin-bottom:40px}
     <!-- Male Slides 74: Zen (8 video, 4 image) -->
     <article class="card" data-id="male-74" data-cat="Male Slides" data-code="MAL-74" data-img="media/Male Slides/Zen. Was 21k now 16,800.        .jpg" data-vid="media/Male Slides/Zen__Was_21k_now_16_800-e78748e2.mp4">
      <div class="img">
-      <div class="mtrack"><div class="ms" data-t="v" data-p="media/Male Slides/Zen__Was_21k_now_16_800-e78748e2.mp4"><video src="media/Male%20Slides/Zen__Was_21k_now_16_800-e78748e2.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="v" data-p="media/Male Slides/Zen__Was_21k_now_16_800__-b7c0bb98.mp4"><video src="media/Male%20Slides/Zen__Was_21k_now_16_800__-b7c0bb98.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="v" data-p="media/Male Slides/Zen__Was_21k_now_16_800___-cd1be481.mp4"><video src="media/Male%20Slides/Zen__Was_21k_now_16_800___-cd1be481.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="v" data-p="media/Male Slides/Zen__Was_21k_now_16_800_____-f5df7537.mp4"><video src="media/Male%20Slides/Zen__Was_21k_now_16_800_____-f5df7537.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="v" data-p="media/Male Slides/Zen__Was_21k_now_16_800_______-4d49503e.mp4"><video src="media/Male%20Slides/Zen__Was_21k_now_16_800_______-4d49503e.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="v" data-p="media/Male Slides/Zen__Was_21k_now_16_800__________-2ebf7bb2.mp4"><video src="media/Male%20Slides/Zen__Was_21k_now_16_800__________-2ebf7bb2.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="v" data-p="media/Male Slides/Zen__Was_21k_now_16_800_______________-aa686f10.mp4"><video src="media/Male%20Slides/Zen__Was_21k_now_16_800_______________-aa686f10.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="v" data-p="media/Male Slides/Zen__Was_21k_now_16_800________________-1db6fc2d.mp4"><video src="media/Male%20Slides/Zen__Was_21k_now_16_800________________-1db6fc2d.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="i" data-p="media/Male Slides/Zen. Was 21k now 16,800.        .jpg"><img src="media/Male%20Slides/Zen.%20Was%2021k%20now%2016%2C800.%20%20%20%20%20%20%20%20.jpg" alt="Zen" loading="lazy"></div><div class="ms" data-t="i" data-p="media/Male Slides/Zen. Was 21k now 16,800.       .jpg"><img src="media/Male%20Slides/Zen.%20Was%2021k%20now%2016%2C800.%20%20%20%20%20%20%20.jpg" alt="Zen" loading="lazy"></div><div class="ms" data-t="i" data-p="media/Male Slides/Zen. Was 21k now 16,800.   .jpg"><img src="media/Male%20Slides/Zen.%20Was%2021k%20now%2016%2C800.%20%20%20.jpg" alt="Zen" loading="lazy"></div><div class="ms" data-t="i" data-p="media/Male Slides/Zen. Was 21k now 16,800.jpg"><img src="media/Male%20Slides/Zen.%20Was%2021k%20now%2016%2C800.jpg" alt="Zen" loading="lazy"></div></div>
+      <div class="mtrack"><div class="ms" data-t="i" data-p="media/Male Slides/Zen. Was 21k now 16,800.        .jpg"><img src="media/Male%20Slides/Zen.%20Was%2021k%20now%2016%2C800.%20%20%20%20%20%20%20%20.jpg" alt="Zen" loading="lazy"></div><div class="ms" data-t="i" data-p="media/Male Slides/Zen. Was 21k now 16,800.       .jpg"><img src="media/Male%20Slides/Zen.%20Was%2021k%20now%2016%2C800.%20%20%20%20%20%20%20.jpg" alt="Zen" loading="lazy"></div><div class="ms" data-t="i" data-p="media/Male Slides/Zen. Was 21k now 16,800.   .jpg"><img src="media/Male%20Slides/Zen.%20Was%2021k%20now%2016%2C800.%20%20%20.jpg" alt="Zen" loading="lazy"></div><div class="ms" data-t="i" data-p="media/Male Slides/Zen. Was 21k now 16,800.jpg"><img src="media/Male%20Slides/Zen.%20Was%2021k%20now%2016%2C800.jpg" alt="Zen" loading="lazy"></div><div class="ms" data-t="v" data-p="media/Male Slides/Zen__Was_21k_now_16_800-e78748e2.mp4"><video src="media/Male%20Slides/Zen__Was_21k_now_16_800-e78748e2.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="v" data-p="media/Male Slides/Zen__Was_21k_now_16_800__-b7c0bb98.mp4"><video src="media/Male%20Slides/Zen__Was_21k_now_16_800__-b7c0bb98.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="v" data-p="media/Male Slides/Zen__Was_21k_now_16_800___-cd1be481.mp4"><video src="media/Male%20Slides/Zen__Was_21k_now_16_800___-cd1be481.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="v" data-p="media/Male Slides/Zen__Was_21k_now_16_800_____-f5df7537.mp4"><video src="media/Male%20Slides/Zen__Was_21k_now_16_800_____-f5df7537.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="v" data-p="media/Male Slides/Zen__Was_21k_now_16_800_______-4d49503e.mp4"><video src="media/Male%20Slides/Zen__Was_21k_now_16_800_______-4d49503e.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="v" data-p="media/Male Slides/Zen__Was_21k_now_16_800__________-2ebf7bb2.mp4"><video src="media/Male%20Slides/Zen__Was_21k_now_16_800__________-2ebf7bb2.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="v" data-p="media/Male Slides/Zen__Was_21k_now_16_800_______________-aa686f10.mp4"><video src="media/Male%20Slides/Zen__Was_21k_now_16_800_______________-aa686f10.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="v" data-p="media/Male Slides/Zen__Was_21k_now_16_800________________-1db6fc2d.mp4"><video src="media/Male%20Slides/Zen__Was_21k_now_16_800________________-1db6fc2d.mp4#t=0.1" muted loop playsinline preload="none"></video></div></div>
       <span class="tag">-20%</span>
       <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
      </div>
@@ -1621,7 +1624,7 @@ main.searching .cat{margin-bottom:40px}
     <!-- Male Slides 76: Zuri (2 video, 1 image) -->
     <article class="card" data-id="male-76" data-cat="Male Slides" data-code="MAL-76" data-img="media/Male Slides/Zuri. Was 35,000 now 28,000.jpg" data-vid="media/Male Slides/Zuri__Was_35_000_now_28_000-7dc4c6bb.mp4">
      <div class="img">
-      <div class="mtrack"><div class="ms" data-t="v" data-p="media/Male Slides/Zuri__Was_35_000_now_28_000-7dc4c6bb.mp4"><video src="media/Male%20Slides/Zuri__Was_35_000_now_28_000-7dc4c6bb.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="v" data-p="media/Male Slides/Zuri__Was_35_000_now_28_000__-c4701f0e.mp4"><video src="media/Male%20Slides/Zuri__Was_35_000_now_28_000__-c4701f0e.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="i" data-p="media/Male Slides/Zuri. Was 35,000 now 28,000.jpg"><img src="media/Male%20Slides/Zuri.%20Was%2035%2C000%20now%2028%2C000.jpg" alt="Zuri" loading="lazy"></div></div>
+      <div class="mtrack"><div class="ms" data-t="i" data-p="media/Male Slides/Zuri. Was 35,000 now 28,000.jpg"><img src="media/Male%20Slides/Zuri.%20Was%2035%2C000%20now%2028%2C000.jpg" alt="Zuri" loading="lazy"></div><div class="ms" data-t="v" data-p="media/Male Slides/Zuri__Was_35_000_now_28_000-7dc4c6bb.mp4"><video src="media/Male%20Slides/Zuri__Was_35_000_now_28_000-7dc4c6bb.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="v" data-p="media/Male Slides/Zuri__Was_35_000_now_28_000__-c4701f0e.mp4"><video src="media/Male%20Slides/Zuri__Was_35_000_now_28_000__-c4701f0e.mp4#t=0.1" muted loop playsinline preload="none"></video></div></div>
       <span class="tag">-20%</span>
       <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
      </div>
@@ -1643,7 +1646,7 @@ main.searching .cat{margin-bottom:40px}
     <!-- Female Slides 1: Adora Green & Yellow (3 video, 1 image) -->
     <article class="card" data-id="female-1" data-cat="Female Slides" data-code="FEM-1" data-img="media/Female Slides/Adora. Was 15k now 12k.jpg" data-vid="media/Female Slides/Adora__Was_15k_now_12k-b22b46b9.mp4">
      <div class="img">
-      <div class="mtrack"><div class="ms" data-t="v" data-p="media/Female Slides/Adora__Was_15k_now_12k-b22b46b9.mp4"><video src="media/Female%20Slides/Adora__Was_15k_now_12k-b22b46b9.mp4#t=0.1" muted loop playsinline preload="metadata"></video></div><div class="ms" data-t="v" data-p="media/Female Slides/Adora__Was_15k_now_12k___-3382c195 (2).mp4"><video src="media/Female%20Slides/Adora__Was_15k_now_12k___-3382c195%20%282%29.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="v" data-p="media/Female Slides/Adora__Was_15k_now_12k___-3382c195.mp4"><video src="media/Female%20Slides/Adora__Was_15k_now_12k___-3382c195.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="i" data-p="media/Female Slides/Adora. Was 15k now 12k.jpg"><img src="media/Female%20Slides/Adora.%20Was%2015k%20now%2012k.jpg" alt="Adora" loading="lazy"></div></div>
+      <div class="mtrack"><div class="ms" data-t="i" data-p="media/Female Slides/Adora. Was 15k now 12k.jpg"><img src="media/Female%20Slides/Adora.%20Was%2015k%20now%2012k.jpg" alt="Adora" loading="lazy"></div><div class="ms" data-t="v" data-p="media/Female Slides/Adora__Was_15k_now_12k-b22b46b9.mp4"><video src="media/Female%20Slides/Adora__Was_15k_now_12k-b22b46b9.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="v" data-p="media/Female Slides/Adora__Was_15k_now_12k___-3382c195 (2).mp4"><video src="media/Female%20Slides/Adora__Was_15k_now_12k___-3382c195%20%282%29.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="v" data-p="media/Female Slides/Adora__Was_15k_now_12k___-3382c195.mp4"><video src="media/Female%20Slides/Adora__Was_15k_now_12k___-3382c195.mp4#t=0.1" muted loop playsinline preload="none"></video></div></div>
       <span class="tag">-20%</span>
       <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
      </div>
@@ -1763,7 +1766,7 @@ main.searching .cat{margin-bottom:40px}
     <!-- Female Slides 9: Amara (1 video, 1 image) -->
     <article class="card" data-id="female-9" data-cat="Female Slides" data-code="FEM-9" data-img="media/Female Slides/Amara. Was 27,500 Now 22k.jpg" data-vid="media/Female Slides/Amara__Was_27_500_Now_22k-6c1a67dd.mp4">
      <div class="img">
-      <div class="mtrack"><div class="ms" data-t="v" data-p="media/Female Slides/Amara__Was_27_500_Now_22k-6c1a67dd.mp4"><video src="media/Female%20Slides/Amara__Was_27_500_Now_22k-6c1a67dd.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="i" data-p="media/Female Slides/Amara. Was 27,500 Now 22k.jpg"><img src="media/Female%20Slides/Amara.%20Was%2027%2C500%20Now%2022k.jpg" alt="Amara" loading="lazy"></div></div>
+      <div class="mtrack"><div class="ms" data-t="i" data-p="media/Female Slides/Amara. Was 27,500 Now 22k.jpg"><img src="media/Female%20Slides/Amara.%20Was%2027%2C500%20Now%2022k.jpg" alt="Amara" loading="lazy"></div><div class="ms" data-t="v" data-p="media/Female Slides/Amara__Was_27_500_Now_22k-6c1a67dd.mp4"><video src="media/Female%20Slides/Amara__Was_27_500_Now_22k-6c1a67dd.mp4#t=0.1" muted loop playsinline preload="none"></video></div></div>
       <span class="tag">-20%</span>
       <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
      </div>
@@ -1778,7 +1781,7 @@ main.searching .cat{margin-bottom:40px}
     <!-- Female Slides 10: Anya (2 video, 1 image) -->
     <article class="card" data-id="female-10" data-cat="Female Slides" data-code="FEM-10" data-img="media/Female Slides/Anya. Was 15k now 12k.jpg" data-vid="media/Female Slides/Anya__Was_15k_now_12k-7c25e050 (2).mp4">
      <div class="img">
-      <div class="mtrack"><div class="ms" data-t="v" data-p="media/Female Slides/Anya__Was_15k_now_12k-7c25e050 (2).mp4"><video src="media/Female%20Slides/Anya__Was_15k_now_12k-7c25e050%20%282%29.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="v" data-p="media/Female Slides/Anya__Was_15k_now_12k-7c25e050.mp4"><video src="media/Female%20Slides/Anya__Was_15k_now_12k-7c25e050.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="i" data-p="media/Female Slides/Anya. Was 15k now 12k.jpg"><img src="media/Female%20Slides/Anya.%20Was%2015k%20now%2012k.jpg" alt="Anya" loading="lazy"></div></div>
+      <div class="mtrack"><div class="ms" data-t="i" data-p="media/Female Slides/Anya. Was 15k now 12k.jpg"><img src="media/Female%20Slides/Anya.%20Was%2015k%20now%2012k.jpg" alt="Anya" loading="lazy"></div><div class="ms" data-t="v" data-p="media/Female Slides/Anya__Was_15k_now_12k-7c25e050 (2).mp4"><video src="media/Female%20Slides/Anya__Was_15k_now_12k-7c25e050%20%282%29.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="v" data-p="media/Female Slides/Anya__Was_15k_now_12k-7c25e050.mp4"><video src="media/Female%20Slides/Anya__Was_15k_now_12k-7c25e050.mp4#t=0.1" muted loop playsinline preload="none"></video></div></div>
       <span class="tag">-20%</span>
       <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
      </div>
@@ -1793,7 +1796,7 @@ main.searching .cat{margin-bottom:40px}
     <!-- Female Slides 11: Ari (1 video, 1 image) -->
     <article class="card" data-id="female-11" data-cat="Female Slides" data-code="FEM-11" data-img="media/Female Slides/Ari. Was 15,500 now 12,400.jpg" data-vid="media/Female Slides/Ari__Was_15_500_now_12_400-9a5b981e.mp4">
      <div class="img">
-      <div class="mtrack"><div class="ms" data-t="v" data-p="media/Female Slides/Ari__Was_15_500_now_12_400-9a5b981e.mp4"><video src="media/Female%20Slides/Ari__Was_15_500_now_12_400-9a5b981e.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="i" data-p="media/Female Slides/Ari. Was 15,500 now 12,400.jpg"><img src="media/Female%20Slides/Ari.%20Was%2015%2C500%20now%2012%2C400.jpg" alt="Ari" loading="lazy"></div></div>
+      <div class="mtrack"><div class="ms" data-t="i" data-p="media/Female Slides/Ari. Was 15,500 now 12,400.jpg"><img src="media/Female%20Slides/Ari.%20Was%2015%2C500%20now%2012%2C400.jpg" alt="Ari" loading="lazy"></div><div class="ms" data-t="v" data-p="media/Female Slides/Ari__Was_15_500_now_12_400-9a5b981e.mp4"><video src="media/Female%20Slides/Ari__Was_15_500_now_12_400-9a5b981e.mp4#t=0.1" muted loop playsinline preload="none"></video></div></div>
       <span class="tag">-20%</span>
       <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
      </div>
@@ -1808,7 +1811,7 @@ main.searching .cat{margin-bottom:40px}
     <!-- Female Slides 13: Aria black (1 video, 1 image) -->
     <article class="card" data-id="female-13" data-cat="Female Slides" data-code="FEM-13" data-img="media/Female Slides/Aria black Was 15,500 Now 12,400.jpg" data-vid="media/Female Slides/Aria_black_Was_15_500_Now_12_400_-d119b0c2.mp4">
      <div class="img">
-      <div class="mtrack"><div class="ms" data-t="v" data-p="media/Female Slides/Aria_black_Was_15_500_Now_12_400_-d119b0c2.mp4"><video src="media/Female%20Slides/Aria_black_Was_15_500_Now_12_400_-d119b0c2.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="i" data-p="media/Female Slides/Aria black Was 15,500 Now 12,400.jpg"><img src="media/Female%20Slides/Aria%20black%20Was%2015%2C500%20Now%2012%2C400.jpg" alt="Aria black" loading="lazy"></div></div>
+      <div class="mtrack"><div class="ms" data-t="i" data-p="media/Female Slides/Aria black Was 15,500 Now 12,400.jpg"><img src="media/Female%20Slides/Aria%20black%20Was%2015%2C500%20Now%2012%2C400.jpg" alt="Aria black" loading="lazy"></div><div class="ms" data-t="v" data-p="media/Female Slides/Aria_black_Was_15_500_Now_12_400_-d119b0c2.mp4"><video src="media/Female%20Slides/Aria_black_Was_15_500_Now_12_400_-d119b0c2.mp4#t=0.1" muted loop playsinline preload="none"></video></div></div>
       <span class="tag">-20%</span>
       <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
      </div>
@@ -2003,7 +2006,7 @@ main.searching .cat{margin-bottom:40px}
     <!-- Female Slides 28: Aveline (1 video, 1 image) -->
     <article class="card" data-id="female-28" data-cat="Female Slides" data-code="FEM-28" data-img="media/Female Slides/Aveline Centered Frame Was 15k now 12k.jpg" data-vid="media/Female Slides/Aveline_Centered_Frame_Was_15k_now_12k-8b6c0297 (2).mp4">
      <div class="img">
-      <div class="mtrack"><div class="ms" data-t="v" data-p="media/Female Slides/Aveline_Centered_Frame_Was_15k_now_12k-8b6c0297 (2).mp4"><video src="media/Female%20Slides/Aveline_Centered_Frame_Was_15k_now_12k-8b6c0297%20%282%29.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="i" data-p="media/Female Slides/Aveline Centered Frame Was 15k now 12k.jpg"><img src="media/Female%20Slides/Aveline%20Centered%20Frame%20Was%2015k%20now%2012k.jpg" alt="Aveline Centered Frame" loading="lazy"></div></div>
+      <div class="mtrack"><div class="ms" data-t="i" data-p="media/Female Slides/Aveline Centered Frame Was 15k now 12k.jpg"><img src="media/Female%20Slides/Aveline%20Centered%20Frame%20Was%2015k%20now%2012k.jpg" alt="Aveline Centered Frame" loading="lazy"></div><div class="ms" data-t="v" data-p="media/Female Slides/Aveline_Centered_Frame_Was_15k_now_12k-8b6c0297 (2).mp4"><video src="media/Female%20Slides/Aveline_Centered_Frame_Was_15k_now_12k-8b6c0297%20%282%29.mp4#t=0.1" muted loop playsinline preload="none"></video></div></div>
       <span class="tag">-20%</span>
       <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
      </div>
@@ -2018,7 +2021,7 @@ main.searching .cat{margin-bottom:40px}
     <!-- Female Slides 29: Celine Red (1 video, 1 image) -->
     <article class="card" data-id="female-29" data-cat="Female Slides" data-code="FEM-29" data-img="media/Female Slides/Celine Red Was 15k now 12k.jpg" data-vid="media/Female Slides/Celine_Red_Was_15k_now_12k-70af6903.mp4">
      <div class="img">
-      <div class="mtrack"><div class="ms" data-t="v" data-p="media/Female Slides/Celine_Red_Was_15k_now_12k-70af6903.mp4"><video src="media/Female%20Slides/Celine_Red_Was_15k_now_12k-70af6903.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="i" data-p="media/Female Slides/Celine Red Was 15k now 12k.jpg"><img src="media/Female%20Slides/Celine%20Red%20Was%2015k%20now%2012k.jpg" alt="Celine Red" loading="lazy"></div></div>
+      <div class="mtrack"><div class="ms" data-t="i" data-p="media/Female Slides/Celine Red Was 15k now 12k.jpg"><img src="media/Female%20Slides/Celine%20Red%20Was%2015k%20now%2012k.jpg" alt="Celine Red" loading="lazy"></div><div class="ms" data-t="v" data-p="media/Female Slides/Celine_Red_Was_15k_now_12k-70af6903.mp4"><video src="media/Female%20Slides/Celine_Red_Was_15k_now_12k-70af6903.mp4#t=0.1" muted loop playsinline preload="none"></video></div></div>
       <span class="tag">-20%</span>
       <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
      </div>
@@ -2048,7 +2051,7 @@ main.searching .cat{margin-bottom:40px}
     <!-- Female Slides 31: Demi Black (1 video, 1 image) -->
     <article class="card" data-id="female-31" data-cat="Female Slides" data-code="FEM-31" data-img="media/Female Slides/Demi Black Was 27,500 now 22k.jpg" data-vid="media/Female Slides/Demi_Black_Was_27_500_now_22k-ab12ad4d (2).mp4">
      <div class="img">
-      <div class="mtrack"><div class="ms" data-t="v" data-p="media/Female Slides/Demi_Black_Was_27_500_now_22k-ab12ad4d (2).mp4"><video src="media/Female%20Slides/Demi_Black_Was_27_500_now_22k-ab12ad4d%20%282%29.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="i" data-p="media/Female Slides/Demi Black Was 27,500 now 22k.jpg"><img src="media/Female%20Slides/Demi%20Black%20Was%2027%2C500%20now%2022k.jpg" alt="Demi Black" loading="lazy"></div></div>
+      <div class="mtrack"><div class="ms" data-t="i" data-p="media/Female Slides/Demi Black Was 27,500 now 22k.jpg"><img src="media/Female%20Slides/Demi%20Black%20Was%2027%2C500%20now%2022k.jpg" alt="Demi Black" loading="lazy"></div><div class="ms" data-t="v" data-p="media/Female Slides/Demi_Black_Was_27_500_now_22k-ab12ad4d (2).mp4"><video src="media/Female%20Slides/Demi_Black_Was_27_500_now_22k-ab12ad4d%20%282%29.mp4#t=0.1" muted loop playsinline preload="none"></video></div></div>
       <span class="tag">-20%</span>
       <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
      </div>
@@ -2063,7 +2066,7 @@ main.searching .cat{margin-bottom:40px}
     <!-- Female Slides 32: Demi Blue (1 video, 1 image) -->
     <article class="card" data-id="female-32" data-cat="Female Slides" data-code="FEM-32" data-img="media/Female Slides/Demi Jean Was 27,500 now 22k.jpg" data-vid="media/Female Slides/Demi_Jean_Was_27_500_now_22k-0e650dc7 (2).mp4">
      <div class="img">
-      <div class="mtrack"><div class="ms" data-t="v" data-p="media/Female Slides/Demi_Jean_Was_27_500_now_22k-0e650dc7 (2).mp4"><video src="media/Female%20Slides/Demi_Jean_Was_27_500_now_22k-0e650dc7%20%282%29.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="i" data-p="media/Female Slides/Demi Jean Was 27,500 now 22k.jpg"><img src="media/Female%20Slides/Demi%20Jean%20Was%2027%2C500%20now%2022k.jpg" alt="Demi Jean" loading="lazy"></div></div>
+      <div class="mtrack"><div class="ms" data-t="i" data-p="media/Female Slides/Demi Jean Was 27,500 now 22k.jpg"><img src="media/Female%20Slides/Demi%20Jean%20Was%2027%2C500%20now%2022k.jpg" alt="Demi Jean" loading="lazy"></div><div class="ms" data-t="v" data-p="media/Female Slides/Demi_Jean_Was_27_500_now_22k-0e650dc7 (2).mp4"><video src="media/Female%20Slides/Demi_Jean_Was_27_500_now_22k-0e650dc7%20%282%29.mp4#t=0.1" muted loop playsinline preload="none"></video></div></div>
       <span class="tag">-20%</span>
       <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
      </div>
@@ -2078,7 +2081,7 @@ main.searching .cat{margin-bottom:40px}
     <!-- Female Slides 33: Edna (1 video, 1 image) -->
     <article class="card" data-id="female-33" data-cat="Female Slides" data-code="FEM-33" data-img="media/Female Slides/Edna Was 15k now 12k.jpg" data-vid="media/Female Slides/Edna_Was_15k_now_12k-754a1fbf.mp4">
      <div class="img">
-      <div class="mtrack"><div class="ms" data-t="v" data-p="media/Female Slides/Edna_Was_15k_now_12k-754a1fbf.mp4"><video src="media/Female%20Slides/Edna_Was_15k_now_12k-754a1fbf.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="i" data-p="media/Female Slides/Edna Was 15k now 12k.jpg"><img src="media/Female%20Slides/Edna%20Was%2015k%20now%2012k.jpg" alt="Edna" loading="lazy"></div></div>
+      <div class="mtrack"><div class="ms" data-t="i" data-p="media/Female Slides/Edna Was 15k now 12k.jpg"><img src="media/Female%20Slides/Edna%20Was%2015k%20now%2012k.jpg" alt="Edna" loading="lazy"></div><div class="ms" data-t="v" data-p="media/Female Slides/Edna_Was_15k_now_12k-754a1fbf.mp4"><video src="media/Female%20Slides/Edna_Was_15k_now_12k-754a1fbf.mp4#t=0.1" muted loop playsinline preload="none"></video></div></div>
       <span class="tag">-20%</span>
       <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
      </div>
@@ -2183,7 +2186,7 @@ main.searching .cat{margin-bottom:40px}
     <!-- Female Slides 43: Evora Black (1 video, 1 image) -->
     <article class="card" data-id="female-43" data-cat="Female Slides" data-code="FEM-43" data-img="media/Female Slides/Evora Black Was 15k Now 12k.jpg" data-vid="media/Female Slides/Evora_Black_Was_15k_Now_12k-d1245692.mp4">
      <div class="img">
-      <div class="mtrack"><div class="ms" data-t="v" data-p="media/Female Slides/Evora_Black_Was_15k_Now_12k-d1245692.mp4"><video src="media/Female%20Slides/Evora_Black_Was_15k_Now_12k-d1245692.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="i" data-p="media/Female Slides/Evora Black Was 15k Now 12k.jpg"><img src="media/Female%20Slides/Evora%20Black%20Was%2015k%20Now%2012k.jpg" alt="Evora Black" loading="lazy"></div></div>
+      <div class="mtrack"><div class="ms" data-t="i" data-p="media/Female Slides/Evora Black Was 15k Now 12k.jpg"><img src="media/Female%20Slides/Evora%20Black%20Was%2015k%20Now%2012k.jpg" alt="Evora Black" loading="lazy"></div><div class="ms" data-t="v" data-p="media/Female Slides/Evora_Black_Was_15k_Now_12k-d1245692.mp4"><video src="media/Female%20Slides/Evora_Black_Was_15k_Now_12k-d1245692.mp4#t=0.1" muted loop playsinline preload="none"></video></div></div>
       <span class="tag">-20%</span>
       <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
      </div>
@@ -2213,7 +2216,7 @@ main.searching .cat{margin-bottom:40px}
     <!-- Female Slides 45: Faye (1 video, 1 image) -->
     <article class="card" data-id="female-45" data-cat="Female Slides" data-code="FEM-45" data-img="media/Female Slides/Faye Was 25k now 20k.jpg" data-vid="media/Female Slides/Faye_Was_25k_now_20k-93908e2b.mp4">
      <div class="img">
-      <div class="mtrack"><div class="ms" data-t="v" data-p="media/Female Slides/Faye_Was_25k_now_20k-93908e2b.mp4"><video src="media/Female%20Slides/Faye_Was_25k_now_20k-93908e2b.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="i" data-p="media/Female Slides/Faye Was 25k now 20k.jpg"><img src="media/Female%20Slides/Faye%20Was%2025k%20now%2020k.jpg" alt="Faye" loading="lazy"></div></div>
+      <div class="mtrack"><div class="ms" data-t="i" data-p="media/Female Slides/Faye Was 25k now 20k.jpg"><img src="media/Female%20Slides/Faye%20Was%2025k%20now%2020k.jpg" alt="Faye" loading="lazy"></div><div class="ms" data-t="v" data-p="media/Female Slides/Faye_Was_25k_now_20k-93908e2b.mp4"><video src="media/Female%20Slides/Faye_Was_25k_now_20k-93908e2b.mp4#t=0.1" muted loop playsinline preload="none"></video></div></div>
       <span class="tag">-20%</span>
       <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
      </div>
@@ -2243,7 +2246,7 @@ main.searching .cat{margin-bottom:40px}
     <!-- Female Slides 48: Halia (1 video, 1 image) -->
     <article class="card" data-id="female-48" data-cat="Female Slides" data-code="FEM-48" data-img="media/Female Slides/Halia Was 15,500 now 12,400.jpg" data-vid="media/Female Slides/Halia_Was_15_500_now_12_400-b80d0968.mp4">
      <div class="img">
-      <div class="mtrack"><div class="ms" data-t="v" data-p="media/Female Slides/Halia_Was_15_500_now_12_400-b80d0968.mp4"><video src="media/Female%20Slides/Halia_Was_15_500_now_12_400-b80d0968.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="i" data-p="media/Female Slides/Halia Was 15,500 now 12,400.jpg"><img src="media/Female%20Slides/Halia%20Was%2015%2C500%20now%2012%2C400.jpg" alt="Halia" loading="lazy"></div></div>
+      <div class="mtrack"><div class="ms" data-t="i" data-p="media/Female Slides/Halia Was 15,500 now 12,400.jpg"><img src="media/Female%20Slides/Halia%20Was%2015%2C500%20now%2012%2C400.jpg" alt="Halia" loading="lazy"></div><div class="ms" data-t="v" data-p="media/Female Slides/Halia_Was_15_500_now_12_400-b80d0968.mp4"><video src="media/Female%20Slides/Halia_Was_15_500_now_12_400-b80d0968.mp4#t=0.1" muted loop playsinline preload="none"></video></div></div>
       <span class="tag">-20%</span>
       <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
      </div>
@@ -2321,7 +2324,7 @@ main.searching .cat{margin-bottom:40px}
     <!-- Female Slides 57: Imani Pink (1 video, 1 image) -->
     <article class="card" data-id="female-57" data-cat="Female Slides" data-code="FEM-57" data-img="media/Female Slides/Imani Pink Was 25k now 20k.jpg" data-vid="media/Female Slides/Imani_Pink_Was_25k_now_20k-7e3d3fe8.mp4">
      <div class="img">
-      <div class="mtrack"><div class="ms" data-t="v" data-p="media/Female Slides/Imani_Pink_Was_25k_now_20k-7e3d3fe8.mp4"><video src="media/Female%20Slides/Imani_Pink_Was_25k_now_20k-7e3d3fe8.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="i" data-p="media/Female Slides/Imani Pink Was 25k now 20k.jpg"><img src="media/Female%20Slides/Imani%20Pink%20Was%2025k%20now%2020k.jpg" alt="Imani Pink" loading="lazy"></div></div>
+      <div class="mtrack"><div class="ms" data-t="i" data-p="media/Female Slides/Imani Pink Was 25k now 20k.jpg"><img src="media/Female%20Slides/Imani%20Pink%20Was%2025k%20now%2020k.jpg" alt="Imani Pink" loading="lazy"></div><div class="ms" data-t="v" data-p="media/Female Slides/Imani_Pink_Was_25k_now_20k-7e3d3fe8.mp4"><video src="media/Female%20Slides/Imani_Pink_Was_25k_now_20k-7e3d3fe8.mp4#t=0.1" muted loop playsinline preload="none"></video></div></div>
       <span class="tag">-20%</span>
       <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
      </div>
@@ -2351,7 +2354,7 @@ main.searching .cat{margin-bottom:40px}
     <!-- Female Slides 59: Inara (1 video, 1 image) -->
     <article class="card" data-id="female-59" data-cat="Female Slides" data-code="FEM-59" data-img="media/Female Slides/Inara Was 25k now 20k.jpg" data-vid="media/Female Slides/Inara_Was_25k_now_20k-add6d47a.mp4">
      <div class="img">
-      <div class="mtrack"><div class="ms" data-t="v" data-p="media/Female Slides/Inara_Was_25k_now_20k-add6d47a.mp4"><video src="media/Female%20Slides/Inara_Was_25k_now_20k-add6d47a.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="i" data-p="media/Female Slides/Inara Was 25k now 20k.jpg"><img src="media/Female%20Slides/Inara%20Was%2025k%20now%2020k.jpg" alt="Inara" loading="lazy"></div></div>
+      <div class="mtrack"><div class="ms" data-t="i" data-p="media/Female Slides/Inara Was 25k now 20k.jpg"><img src="media/Female%20Slides/Inara%20Was%2025k%20now%2020k.jpg" alt="Inara" loading="lazy"></div><div class="ms" data-t="v" data-p="media/Female Slides/Inara_Was_25k_now_20k-add6d47a.mp4"><video src="media/Female%20Slides/Inara_Was_25k_now_20k-add6d47a.mp4#t=0.1" muted loop playsinline preload="none"></video></div></div>
       <span class="tag">-20%</span>
       <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
      </div>
@@ -2366,7 +2369,7 @@ main.searching .cat{margin-bottom:40px}
     <!-- Female Slides 60: Indira (1 video, 1 image) -->
     <article class="card" data-id="female-60" data-cat="Female Slides" data-code="FEM-60" data-img="media/Female Slides/Indira Pink Was 15k now 12k.jpg" data-vid="media/Female Slides/Indira_Pink_Was_15k_now_12k-ee5bdbeb.mp4">
      <div class="img">
-      <div class="mtrack"><div class="ms" data-t="v" data-p="media/Female Slides/Indira_Pink_Was_15k_now_12k-ee5bdbeb.mp4"><video src="media/Female%20Slides/Indira_Pink_Was_15k_now_12k-ee5bdbeb.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="i" data-p="media/Female Slides/Indira Pink Was 15k now 12k.jpg"><img src="media/Female%20Slides/Indira%20Pink%20Was%2015k%20now%2012k.jpg" alt="Indira Pink" loading="lazy"></div></div>
+      <div class="mtrack"><div class="ms" data-t="i" data-p="media/Female Slides/Indira Pink Was 15k now 12k.jpg"><img src="media/Female%20Slides/Indira%20Pink%20Was%2015k%20now%2012k.jpg" alt="Indira Pink" loading="lazy"></div><div class="ms" data-t="v" data-p="media/Female Slides/Indira_Pink_Was_15k_now_12k-ee5bdbeb.mp4"><video src="media/Female%20Slides/Indira_Pink_Was_15k_now_12k-ee5bdbeb.mp4#t=0.1" muted loop playsinline preload="none"></video></div></div>
       <span class="tag">-20%</span>
       <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
      </div>
@@ -2396,7 +2399,7 @@ main.searching .cat{margin-bottom:40px}
     <!-- Female Slides 62: Jolie (1 video, 1 image) -->
     <article class="card" data-id="female-62" data-cat="Female Slides" data-code="FEM-62" data-img="media/Female Slides/Jolie Was 15k now 12k.jpg" data-vid="media/Female Slides/Jolie_Was_15k_now_12k-85ac33f4-compressed.mp4">
      <div class="img">
-      <div class="mtrack"><div class="ms" data-t="v" data-p="media/Female Slides/Jolie_Was_15k_now_12k-85ac33f4-compressed.mp4"><video src="media/Female%20Slides/Jolie_Was_15k_now_12k-85ac33f4-compressed.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="i" data-p="media/Female Slides/Jolie Was 15k now 12k.jpg"><img src="media/Female%20Slides/Jolie%20Was%2015k%20now%2012k.jpg" alt="Jolie" loading="lazy"></div></div>
+      <div class="mtrack"><div class="ms" data-t="i" data-p="media/Female Slides/Jolie Was 15k now 12k.jpg"><img src="media/Female%20Slides/Jolie%20Was%2015k%20now%2012k.jpg" alt="Jolie" loading="lazy"></div><div class="ms" data-t="v" data-p="media/Female Slides/Jolie_Was_15k_now_12k-85ac33f4-compressed.mp4"><video src="media/Female%20Slides/Jolie_Was_15k_now_12k-85ac33f4-compressed.mp4#t=0.1" muted loop playsinline preload="none"></video></div></div>
       <span class="tag">-20%</span>
       <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
      </div>
@@ -2411,7 +2414,7 @@ main.searching .cat{margin-bottom:40px}
     <!-- Female Slides 65: Juliette (1 video, 1 image) -->
     <article class="card" data-id="female-65" data-cat="Female Slides" data-code="FEM-65" data-img="media/Female Slides/Juliette Was 15k now 12k.jpg" data-vid="media/Female Slides/Juliette_Was_15k_now_12k-2fda3441.mp4">
      <div class="img">
-      <div class="mtrack"><div class="ms" data-t="v" data-p="media/Female Slides/Juliette_Was_15k_now_12k-2fda3441.mp4"><video src="media/Female%20Slides/Juliette_Was_15k_now_12k-2fda3441.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="i" data-p="media/Female Slides/Juliette Was 15k now 12k.jpg"><img src="media/Female%20Slides/Juliette%20Was%2015k%20now%2012k.jpg" alt="Juliette" loading="lazy"></div></div>
+      <div class="mtrack"><div class="ms" data-t="i" data-p="media/Female Slides/Juliette Was 15k now 12k.jpg"><img src="media/Female%20Slides/Juliette%20Was%2015k%20now%2012k.jpg" alt="Juliette" loading="lazy"></div><div class="ms" data-t="v" data-p="media/Female Slides/Juliette_Was_15k_now_12k-2fda3441.mp4"><video src="media/Female%20Slides/Juliette_Was_15k_now_12k-2fda3441.mp4#t=0.1" muted loop playsinline preload="none"></video></div></div>
       <span class="tag">-20%</span>
       <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
      </div>
@@ -2441,7 +2444,7 @@ main.searching .cat{margin-bottom:40px}
     <!-- Female Slides 67: Keziah (1 video, 1 image) -->
     <article class="card" data-id="female-67" data-cat="Female Slides" data-code="FEM-67" data-img="media/Female Slides/Keziah Was 18,500 now 14,800.jpg" data-vid="media/Female Slides/Keziah_Was_18_500_now_14_800-3262ac3a (2).mp4">
      <div class="img">
-      <div class="mtrack"><div class="ms" data-t="v" data-p="media/Female Slides/Keziah_Was_18_500_now_14_800-3262ac3a (2).mp4"><video src="media/Female%20Slides/Keziah_Was_18_500_now_14_800-3262ac3a%20%282%29.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="i" data-p="media/Female Slides/Keziah Was 18,500 now 14,800.jpg"><img src="media/Female%20Slides/Keziah%20Was%2018%2C500%20now%2014%2C800.jpg" alt="Keziah" loading="lazy"></div></div>
+      <div class="mtrack"><div class="ms" data-t="i" data-p="media/Female Slides/Keziah Was 18,500 now 14,800.jpg"><img src="media/Female%20Slides/Keziah%20Was%2018%2C500%20now%2014%2C800.jpg" alt="Keziah" loading="lazy"></div><div class="ms" data-t="v" data-p="media/Female Slides/Keziah_Was_18_500_now_14_800-3262ac3a (2).mp4"><video src="media/Female%20Slides/Keziah_Was_18_500_now_14_800-3262ac3a%20%282%29.mp4#t=0.1" muted loop playsinline preload="none"></video></div></div>
       <span class="tag">-20%</span>
       <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
      </div>
@@ -2561,7 +2564,7 @@ main.searching .cat{margin-bottom:40px}
     <!-- Female Slides 78: Liliane (1 video, 1 image) -->
     <article class="card" data-id="female-78" data-cat="Female Slides" data-code="FEM-78" data-img="media/Female Slides/Liliane Flats Was 15k now 12k.jpg" data-vid="media/Female Slides/Liliane_Flats_Was_15k_now_12k-9e53aaed.mp4">
      <div class="img">
-      <div class="mtrack"><div class="ms" data-t="v" data-p="media/Female Slides/Liliane_Flats_Was_15k_now_12k-9e53aaed.mp4"><video src="media/Female%20Slides/Liliane_Flats_Was_15k_now_12k-9e53aaed.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="i" data-p="media/Female Slides/Liliane Flats Was 15k now 12k.jpg"><img src="media/Female%20Slides/Liliane%20Flats%20Was%2015k%20now%2012k.jpg" alt="Liliane Flats" loading="lazy"></div></div>
+      <div class="mtrack"><div class="ms" data-t="i" data-p="media/Female Slides/Liliane Flats Was 15k now 12k.jpg"><img src="media/Female%20Slides/Liliane%20Flats%20Was%2015k%20now%2012k.jpg" alt="Liliane Flats" loading="lazy"></div><div class="ms" data-t="v" data-p="media/Female Slides/Liliane_Flats_Was_15k_now_12k-9e53aaed.mp4"><video src="media/Female%20Slides/Liliane_Flats_Was_15k_now_12k-9e53aaed.mp4#t=0.1" muted loop playsinline preload="none"></video></div></div>
       <span class="tag">-20%</span>
       <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
      </div>
@@ -2636,7 +2639,7 @@ main.searching .cat{margin-bottom:40px}
     <!-- Female Slides 85: Milan (1 video, 1 image) -->
     <article class="card" data-id="female-85" data-cat="Female Slides" data-code="FEM-85" data-img="media/Female Slides/Milan Was 15k now 12k.jpg" data-vid="media/Female Slides/Milan_Was_15k_now_12k-45d1274d-compressed.mp4">
      <div class="img">
-      <div class="mtrack"><div class="ms" data-t="v" data-p="media/Female Slides/Milan_Was_15k_now_12k-45d1274d-compressed.mp4"><video src="media/Female%20Slides/Milan_Was_15k_now_12k-45d1274d-compressed.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="i" data-p="media/Female Slides/Milan Was 15k now 12k.jpg"><img src="media/Female%20Slides/Milan%20Was%2015k%20now%2012k.jpg" alt="Milan" loading="lazy"></div></div>
+      <div class="mtrack"><div class="ms" data-t="i" data-p="media/Female Slides/Milan Was 15k now 12k.jpg"><img src="media/Female%20Slides/Milan%20Was%2015k%20now%2012k.jpg" alt="Milan" loading="lazy"></div><div class="ms" data-t="v" data-p="media/Female Slides/Milan_Was_15k_now_12k-45d1274d-compressed.mp4"><video src="media/Female%20Slides/Milan_Was_15k_now_12k-45d1274d-compressed.mp4#t=0.1" muted loop playsinline preload="none"></video></div></div>
       <span class="tag">-20%</span>
       <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
      </div>
@@ -2727,7 +2730,7 @@ main.searching .cat{margin-bottom:40px}
     <!-- Female Slides 94: Naomi Pink (1 video, 1 image) -->
     <article class="card" data-id="female-94" data-cat="Female Slides" data-code="FEM-94" data-img="media/Female Slides/Naomi Pink Was 15k now 12k.jpg" data-vid="media/Female Slides/Naomi_Pink_Was_15k_now_12k-a60b2fdb.mp4">
      <div class="img">
-      <div class="mtrack"><div class="ms" data-t="v" data-p="media/Female Slides/Naomi_Pink_Was_15k_now_12k-a60b2fdb.mp4"><video src="media/Female%20Slides/Naomi_Pink_Was_15k_now_12k-a60b2fdb.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="i" data-p="media/Female Slides/Naomi Pink Was 15k now 12k.jpg"><img src="media/Female%20Slides/Naomi%20Pink%20Was%2015k%20now%2012k.jpg" alt="Naomi Pink" loading="lazy"></div></div>
+      <div class="mtrack"><div class="ms" data-t="i" data-p="media/Female Slides/Naomi Pink Was 15k now 12k.jpg"><img src="media/Female%20Slides/Naomi%20Pink%20Was%2015k%20now%2012k.jpg" alt="Naomi Pink" loading="lazy"></div><div class="ms" data-t="v" data-p="media/Female Slides/Naomi_Pink_Was_15k_now_12k-a60b2fdb.mp4"><video src="media/Female%20Slides/Naomi_Pink_Was_15k_now_12k-a60b2fdb.mp4#t=0.1" muted loop playsinline preload="none"></video></div></div>
       <span class="tag">-20%</span>
       <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
      </div>
@@ -2787,7 +2790,7 @@ main.searching .cat{margin-bottom:40px}
     <!-- Female Slides 99: Nia (1 video, 1 image) -->
     <article class="card" data-id="female-99" data-cat="Female Slides" data-code="FEM-99" data-img="media/Female Slides/Nia Was 20k now 16k.jpg" data-vid="media/Female Slides/Nia_Was_20k_now_16k-538a27df.mp4">
      <div class="img">
-      <div class="mtrack"><div class="ms" data-t="v" data-p="media/Female Slides/Nia_Was_20k_now_16k-538a27df.mp4"><video src="media/Female%20Slides/Nia_Was_20k_now_16k-538a27df.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="i" data-p="media/Female Slides/Nia Was 20k now 16k.jpg"><img src="media/Female%20Slides/Nia%20Was%2020k%20now%2016k.jpg" alt="Nia" loading="lazy"></div></div>
+      <div class="mtrack"><div class="ms" data-t="i" data-p="media/Female Slides/Nia Was 20k now 16k.jpg"><img src="media/Female%20Slides/Nia%20Was%2020k%20now%2016k.jpg" alt="Nia" loading="lazy"></div><div class="ms" data-t="v" data-p="media/Female Slides/Nia_Was_20k_now_16k-538a27df.mp4"><video src="media/Female%20Slides/Nia_Was_20k_now_16k-538a27df.mp4#t=0.1" muted loop playsinline preload="none"></video></div></div>
       <span class="tag">-20%</span>
       <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
      </div>
@@ -2802,7 +2805,7 @@ main.searching .cat{margin-bottom:40px}
     <!-- Female Slides 100: Noelle (1 video, 1 image) -->
     <article class="card" data-id="female-100" data-cat="Female Slides" data-code="FEM-100" data-img="media/Female Slides/Noelle was 18,500 now 14,800.jpg" data-vid="media/Female Slides/Noelle_was_18_500_now_14_800-e197bbad.mp4">
      <div class="img">
-      <div class="mtrack"><div class="ms" data-t="v" data-p="media/Female Slides/Noelle_was_18_500_now_14_800-e197bbad.mp4"><video src="media/Female%20Slides/Noelle_was_18_500_now_14_800-e197bbad.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="i" data-p="media/Female Slides/Noelle was 18,500 now 14,800.jpg"><img src="media/Female%20Slides/Noelle%20was%2018%2C500%20now%2014%2C800.jpg" alt="Noelle" loading="lazy"></div></div>
+      <div class="mtrack"><div class="ms" data-t="i" data-p="media/Female Slides/Noelle was 18,500 now 14,800.jpg"><img src="media/Female%20Slides/Noelle%20was%2018%2C500%20now%2014%2C800.jpg" alt="Noelle" loading="lazy"></div><div class="ms" data-t="v" data-p="media/Female Slides/Noelle_was_18_500_now_14_800-e197bbad.mp4"><video src="media/Female%20Slides/Noelle_was_18_500_now_14_800-e197bbad.mp4#t=0.1" muted loop playsinline preload="none"></video></div></div>
       <span class="tag">-20%</span>
       <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
      </div>
@@ -2817,7 +2820,7 @@ main.searching .cat{margin-bottom:40px}
     <!-- Female Slides 101: Nola (1 video, 1 image) -->
     <article class="card" data-id="female-101" data-cat="Female Slides" data-code="FEM-101" data-img="media/Female Slides/Nola Was 25k now 20k.jpg" data-vid="media/Female Slides/Nola_Was_25k_now_20k-31a259ca.mp4">
      <div class="img">
-      <div class="mtrack"><div class="ms" data-t="v" data-p="media/Female Slides/Nola_Was_25k_now_20k-31a259ca.mp4"><video src="media/Female%20Slides/Nola_Was_25k_now_20k-31a259ca.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="i" data-p="media/Female Slides/Nola Was 25k now 20k.jpg"><img src="media/Female%20Slides/Nola%20Was%2025k%20now%2020k.jpg" alt="Nola" loading="lazy"></div></div>
+      <div class="mtrack"><div class="ms" data-t="i" data-p="media/Female Slides/Nola Was 25k now 20k.jpg"><img src="media/Female%20Slides/Nola%20Was%2025k%20now%2020k.jpg" alt="Nola" loading="lazy"></div><div class="ms" data-t="v" data-p="media/Female Slides/Nola_Was_25k_now_20k-31a259ca.mp4"><video src="media/Female%20Slides/Nola_Was_25k_now_20k-31a259ca.mp4#t=0.1" muted loop playsinline preload="none"></video></div></div>
       <span class="tag">-20%</span>
       <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
      </div>
@@ -2847,7 +2850,7 @@ main.searching .cat{margin-bottom:40px}
     <!-- Female Slides 107: Sky (3 video, 2 image) -->
     <article class="card" data-id="female-107" data-cat="Female Slides" data-code="FEM-107" data-img="media/Female Slides/Odelia Was 27,500 now 22k.jpg" data-vid="media/Female Slides/Odelia_Was_27_500_now_22k-5ac93f00.mp4">
      <div class="img">
-      <div class="mtrack"><div class="ms" data-t="v" data-p="media/Female Slides/Odelia_Was_27_500_now_22k-5ac93f00.mp4"><video src="media/Female%20Slides/Odelia_Was_27_500_now_22k-5ac93f00.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="v" data-p="media/Female Slides/Odelia__Was_27_500_now_22k__-5a521cfe.mp4"><video src="media/Female%20Slides/Odelia__Was_27_500_now_22k__-5a521cfe.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="v" data-p="media/Female Slides/Odelia__Was_27_500_now_22k___-7bf6a0db.mp4"><video src="media/Female%20Slides/Odelia__Was_27_500_now_22k___-7bf6a0db.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="i" data-p="media/Female Slides/Odelia Was 27,500 now 22k.jpg"><img src="media/Female%20Slides/Odelia%20Was%2027%2C500%20now%2022k.jpg" alt="Odelia" loading="lazy"></div><div class="ms" data-t="i" data-p="media/Female Slides/Odelia. Was 27,500 now 22k.jpg"><img src="media/Female%20Slides/Odelia.%20Was%2027%2C500%20now%2022k.jpg" alt="Odelia" loading="lazy"></div></div>
+      <div class="mtrack"><div class="ms" data-t="i" data-p="media/Female Slides/Odelia Was 27,500 now 22k.jpg"><img src="media/Female%20Slides/Odelia%20Was%2027%2C500%20now%2022k.jpg" alt="Odelia" loading="lazy"></div><div class="ms" data-t="i" data-p="media/Female Slides/Odelia. Was 27,500 now 22k.jpg"><img src="media/Female%20Slides/Odelia.%20Was%2027%2C500%20now%2022k.jpg" alt="Odelia" loading="lazy"></div><div class="ms" data-t="v" data-p="media/Female Slides/Odelia_Was_27_500_now_22k-5ac93f00.mp4"><video src="media/Female%20Slides/Odelia_Was_27_500_now_22k-5ac93f00.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="v" data-p="media/Female Slides/Odelia__Was_27_500_now_22k__-5a521cfe.mp4"><video src="media/Female%20Slides/Odelia__Was_27_500_now_22k__-5a521cfe.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="v" data-p="media/Female Slides/Odelia__Was_27_500_now_22k___-7bf6a0db.mp4"><video src="media/Female%20Slides/Odelia__Was_27_500_now_22k___-7bf6a0db.mp4#t=0.1" muted loop playsinline preload="none"></video></div></div>
       <span class="tag">-20%</span>
       <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
      </div>
@@ -2862,7 +2865,7 @@ main.searching .cat{margin-bottom:40px}
     <!-- Female Slides 108: Odette (1 video, 1 image) -->
     <article class="card" data-id="female-108" data-cat="Female Slides" data-code="FEM-108" data-img="media/Female Slides/Odette. Was 15k now 12k. .jpg" data-vid="media/Female Slides/Odette__Was_15k_now_12k-be75447c.mp4">
      <div class="img">
-      <div class="mtrack"><div class="ms" data-t="v" data-p="media/Female Slides/Odette__Was_15k_now_12k-be75447c.mp4"><video src="media/Female%20Slides/Odette__Was_15k_now_12k-be75447c.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="i" data-p="media/Female Slides/Odette. Was 15k now 12k. .jpg"><img src="media/Female%20Slides/Odette.%20Was%2015k%20now%2012k.%20.jpg" alt="Odette" loading="lazy"></div></div>
+      <div class="mtrack"><div class="ms" data-t="i" data-p="media/Female Slides/Odette. Was 15k now 12k. .jpg"><img src="media/Female%20Slides/Odette.%20Was%2015k%20now%2012k.%20.jpg" alt="Odette" loading="lazy"></div><div class="ms" data-t="v" data-p="media/Female Slides/Odette__Was_15k_now_12k-be75447c.mp4"><video src="media/Female%20Slides/Odette__Was_15k_now_12k-be75447c.mp4#t=0.1" muted loop playsinline preload="none"></video></div></div>
       <span class="tag">-20%</span>
       <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
      </div>
@@ -2877,7 +2880,7 @@ main.searching .cat{margin-bottom:40px}
     <!-- Female Slides 109: Olivia (3 video, 1 image) -->
     <article class="card" data-id="female-109" data-cat="Female Slides" data-code="FEM-109" data-img="media/Female Slides/Olivia. Was 15k now 12k.jpg" data-vid="media/Female Slides/Olivia__Was_15k_now_12k-.mp4">
      <div class="img">
-      <div class="mtrack"><div class="ms" data-t="v" data-p="media/Female Slides/Olivia__Was_15k_now_12k-.mp4"><video src="media/Female%20Slides/Olivia__Was_15k_now_12k-.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="v" data-p="media/Female Slides/Olivia__Was_15k_now_12k.mp4"><video src="media/Female%20Slides/Olivia__Was_15k_now_12k.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="v" data-p="media/Female Slides/Olivia__Was_15k_now_12k___-6b0bbd1c.mp4"><video src="media/Female%20Slides/Olivia__Was_15k_now_12k___-6b0bbd1c.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="i" data-p="media/Female Slides/Olivia. Was 15k now 12k.jpg"><img src="media/Female%20Slides/Olivia.%20Was%2015k%20now%2012k.jpg" alt="Olivia" loading="lazy"></div></div>
+      <div class="mtrack"><div class="ms" data-t="i" data-p="media/Female Slides/Olivia. Was 15k now 12k.jpg"><img src="media/Female%20Slides/Olivia.%20Was%2015k%20now%2012k.jpg" alt="Olivia" loading="lazy"></div><div class="ms" data-t="v" data-p="media/Female Slides/Olivia__Was_15k_now_12k-.mp4"><video src="media/Female%20Slides/Olivia__Was_15k_now_12k-.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="v" data-p="media/Female Slides/Olivia__Was_15k_now_12k.mp4"><video src="media/Female%20Slides/Olivia__Was_15k_now_12k.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="v" data-p="media/Female Slides/Olivia__Was_15k_now_12k___-6b0bbd1c.mp4"><video src="media/Female%20Slides/Olivia__Was_15k_now_12k___-6b0bbd1c.mp4#t=0.1" muted loop playsinline preload="none"></video></div></div>
       <span class="tag">-20%</span>
       <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
      </div>
@@ -2907,7 +2910,7 @@ main.searching .cat{margin-bottom:40px}
     <!-- Female Slides 111: Perla (2 video, 1 image) -->
     <article class="card" data-id="female-111" data-cat="Female Slides" data-code="FEM-111" data-img="media/Female Slides/Perla. Was 25k now 20k  .jpg" data-vid="media/Female Slides/Perla__Was_25k_now_20k_-998b16e5.mp4">
      <div class="img">
-      <div class="mtrack"><div class="ms" data-t="v" data-p="media/Female Slides/Perla__Was_25k_now_20k_-998b16e5.mp4"><video src="media/Female%20Slides/Perla__Was_25k_now_20k_-998b16e5.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="v" data-p="media/Female Slides/Perla__Was_25k_now_20k__-c8212bca.mp4"><video src="media/Female%20Slides/Perla__Was_25k_now_20k__-c8212bca.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="i" data-p="media/Female Slides/Perla. Was 25k now 20k  .jpg"><img src="media/Female%20Slides/Perla.%20Was%2025k%20now%2020k%20%20.jpg" alt="Perla" loading="lazy"></div></div>
+      <div class="mtrack"><div class="ms" data-t="i" data-p="media/Female Slides/Perla. Was 25k now 20k  .jpg"><img src="media/Female%20Slides/Perla.%20Was%2025k%20now%2020k%20%20.jpg" alt="Perla" loading="lazy"></div><div class="ms" data-t="v" data-p="media/Female Slides/Perla__Was_25k_now_20k_-998b16e5.mp4"><video src="media/Female%20Slides/Perla__Was_25k_now_20k_-998b16e5.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="v" data-p="media/Female Slides/Perla__Was_25k_now_20k__-c8212bca.mp4"><video src="media/Female%20Slides/Perla__Was_25k_now_20k__-c8212bca.mp4#t=0.1" muted loop playsinline preload="none"></video></div></div>
       <span class="tag">-20%</span>
       <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
      </div>
@@ -2922,7 +2925,7 @@ main.searching .cat{margin-bottom:40px}
     <!-- Female Slides 112: Renee (3 video, 2 image) -->
     <article class="card" data-id="female-112" data-cat="Female Slides" data-code="FEM-112" data-img="media/Female Slides/Renee. Was 16k now 12,800.              .jpg" data-vid="media/Female Slides/Renee__Was_16k_now_12_800-73427952.mp4">
      <div class="img">
-      <div class="mtrack"><div class="ms" data-t="v" data-p="media/Female Slides/Renee__Was_16k_now_12_800-73427952.mp4"><video src="media/Female%20Slides/Renee__Was_16k_now_12_800-73427952.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="v" data-p="media/Female Slides/Renee__Was_16k_now_12_800__-d2742d04.mp4"><video src="media/Female%20Slides/Renee__Was_16k_now_12_800__-d2742d04.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="v" data-p="media/Female Slides/Renee__Was_16k_now_12_800____-d6cb4dfd.mp4"><video src="media/Female%20Slides/Renee__Was_16k_now_12_800____-d6cb4dfd.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="i" data-p="media/Female Slides/Renee. Was 16k now 12,800.              .jpg"><img src="media/Female%20Slides/Renee.%20Was%2016k%20now%2012%2C800.%20%20%20%20%20%20%20%20%20%20%20%20%20%20.jpg" alt="Renee" loading="lazy"></div><div class="ms" data-t="i" data-p="media/Female Slides/Renee. Was 16k now 12,800.     .jpg"><img src="media/Female%20Slides/Renee.%20Was%2016k%20now%2012%2C800.%20%20%20%20%20.jpg" alt="Renee" loading="lazy"></div></div>
+      <div class="mtrack"><div class="ms" data-t="i" data-p="media/Female Slides/Renee. Was 16k now 12,800.              .jpg"><img src="media/Female%20Slides/Renee.%20Was%2016k%20now%2012%2C800.%20%20%20%20%20%20%20%20%20%20%20%20%20%20.jpg" alt="Renee" loading="lazy"></div><div class="ms" data-t="i" data-p="media/Female Slides/Renee. Was 16k now 12,800.     .jpg"><img src="media/Female%20Slides/Renee.%20Was%2016k%20now%2012%2C800.%20%20%20%20%20.jpg" alt="Renee" loading="lazy"></div><div class="ms" data-t="v" data-p="media/Female Slides/Renee__Was_16k_now_12_800-73427952.mp4"><video src="media/Female%20Slides/Renee__Was_16k_now_12_800-73427952.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="v" data-p="media/Female Slides/Renee__Was_16k_now_12_800__-d2742d04.mp4"><video src="media/Female%20Slides/Renee__Was_16k_now_12_800__-d2742d04.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="v" data-p="media/Female Slides/Renee__Was_16k_now_12_800____-d6cb4dfd.mp4"><video src="media/Female%20Slides/Renee__Was_16k_now_12_800____-d6cb4dfd.mp4#t=0.1" muted loop playsinline preload="none"></video></div></div>
       <span class="tag">-20%</span>
       <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
      </div>
@@ -2953,7 +2956,7 @@ main.searching .cat{margin-bottom:40px}
     <!-- Female Slides 113: Romy (1 video, 1 image) -->
     <article class="card" data-id="female-113" data-cat="Female Slides" data-code="FEM-113" data-img="media/Female Slides/Romy. Was 15,500 now 12,400. .jpg" data-vid="media/Female Slides/Romy__Was_15_500_now_12_400-6aa1e80f.mp4">
      <div class="img">
-      <div class="mtrack"><div class="ms" data-t="v" data-p="media/Female Slides/Romy__Was_15_500_now_12_400-6aa1e80f.mp4"><video src="media/Female%20Slides/Romy__Was_15_500_now_12_400-6aa1e80f.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="i" data-p="media/Female Slides/Romy. Was 15,500 now 12,400. .jpg"><img src="media/Female%20Slides/Romy.%20Was%2015%2C500%20now%2012%2C400.%20.jpg" alt="Romy" loading="lazy"></div></div>
+      <div class="mtrack"><div class="ms" data-t="i" data-p="media/Female Slides/Romy. Was 15,500 now 12,400. .jpg"><img src="media/Female%20Slides/Romy.%20Was%2015%2C500%20now%2012%2C400.%20.jpg" alt="Romy" loading="lazy"></div><div class="ms" data-t="v" data-p="media/Female Slides/Romy__Was_15_500_now_12_400-6aa1e80f.mp4"><video src="media/Female%20Slides/Romy__Was_15_500_now_12_400-6aa1e80f.mp4#t=0.1" muted loop playsinline preload="none"></video></div></div>
       <span class="tag">-20%</span>
       <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
      </div>
@@ -3028,7 +3031,7 @@ main.searching .cat{margin-bottom:40px}
     <!-- Female Slides 118: Soleil (1 video, 1 image) -->
     <article class="card" data-id="female-118" data-cat="Female Slides" data-code="FEM-118" data-img="media/Female Slides/Soleil. Was 25k now 20k. .jpg" data-vid="media/Female Slides/Soleil__Was_25k_now_20k-76f44a80.mp4">
      <div class="img">
-      <div class="mtrack"><div class="ms" data-t="v" data-p="media/Female Slides/Soleil__Was_25k_now_20k-76f44a80.mp4"><video src="media/Female%20Slides/Soleil__Was_25k_now_20k-76f44a80.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="i" data-p="media/Female Slides/Soleil. Was 25k now 20k. .jpg"><img src="media/Female%20Slides/Soleil.%20Was%2025k%20now%2020k.%20.jpg" alt="Soleil" loading="lazy"></div></div>
+      <div class="mtrack"><div class="ms" data-t="i" data-p="media/Female Slides/Soleil. Was 25k now 20k. .jpg"><img src="media/Female%20Slides/Soleil.%20Was%2025k%20now%2020k.%20.jpg" alt="Soleil" loading="lazy"></div><div class="ms" data-t="v" data-p="media/Female Slides/Soleil__Was_25k_now_20k-76f44a80.mp4"><video src="media/Female%20Slides/Soleil__Was_25k_now_20k-76f44a80.mp4#t=0.1" muted loop playsinline preload="none"></video></div></div>
       <span class="tag">-20%</span>
       <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
      </div>
@@ -3043,7 +3046,7 @@ main.searching .cat{margin-bottom:40px}
     <!-- Female Slides 119: Solene (1 video, 1 image) -->
     <article class="card" data-id="female-119" data-cat="Female Slides" data-code="FEM-119" data-img="media/Female Slides/Solene. Was 16k now 12,800.jpg" data-vid="media/Female Slides/Solene__Was_16k_now_12_800__-de7f6901.mp4">
      <div class="img">
-      <div class="mtrack"><div class="ms" data-t="v" data-p="media/Female Slides/Solene__Was_16k_now_12_800__-de7f6901.mp4"><video src="media/Female%20Slides/Solene__Was_16k_now_12_800__-de7f6901.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="i" data-p="media/Female Slides/Solene. Was 16k now 12,800.jpg"><img src="media/Female%20Slides/Solene.%20Was%2016k%20now%2012%2C800.jpg" alt="Solene" loading="lazy"></div></div>
+      <div class="mtrack"><div class="ms" data-t="i" data-p="media/Female Slides/Solene. Was 16k now 12,800.jpg"><img src="media/Female%20Slides/Solene.%20Was%2016k%20now%2012%2C800.jpg" alt="Solene" loading="lazy"></div><div class="ms" data-t="v" data-p="media/Female Slides/Solene__Was_16k_now_12_800__-de7f6901.mp4"><video src="media/Female%20Slides/Solene__Was_16k_now_12_800__-de7f6901.mp4#t=0.1" muted loop playsinline preload="none"></video></div></div>
       <span class="tag">-20%</span>
       <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
      </div>
@@ -3058,7 +3061,7 @@ main.searching .cat{margin-bottom:40px}
     <!-- Female Slides 120: Thea (1 video, 1 image) -->
     <article class="card" data-id="female-120" data-cat="Female Slides" data-code="FEM-120" data-img="media/Female Slides/Thea. Was 15,500 now 12,400   .jpg" data-vid="media/Female Slides/Thea__Was_15_500_now_12_400_-303dc221.mp4">
      <div class="img">
-      <div class="mtrack"><div class="ms" data-t="v" data-p="media/Female Slides/Thea__Was_15_500_now_12_400_-303dc221.mp4"><video src="media/Female%20Slides/Thea__Was_15_500_now_12_400_-303dc221.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="i" data-p="media/Female Slides/Thea. Was 15,500 now 12,400   .jpg"><img src="media/Female%20Slides/Thea.%20Was%2015%2C500%20now%2012%2C400%20%20%20.jpg" alt="Thea" loading="lazy"></div></div>
+      <div class="mtrack"><div class="ms" data-t="i" data-p="media/Female Slides/Thea. Was 15,500 now 12,400   .jpg"><img src="media/Female%20Slides/Thea.%20Was%2015%2C500%20now%2012%2C400%20%20%20.jpg" alt="Thea" loading="lazy"></div><div class="ms" data-t="v" data-p="media/Female Slides/Thea__Was_15_500_now_12_400_-303dc221.mp4"><video src="media/Female%20Slides/Thea__Was_15_500_now_12_400_-303dc221.mp4#t=0.1" muted loop playsinline preload="none"></video></div></div>
       <span class="tag">-20%</span>
       <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
      </div>
@@ -3073,7 +3076,7 @@ main.searching .cat{margin-bottom:40px}
     <!-- Female Slides 121: Tiana (1 video, 1 image) -->
     <article class="card" data-id="female-121" data-cat="Female Slides" data-code="FEM-121" data-img="media/Female Slides/Tiana. Was 25k now 20k.jpg" data-vid="media/Female Slides/Tiana__Was_25k_now_20k_-b8c98e4a.mp4">
      <div class="img">
-      <div class="mtrack"><div class="ms" data-t="v" data-p="media/Female Slides/Tiana__Was_25k_now_20k_-b8c98e4a.mp4"><video src="media/Female%20Slides/Tiana__Was_25k_now_20k_-b8c98e4a.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="i" data-p="media/Female Slides/Tiana. Was 25k now 20k.jpg"><img src="media/Female%20Slides/Tiana.%20Was%2025k%20now%2020k.jpg" alt="Tiana" loading="lazy"></div></div>
+      <div class="mtrack"><div class="ms" data-t="i" data-p="media/Female Slides/Tiana. Was 25k now 20k.jpg"><img src="media/Female%20Slides/Tiana.%20Was%2025k%20now%2020k.jpg" alt="Tiana" loading="lazy"></div><div class="ms" data-t="v" data-p="media/Female Slides/Tiana__Was_25k_now_20k_-b8c98e4a.mp4"><video src="media/Female%20Slides/Tiana__Was_25k_now_20k_-b8c98e4a.mp4#t=0.1" muted loop playsinline preload="none"></video></div></div>
       <span class="tag">-20%</span>
       <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
      </div>
@@ -3088,7 +3091,7 @@ main.searching .cat{margin-bottom:40px}
     <!-- Female Slides 122: Uma (7 video, 3 image) -->
     <article class="card" data-id="female-122" data-cat="Female Slides" data-code="FEM-122" data-img="media/Female Slides/Uma. Was 18,500 now 14,800.                  .jpg" data-vid="media/Female Slides/Uma__Was_18_500_now_14_800-f094a573.mp4">
      <div class="img">
-      <div class="mtrack"><div class="ms" data-t="v" data-p="media/Female Slides/Uma__Was_18_500_now_14_800-f094a573.mp4"><video src="media/Female%20Slides/Uma__Was_18_500_now_14_800-f094a573.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="v" data-p="media/Female Slides/Uma__Was_18_500_now_14_800.mp4"><video src="media/Female%20Slides/Uma__Was_18_500_now_14_800.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="v" data-p="media/Female Slides/Uma__Was_18_500_now_14_800_-1020fe52.mp4"><video src="media/Female%20Slides/Uma__Was_18_500_now_14_800_-1020fe52.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="v" data-p="media/Female Slides/Uma__Was_18_500_now_14_800__-ad9983ad.mp4"><video src="media/Female%20Slides/Uma__Was_18_500_now_14_800__-ad9983ad.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="v" data-p="media/Female Slides/Uma__Was_18_500_now_14_800___-859ea630.mp4"><video src="media/Female%20Slides/Uma__Was_18_500_now_14_800___-859ea630.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="v" data-p="media/Female Slides/Uma__Was_18_500_now_14_800___________-e35c63a1.mp4"><video src="media/Female%20Slides/Uma__Was_18_500_now_14_800___________-e35c63a1.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="v" data-p="media/Female Slides/Uma__Was_18_500_now_14_800_______________-4ed7d26f.mp4"><video src="media/Female%20Slides/Uma__Was_18_500_now_14_800_______________-4ed7d26f.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="i" data-p="media/Female Slides/Uma. Was 18,500 now 14,800.                  .jpg"><img src="media/Female%20Slides/Uma.%20Was%2018%2C500%20now%2014%2C800.%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20.jpg" alt="Uma" loading="lazy"></div><div class="ms" data-t="i" data-p="media/Female Slides/Uma. Was 18,500 now 14,800.                .jpg"><img src="media/Female%20Slides/Uma.%20Was%2018%2C500%20now%2014%2C800.%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20.jpg" alt="Uma" loading="lazy"></div><div class="ms" data-t="i" data-p="media/Female Slides/Uma. Was 18,500 now 14,800.        .jpg"><img src="media/Female%20Slides/Uma.%20Was%2018%2C500%20now%2014%2C800.%20%20%20%20%20%20%20%20.jpg" alt="Uma" loading="lazy"></div></div>
+      <div class="mtrack"><div class="ms" data-t="i" data-p="media/Female Slides/Uma. Was 18,500 now 14,800.                  .jpg"><img src="media/Female%20Slides/Uma.%20Was%2018%2C500%20now%2014%2C800.%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20.jpg" alt="Uma" loading="lazy"></div><div class="ms" data-t="i" data-p="media/Female Slides/Uma. Was 18,500 now 14,800.                .jpg"><img src="media/Female%20Slides/Uma.%20Was%2018%2C500%20now%2014%2C800.%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20.jpg" alt="Uma" loading="lazy"></div><div class="ms" data-t="i" data-p="media/Female Slides/Uma. Was 18,500 now 14,800.        .jpg"><img src="media/Female%20Slides/Uma.%20Was%2018%2C500%20now%2014%2C800.%20%20%20%20%20%20%20%20.jpg" alt="Uma" loading="lazy"></div><div class="ms" data-t="v" data-p="media/Female Slides/Uma__Was_18_500_now_14_800-f094a573.mp4"><video src="media/Female%20Slides/Uma__Was_18_500_now_14_800-f094a573.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="v" data-p="media/Female Slides/Uma__Was_18_500_now_14_800.mp4"><video src="media/Female%20Slides/Uma__Was_18_500_now_14_800.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="v" data-p="media/Female Slides/Uma__Was_18_500_now_14_800_-1020fe52.mp4"><video src="media/Female%20Slides/Uma__Was_18_500_now_14_800_-1020fe52.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="v" data-p="media/Female Slides/Uma__Was_18_500_now_14_800__-ad9983ad.mp4"><video src="media/Female%20Slides/Uma__Was_18_500_now_14_800__-ad9983ad.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="v" data-p="media/Female Slides/Uma__Was_18_500_now_14_800___-859ea630.mp4"><video src="media/Female%20Slides/Uma__Was_18_500_now_14_800___-859ea630.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="v" data-p="media/Female Slides/Uma__Was_18_500_now_14_800___________-e35c63a1.mp4"><video src="media/Female%20Slides/Uma__Was_18_500_now_14_800___________-e35c63a1.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="v" data-p="media/Female Slides/Uma__Was_18_500_now_14_800_______________-4ed7d26f.mp4"><video src="media/Female%20Slides/Uma__Was_18_500_now_14_800_______________-4ed7d26f.mp4#t=0.1" muted loop playsinline preload="none"></video></div></div>
       <span class="tag">-20%</span>
       <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
      </div>
@@ -3118,7 +3121,7 @@ main.searching .cat{margin-bottom:40px}
     <!-- Female Slides 124: Vera (1 video, 1 image) -->
     <article class="card" data-id="female-124" data-cat="Female Slides" data-code="FEM-124" data-img="media/Female Slides/Vera. Was 15,500 now 12,400. .jpg" data-vid="media/Female Slides/Vera__Was_15_500_now_12_400-8dcf9c40 (2).mp4">
      <div class="img">
-      <div class="mtrack"><div class="ms" data-t="v" data-p="media/Female Slides/Vera__Was_15_500_now_12_400-8dcf9c40 (2).mp4"><video src="media/Female%20Slides/Vera__Was_15_500_now_12_400-8dcf9c40%20%282%29.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="i" data-p="media/Female Slides/Vera. Was 15,500 now 12,400. .jpg"><img src="media/Female%20Slides/Vera.%20Was%2015%2C500%20now%2012%2C400.%20.jpg" alt="Vera" loading="lazy"></div></div>
+      <div class="mtrack"><div class="ms" data-t="i" data-p="media/Female Slides/Vera. Was 15,500 now 12,400. .jpg"><img src="media/Female%20Slides/Vera.%20Was%2015%2C500%20now%2012%2C400.%20.jpg" alt="Vera" loading="lazy"></div><div class="ms" data-t="v" data-p="media/Female Slides/Vera__Was_15_500_now_12_400-8dcf9c40 (2).mp4"><video src="media/Female%20Slides/Vera__Was_15_500_now_12_400-8dcf9c40%20%282%29.mp4#t=0.1" muted loop playsinline preload="none"></video></div></div>
       <span class="tag">-20%</span>
       <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
      </div>
@@ -3148,7 +3151,7 @@ main.searching .cat{margin-bottom:40px}
     <!-- Female Slides 126: Winnie (1 video, 1 image) -->
     <article class="card" data-id="female-126" data-cat="Female Slides" data-code="FEM-126" data-img="media/Female Slides/Winnie Was 16k now 12,800.jpg" data-vid="media/Female Slides/Winnie__Was_16k_now_12_800__-d32cc024.mp4">
      <div class="img">
-      <div class="mtrack"><div class="ms" data-t="v" data-p="media/Female Slides/Winnie__Was_16k_now_12_800__-d32cc024.mp4"><video src="media/Female%20Slides/Winnie__Was_16k_now_12_800__-d32cc024.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="i" data-p="media/Female Slides/Winnie Was 16k now 12,800.jpg"><img src="media/Female%20Slides/Winnie%20Was%2016k%20now%2012%2C800.jpg" alt="Winnie" loading="lazy"></div></div>
+      <div class="mtrack"><div class="ms" data-t="i" data-p="media/Female Slides/Winnie Was 16k now 12,800.jpg"><img src="media/Female%20Slides/Winnie%20Was%2016k%20now%2012%2C800.jpg" alt="Winnie" loading="lazy"></div><div class="ms" data-t="v" data-p="media/Female Slides/Winnie__Was_16k_now_12_800__-d32cc024.mp4"><video src="media/Female%20Slides/Winnie__Was_16k_now_12_800__-d32cc024.mp4#t=0.1" muted loop playsinline preload="none"></video></div></div>
       <span class="tag">-20%</span>
       <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
      </div>
@@ -3163,7 +3166,7 @@ main.searching .cat{margin-bottom:40px}
     <!-- Female Slides 127: Xenia (1 video, 1 image) -->
     <article class="card" data-id="female-127" data-cat="Female Slides" data-code="FEM-127" data-img="media/Female Slides/Xenia Was 15k now 12k.jpg" data-vid="media/Female Slides/Xenia_Was_15k_now_12k-c53a3ec8.mp4">
      <div class="img">
-      <div class="mtrack"><div class="ms" data-t="v" data-p="media/Female Slides/Xenia_Was_15k_now_12k-c53a3ec8.mp4"><video src="media/Female%20Slides/Xenia_Was_15k_now_12k-c53a3ec8.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="i" data-p="media/Female Slides/Xenia Was 15k now 12k.jpg"><img src="media/Female%20Slides/Xenia%20Was%2015k%20now%2012k.jpg" alt="Xenia" loading="lazy"></div></div>
+      <div class="mtrack"><div class="ms" data-t="i" data-p="media/Female Slides/Xenia Was 15k now 12k.jpg"><img src="media/Female%20Slides/Xenia%20Was%2015k%20now%2012k.jpg" alt="Xenia" loading="lazy"></div><div class="ms" data-t="v" data-p="media/Female Slides/Xenia_Was_15k_now_12k-c53a3ec8.mp4"><video src="media/Female%20Slides/Xenia_Was_15k_now_12k-c53a3ec8.mp4#t=0.1" muted loop playsinline preload="none"></video></div></div>
       <span class="tag">-20%</span>
       <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
      </div>
@@ -3178,7 +3181,7 @@ main.searching .cat{margin-bottom:40px}
     <!-- Female Slides 128: Yara (1 video, 1 image) -->
     <article class="card" data-id="female-128" data-cat="Female Slides" data-code="FEM-128" data-img="media/Female Slides/Yara Was 15,500 now 12,400.jpg" data-vid="media/Female Slides/Yara_Was_15_500_now_12_400-26e25ca3.mp4">
      <div class="img">
-      <div class="mtrack"><div class="ms" data-t="v" data-p="media/Female Slides/Yara_Was_15_500_now_12_400-26e25ca3.mp4"><video src="media/Female%20Slides/Yara_Was_15_500_now_12_400-26e25ca3.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="i" data-p="media/Female Slides/Yara Was 15,500 now 12,400.jpg"><img src="media/Female%20Slides/Yara%20Was%2015%2C500%20now%2012%2C400.jpg" alt="Yara" loading="lazy"></div></div>
+      <div class="mtrack"><div class="ms" data-t="i" data-p="media/Female Slides/Yara Was 15,500 now 12,400.jpg"><img src="media/Female%20Slides/Yara%20Was%2015%2C500%20now%2012%2C400.jpg" alt="Yara" loading="lazy"></div><div class="ms" data-t="v" data-p="media/Female Slides/Yara_Was_15_500_now_12_400-26e25ca3.mp4"><video src="media/Female%20Slides/Yara_Was_15_500_now_12_400-26e25ca3.mp4#t=0.1" muted loop playsinline preload="none"></video></div></div>
       <span class="tag">-20%</span>
       <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
      </div>
@@ -3223,7 +3226,7 @@ main.searching .cat{margin-bottom:40px}
     <!-- Female Slides 131: Zaria (1 video, 1 image) -->
     <article class="card" data-id="female-131" data-cat="Female Slides" data-code="FEM-131" data-img="media/Female Slides/Zaria Was 15,500 Now 12,400.jpg" data-vid="media/Female Slides/Zaria_Was_15_500_Now_12_400-25c048aa.mp4">
      <div class="img">
-      <div class="mtrack"><div class="ms" data-t="v" data-p="media/Female Slides/Zaria_Was_15_500_Now_12_400-25c048aa.mp4"><video src="media/Female%20Slides/Zaria_Was_15_500_Now_12_400-25c048aa.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="i" data-p="media/Female Slides/Zaria Was 15,500 Now 12,400.jpg"><img src="media/Female%20Slides/Zaria%20Was%2015%2C500%20Now%2012%2C400.jpg" alt="Zaria" loading="lazy"></div></div>
+      <div class="mtrack"><div class="ms" data-t="i" data-p="media/Female Slides/Zaria Was 15,500 Now 12,400.jpg"><img src="media/Female%20Slides/Zaria%20Was%2015%2C500%20Now%2012%2C400.jpg" alt="Zaria" loading="lazy"></div><div class="ms" data-t="v" data-p="media/Female Slides/Zaria_Was_15_500_Now_12_400-25c048aa.mp4"><video src="media/Female%20Slides/Zaria_Was_15_500_Now_12_400-25c048aa.mp4#t=0.1" muted loop playsinline preload="none"></video></div></div>
       <span class="tag">-20%</span>
       <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
      </div>
@@ -3253,7 +3256,7 @@ main.searching .cat{margin-bottom:40px}
     <!-- Female Slides 133: Zuri (1 video, 1 image) -->
     <article class="card" data-id="female-133" data-cat="Female Slides" data-code="FEM-133" data-img="media/Female Slides/Zuri Was 15k now 12k.jpg" data-vid="media/Female Slides/Zuri_Was_15k_now_12k-3fa116d1 (2).mp4">
      <div class="img">
-      <div class="mtrack"><div class="ms" data-t="v" data-p="media/Female Slides/Zuri_Was_15k_now_12k-3fa116d1 (2).mp4"><video src="media/Female%20Slides/Zuri_Was_15k_now_12k-3fa116d1%20%282%29.mp4#t=0.1" muted loop playsinline preload="none"></video></div><div class="ms" data-t="i" data-p="media/Female Slides/Zuri Was 15k now 12k.jpg"><img src="media/Female%20Slides/Zuri%20Was%2015k%20now%2012k.jpg" alt="Zuri" loading="lazy"></div></div>
+      <div class="mtrack"><div class="ms" data-t="i" data-p="media/Female Slides/Zuri Was 15k now 12k.jpg"><img src="media/Female%20Slides/Zuri%20Was%2015k%20now%2012k.jpg" alt="Zuri" loading="lazy"></div><div class="ms" data-t="v" data-p="media/Female Slides/Zuri_Was_15k_now_12k-3fa116d1 (2).mp4"><video src="media/Female%20Slides/Zuri_Was_15k_now_12k-3fa116d1%20%282%29.mp4#t=0.1" muted loop playsinline preload="none"></video></div></div>
       <span class="tag">-20%</span>
       <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
      </div>
@@ -3319,7 +3322,7 @@ main.searching .cat{margin-bottom:40px}
     <!-- Couple Set Slides 5: Cloud set (1 video, 1 image) -->
     <article class="card" data-id="couple-5" data-cat="Couple Set Slides" data-code="CPL-5" data-img="media/Couple Set Slides/Cloud set Was 35k now 28k.jpg" data-vid="media/Couple Set Slides/Cloud_set_Was_35k_now_28k.mp4">
      <div class="img">
-      <div class="mtrack"><div class="ms" data-t="v" data-p="media/Couple Set Slides/Cloud_set_Was_35k_now_28k.mp4"><video src="media/Couple%20Set%20Slides/Cloud_set_Was_35k_now_28k.mp4#t=0.1" muted loop playsinline preload="metadata"></video></div><div class="ms" data-t="i" data-p="media/Couple Set Slides/Cloud set Was 35k now 28k.jpg"><img src="media/Couple%20Set%20Slides/Cloud%20set%20Was%2035k%20now%2028k.jpg" alt="Cloud set" loading="lazy"></div></div>
+      <div class="mtrack"><div class="ms" data-t="i" data-p="media/Couple Set Slides/Cloud set Was 35k now 28k.jpg"><img src="media/Couple%20Set%20Slides/Cloud%20set%20Was%2035k%20now%2028k.jpg" alt="Cloud set" loading="lazy"></div><div class="ms" data-t="v" data-p="media/Couple Set Slides/Cloud_set_Was_35k_now_28k.mp4"><video src="media/Couple%20Set%20Slides/Cloud_set_Was_35k_now_28k.mp4#t=0.1" muted loop playsinline preload="none"></video></div></div>
       <span class="tag">-20%</span>
       <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
      </div>
@@ -3334,7 +3337,7 @@ main.searching .cat{margin-bottom:40px}
     <!-- Couple Set Slides 7: Imani set (1 video, 0 image) -->
     <article class="card" data-id="couple-7" data-cat="Couple Set Slides" data-code="CPL-7" data-img="media/Female Slides/Imani Couple Set Was 25k now 20k.jpg" data-vid="media/Couple Set Slides/Imani_set_Brown_Was_50k_now_40k.mp4">
      <div class="img">
-      <div class="mtrack"><div class="ms" data-t="i" data-p="media/Female Slides/Imani Couple Set Was 25k now 20k.jpg"><img src="media/Female%20Slides/Imani%20Couple%20Set%20Was%2025k%20now%2020k.jpg" alt="Imani Couple Set" loading="lazy"></div><div class="ms" data-t="v" data-p="media/Couple Set Slides/Imani_set_Brown_Was_50k_now_40k.mp4"><video src="media/Couple%20Set%20Slides/Imani_set_Brown_Was_50k_now_40k.mp4#t=0.1" muted loop playsinline preload="metadata"></video></div></div>
+      <div class="mtrack"><div class="ms" data-t="i" data-p="media/Female Slides/Imani Couple Set Was 25k now 20k.jpg"><img src="media/Female%20Slides/Imani%20Couple%20Set%20Was%2025k%20now%2020k.jpg" alt="Imani Couple Set" loading="lazy"></div><div class="ms" data-t="v" data-p="media/Couple Set Slides/Imani_set_Brown_Was_50k_now_40k.mp4"><video src="media/Couple%20Set%20Slides/Imani_set_Brown_Was_50k_now_40k.mp4#t=0.1" muted loop playsinline preload="none"></video></div></div>
       <span class="tag">-20%</span>
       <button class="heart" aria-label="Add to wishlist"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></button>
      </div>
@@ -3689,7 +3692,7 @@ if(Object.keys(FOLDERS).some(k=>FOLDERS[k]!==k)){ /* only when you changed a fol
 }
 const abs=p=>new URL(enc(p),location.href).href;
 
-/* ---------- product media: videos first, then photos (swipe / arrows), autoplay in view ---------- */
+/* ---------- product media: photos first, then videos (swipe / arrows), autoplay in view ---------- */
 let lbOpen=false;
 const vis=new WeakMap();
 function upd(box){
@@ -3709,7 +3712,7 @@ function mdots(box){
  upd(box);
 }
 /* videos that start as preload="none" get their first frame as soon as they are near the screen */
-const near=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;const v=e.target.querySelector('video');if(v&&v.preload==='none')v.preload='metadata';near.unobserve(e.target)}),{rootMargin:'900px 0px'});
+const near=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;const v=e.target.querySelector('.ms:first-child video');if(v&&v.preload==='none')v.preload='metadata';near.unobserve(e.target)}),{rootMargin:'900px 0px'});
 document.querySelectorAll('.img').forEach(box=>{
  mdots(box);io.observe(box);near.observe(box);
  box.querySelector('.mtrack').addEventListener('scroll',()=>upd(box),{passive:true});
@@ -3856,11 +3859,16 @@ let x0=null;sl.addEventListener('touchstart',e=>x0=e.touches[0].clientX,{passive
 sl.addEventListener('touchend',e=>{if(x0===null)return;const d=e.changedTouches[0].clientX-x0;if(Math.abs(d)>40){go(cur+(d<0?1:-1));auto()}x0=null});
 initHero();auto();
 
-/* ---------- countdown (resets daily at midnight) ---------- */
-function tick(){const n=new Date(),e=new Date(n);e.setHours(24,0,0,0);const s=Math.max(0,Math.floor((e-n)/1000));
+/* ---------- countdown to the end of the sale: 12am, 4th of November 2026 ---------- */
+const SALE_END=new Date(2026,10,4,0,0,0,0); /* year, month (0-based: 10 = November), day, hour, min, sec */
+function tick(){
+ const sec=Math.max(0,Math.floor((SALE_END-new Date())/1000));
  const p=v=>String(v).padStart(2,'0');
- th.textContent=p(Math.floor(s/3600));tm.textContent=p(Math.floor(s%3600/60));ts.textContent=p(s%60)}
-tick();setInterval(tick,2000);
+ td.textContent=p(Math.floor(sec/86400));th.textContent=p(Math.floor(sec%86400/3600));
+ tm.textContent=p(Math.floor(sec%3600/60));ts.textContent=p(sec%60);
+ if(sec===0)saleNote.textContent='This sale has ended.';
+}
+tick();setInterval(tick,1000);
 
 /* ---------- shop / cart view switching ---------- */
 function route(){
